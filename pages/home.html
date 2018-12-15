@@ -12,11 +12,11 @@
 
 <div class="flex-container" style="margin: 40px 0px 40px 0px">
     {{ for(var pool in it.stats.pools) { }}
-    <br>
+
     <div class="welcomeText" style="font-size: 1.5em; color: var(--colour6); margin: 10px 0px 10px 0px">
         {{=it.stats.pools[pool].name}}
     </div>
-    <br>
+
     <div class="bannerHome">
             <div class="boxLowerHeaderHome">Block Height</div>
                     <div class="infotextHome">
@@ -52,11 +52,7 @@
                     <div><span id="statsWorkers{{=pool}}">{{=it.stats.pools[pool].workerCount}}</span> Workers</div>
             </div>
     </div>
-    </div>
-
-</div> 
-
-<div class="flex-container">    
+    
     <div class="bannerHome">
         <div class="boxLowerHeaderHome">Pool Luck</div>
             <div class="infotextHome">
@@ -77,9 +73,8 @@
                 <span id="statsTotalPaid{{=pool}}"><div>{{=(parseFloat(it.stats.pools[pool].poolStats.totalPaid)).toFixed(2)}}</div>
             </div>
     </div>
-    {{ } }}
 </div>
-
+{{ } }}
 
         <div class="info" style="padding-top: 25px; color: var(--colour1);"> 
             Pool Information
