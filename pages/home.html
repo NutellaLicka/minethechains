@@ -1,0 +1,159 @@
+<!--<div class="info" style="padding-top: 25px; color: var(--colour1); font-size: 0.8em;"> 
+    
+</div>-->
+
+<div class="welcomeText">
+    MINE THE CHAINS
+</div>
+
+<div class="welcomeText" style="font-size: 0.7em">
+    A Komodo AssetChain Mining Pool
+</div>
+
+<div class="flex-container">
+    {{ for(var pool in it.stats.pools) { }}
+    {{ } }}
+    <!--
+    <div class="bannerHome">
+            <div class="boxLowerHeaderHome">Block Height</div>
+                    <div class="infotextHome">
+                        <span id="statsNetworkBlocks{{=pool}}">{{=it.stats.pools[pool].poolStats.networkBlocks}}</span>
+                    </div>                         
+    </div>
+
+    <div class="bannerHome">
+            <div class="boxLowerHeaderHome">Difficulty</div>
+                    <div class="infotextHome">
+                            <span id="statsNetworkDiff{{=pool}}">{{=it.stats.pools[pool].poolStats.networkDiff}}</span>
+                    </div>                         
+    </div>
+
+    <div class="bannerHome">
+            <div class="boxLowerHeaderHome">Network Hash</div>
+                    <div class="infotextHome">
+                            <span id="statsNetworkSols{{=pool}}">{{=it.stats.pools[pool].poolStats.networkSolsString}}</span>
+                    </div>                         
+    </div>
+
+    <div class="bannerHome">
+            <div class="boxLowerHeaderHome">Pool Hash</div>
+                <div class="infotextHome">
+                    <span id="statsHashrate{{=pool}}">{{=it.stats.pools[pool].hashrateString}}</span> 
+                </div>
+     </div>
+
+     <div class="bannerHome">
+        <div class="boxLowerHeaderHome">Pool Workers</div>
+            <div class="infotextHome">
+                    <div><span id="statsMiners{{=pool}}">{{=it.stats.pools[pool].minerCount}}</span> Miners</div>
+                    <div><span id="statsWorkers{{=pool}}">{{=it.stats.pools[pool].workerCount}}</span> Workers</div>
+            </div>
+    </div>
+    </div>
+
+</div> 
+
+<div class="flex-container">    
+    <div class="bannerHome">
+        <div class="boxLowerHeaderHome">Pool Luck</div>
+            <div class="infotextHome">
+                    <span id="statsLuckDays{{=pool}}">{{=it.stats.pools[pool].luckDays}}</span> Days
+            </div>
+    </div>
+
+    <div class="bannerHome">
+            <div class="boxLowerHeaderHome">Blocks Found</div>
+                <div class="infotextHome">
+                    <span id="#statsValidBlocks{{=pool}}">{{=it.stats.pools[pool].poolStats.validBlocks}}</span> 
+                </div>
+     </div>
+
+     <div class="bannerHome">
+        <div class="boxLowerHeaderHome">Total Paid</div>
+            <div class="infotextHome">
+                <span id="statsTotalPaid{{=pool}}"><div>{{=(parseFloat(it.stats.pools[pool].poolStats.totalPaid)).toFixed(2)}}</div>
+            </div>
+    </div>
+    {{ } }}
+-->
+</div> 
+
+        <div class="info" style="padding-top: 25px; color: var(--colour1);"> 
+            Pool Information
+        </div>
+        <div class="info">
+        <table style="margin: auto;  padding-bottom: 15px; width: 400px; text-align: left; font-family: var(--font1); table-layout: inherit">
+            <tbody>
+                <tr>
+                    <td>Payout Frequency:</td>
+                    <td> ~20 Minutes</td>
+                </tr>
+                <tr>
+                    <td>Min Payout:</td>
+                    <td>20 ARRR (PIRATE)</td>
+                </tr>
+                <tr>
+                    <td>Pool Fee:</td>
+                    <td>1%.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div style="font-size: 0.8em; color: var(--colour3);">We are helping the Pirate community by donating 0.25% of the fee to the Pirate Marketing fund.</div>
+    </div><br>
+    <div class="info" style="font-size: 1em">
+        <i>Please note: although funds may be listed as "PAID", if you have not received them yet, the transaction may be still in progress. Please be patient.</i><br>
+    </div>
+    <div class="info" style="padding-top: 25px; color: var(--colour1);">
+        Pool Support<br>
+    </div>
+    <div class="info" style="font-size: 1.1em">
+        For any pool questions or inqueries, please email minethechain@protonmail.com.
+    </div>
+
+    <div class="info" style="padding-top: 25px; color: var(--colour1);">
+        Pirate Links<br>
+    </div>
+    <div class="info" style="font-size: 1.1em;">
+            <div><a href="https://pirate.black" target="blank" rel="noopener noreferrer" style="color: var(--colour2);">pirate.black</a></div>
+            <div><a href="https://discord.gg/pfVuHCD" target="blank" rel="noopener noreferrer" style="color: var(--colour2);">Discord Server</a></div>
+            <div><a href="https://digitalprice.io/?inviter=4fdaf7" target="blank" rel="noopener noreferrer" style="color: var(--colour2);">DigiPrice Trading</a></div>
+            <div><a href="https://github.com/KomodoPlatform/Agama/releases" target="blank" rel="noopener noreferrer" style="color: var(--colour2);">Agama Wallet</a></div>
+            <div><a href="https://twitter.com/PirateChain" target="blank" rel="noopener noreferrer" style="color: var(--colour2);">Pirate Twitter</a></div>
+            <div><a href="https://www.reddit.com/r/PirateChain" target="blank" rel="noopener noreferrer" style="color: var(--colour2);">Reddit</a></div>
+            <div><a href="https://www.youtube.com/channel/UC-T-lFJpcCXn1EZ8cuc-d3Q?view_as=subscriber" target="blank" rel="noopener noreferrer" style="color: var(--colour2);">Youtube</a></div>
+            <div><a href="https://github.com/PirateNetwork" target="blank" rel="noopener noreferrer" style="color: var(--colour2);">GitHub</a></div>
+            <div><a href="https://bitcointalk.org/index.php?topic=4979549" target="blank" rel="noopener noreferrer" style="color: var(--colour2);">BTT</a></div>
+            <!--<div><a href="http://pirate.explorer.dexstats.info" target="blank" rel="noopener noreferrer" style="color: var(--colour2);">Explorer</a></div>-->
+            <div><a href="https://explorer.pirate.black/" target="blank" rel="noopener noreferrer" style="color: var(--colour2);">Pirate Explorer</a></div>
+    </div>
+
+<script type="text/javascript" src="/static/home.js" />
+<script>
+    //document.querySelector('main').appendChild(document.createElement('script')).src = '/static/stats.js';
+
+    $(function() {
+        window.statsSource = new EventSource("/api/live_stats");
+
+        statsSource.addEventListener('message', function (e) {
+            var stats = JSON.parse(e.data);
+            for (var pool in stats.pools) {
+				$('#statsMiners' + pool).text(stats.pools[pool].minerCount);
+                $('#statsWorkers' + pool).text(stats.pools[pool].workerCount);
+                $('#statsHashrate' + pool).text(stats.pools[pool].hashrateString);
+				$('#statsHashrateAvg' + pool).text(getReadableHashRateString(calculateAverageHashrate(pool)));
+				$('#statsLuckDays' + pool).text(stats.pools[pool].luckDays);
+				$('#statsValidBlocks' + pool).text(stats.pools[pool].poolStats.validBlocks);
+				$('#statsTotalPaid' + pool).text((parseFloat(stats.pools[pool].poolStats.totalPaid)).toFixed(8));
+				$('#statsNetworkBlocks' + pool).text(stats.pools[pool].poolStats.networkBlocks);
+				$('#statsNetworkDiff' + pool).text(stats.pools[pool].poolStats.networkDiff);
+				$('#statsNetworkSols' + pool).text(getReadableNetworkHashRateString(stats.pools[pool].poolStats.networkSols));
+				$('#statsNetworkConnections' + pool).text(stats.pools[pool].poolStats.networkConnections);
+            }
+            
+            for (algo in stats.algos) {
+                $('#statsMiners' + algo).text(stats.algos[algo].workers);
+                $('#statsHashrate' + algo).text(stats.algos[algo].hashrateString);
+            }
+        });
+    });
+</script>

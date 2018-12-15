@@ -1,0 +1,164 @@
+<style>
+@media screen and (max-width: 800px) {
+     /* phone size */
+
+    .GS-menu {
+    display: inline;
+    }
+
+    .buttonoptions {
+        width: 100%;
+        border-radius: 0px
+    }
+
+    #menu {
+        width: 100%;
+    }
+}
+</style>
+
+<div id="holder">
+    
+    <div class="GS-menu">
+            <a href="#poolDetails"><button class="buttonoptions">Pool Details</button></a>
+            <a href="#gpuMining"><button class="buttonoptions">GPU Mining</button></a>
+            <a href="#createWallet"><button class="buttonoptions">Pirate Info</button></a>
+    </div>
+
+<div id="menu">    
+        <div id="poolDetails" style="height:50px"></div>
+        <div class="menuHeader">Pool Configuration Details<a href="#" style="font-size: 0.7em; float: right; color: var(--colour1); padding-right: 15px;">TOP</a></div>
+        <div>
+            {{ if (it.portalConfig.gettingStartedPopups) { }}
+                {{ for (var pool in it.poolsConfigs) {
+                    var info = JSON.stringify({
+                        coin: it.poolsConfigs[pool].coin,
+                        algo: it.poolsConfigs[pool].coin.algorithm,
+                        ports: it.poolsConfigs[pool].ports,
+                        host: it.portalConfig.website.stratumHost
+                    }).replace(/"/g, '&quot;');
+                }}
+                <a href="#" class="poolOption" data-info="{{=info}}">{{=pool}}</a>
+                {{ } }}
+            {{ } else { }}
+                {{ for (var pool in it.poolsConfigs) { }}
+                    <code>
+                        <div class="coinInfoHeader"><span class="coinInfoName">{{=it.poolsConfigs[pool].coin.name}}</span> Configuration:</div>
+                        <div class="coinInfoRows">
+                            <div class="coinInfoRowKeys">
+                                <div>Username:</div>
+                                <div>Password:</div>
+                                <div>Algorithm:</div>
+                                {{ for (var port in it.poolsConfigs[pool].ports) { }}
+                                    <div class="coinInfoData">{{= it.poolsConfigs[pool].ports[port].label ? it.poolsConfigs[pool].ports[port].label : 'URL'}}</div>
+                                {{ } }}
+                            </div>
+                            <div class="coinInfoRowValues">
+                                <div class="coinInfoUsername">
+                                    {{ if (it.poolsConfigs[pool].coin && it.poolsConfigs[pool].coin.privateChain) { }}
+                                        your {{=it.poolsConfigs[pool].coin.name}} wallet <b style="color:#C99631;">Z</b> address<br>
+                                       
+                                    {{ } else if (it.poolsConfigs[pool].coin) { }}
+                                        your {{=it.poolsConfigs[pool].coin.name}} wallet address
+                                    {{ } else { }}
+                                        your public key
+                                    {{ } }}
+                                </div>
+                                <div>anything</div>
+                                <div>{{=it.poolsConfigs[pool].coin.algorithm}}</div>
+                                {{ for (var port in it.poolsConfigs[pool].ports) { }}
+                                    <div class="coinInfoData">{{=it.portalConfig.website.stratumHost}}:{{=port}}</div>
+                                {{ } }}
+                            </div>
+                        </div>
+                    </code>
+                {{ } }}
+            {{ } }}
+        </div>
+        
+    <div id="gpuMining" style="height:50px"></div>
+        <div class="menuHeader">GPU Mining<a href="#" style="font-size: 0.7em; float: right; color: var(--colour1); padding-right: 15px;">TOP</a></div>
+        <div class="sectionwords">
+            <p>
+                There are a few decent GPU miners available. You will need to experiment to find which one works best for you.  DYOR on this and be sure to virus scan all the things!
+            </p>
+            <p>
+                You are only able to mine to a Z address. If you mistype, or input an invalid address, you will not receive any funds and the pool will be unable to retrieve these. Please ensure you have copied your Zaddress correctly. DO NOT MINE TO AN EXCHANGE WALLET!
+            </p>
+            <p>
+                If you have multiple mining rigs you can add a .minername at the end of your username(zaddr) to see stats broken down by rig on the worker stats page.
+            </p>
+            <p>
+                Here are some setup configurations for a couple of well-known GPU miners. All you will have to do is choose the correct port and change your username to your Zaddr.
+            </p>
+            <div class="sectionwords">
+                    <a href="https://bitcointalk.org/index.php?topic=1707546.0" target="_blank" style="color: var(--colour1)">EWBF's Cuda Equihash Miner</a>
+                    </div>
+                    <code>
+                    ./miner --server {{=it.portalConfig.website.stratumHost}} --port {{= Object.keys(it.poolsConfigs[Object.keys(it.poolsConfigs)[0]].ports)[0] }} --user zBMzwbMsdkfjh...H82hfLjsoie.Miner1 --pass x --fee 0 --pec
+                    </code>
+
+            <div class="sectionwords">
+                <a href="https://bitcointalk.org/index.php?topic=2021765.0" target="_blank" style="color: var(--colour1)">dstm's ZCash / Equihash Nvidia Miner</a>
+                </div>
+                <code>
+                    ./zm --server {{=it.portalConfig.website.stratumHost}} --port {{= Object.keys(it.poolsConfigs[Object.keys(it.poolsConfigs)[0]].ports)[0] }} --user zBMzwbMsdkfjh...H82hfLjsoie.Miner1
+                </code>
+
+            <div class="sectionwords">
+                You can also look into using the miner below:<br>
+                    <a href="https://bitcointalk.org/index.php?topic=2519271.0" target="_blank" style="color: var(--colour1)">Bminer for CUDA GPU's</a>
+                    <a href="https://bitcointalk.org/index.php?topic=1670733.0" target="_blank" style="color: var(--colour1)">Claymore's ZCash/BTG AMD GPU Miner</a>
+                    
+                </div>
+            
+            <p>While it is possible to CPU mine, this pool does not support doing so on PIRATE.</p>
+        </div>
+
+        <div id="createWallet" style="height:50px"></div>
+        <div class="menuHeader">Generate a PIRATE Wallet and Address<a href="#" style="font-size: 0.7em; float: right; color: var(--colour1); padding-right: 15px;">TOP</a></div>
+        <div class="sectionwords">
+            Currently the <a href="https://github.com/KomodoPlatform/Agama/releases" style="color: var(--colour1)">Agama Wallet</a> supports PIRATE in NATIVE mode only. See that link for the latest version.<br>
+            <br>
+            If you use a CLI wallet. You can follow the instructions below:<br>
+            <ol>
+                <li>Build <a href="https://docs.komodoplatform.com/komodo/install-Komodo-manually.html" target="_blank" style="color: var(--colour1)">Komodo</a></li>
+                <li>Launch PIRATE chain and wait for it to sync fully:
+                    <code>
+                        ./komodod -ac_name=PIRATE -ac_supply=0 -ac_reward=25600000000 -ac_halving=77777 -ac_private=1 -addnode=136.243.102.225
+                    </code>
+                </li>
+                <li>Generate a Z address:
+                    <code>
+                        ./komodo-cli -ac_name=PIRATE z_getnewaddress
+                    </code>
+                </li>
+                <li>Securely backup your private key (keep this private key safe):
+                    <code>
+                        ./komodo-cli -ac_name=PIRATE z_exportkey "zaddr"
+                    </code>
+                </li>
+            </ol>
+<br>
+            <div style="font-size: 1.2em; color: var(--colour3)">Handy CLI commands</div>
+                <div>Check your balance:
+                    <code>
+                        ./komodo-cli -ac_name=PIRATE z_gettotalbalance
+                    </code>
+                </div>
+                <div>Send your coins:
+                    <code>
+                        ./komodo-cli -ac_name=PIRATE z_sendmany "fromZaddress" '[{"address": "toZaddress" ,"amount": ...}]'
+                    </code>
+                </div>
+
+                <div>Merge UTXO's:
+                    <code>
+                        ./komodo-cli -ac_name=PIRATE z_mergetoaddress "*" "toZaddress"
+                    </code>
+                </div>
+            For more information visit the <a href="https://pirate.black/" target="_blank" style="color: var(--colour1)">pirate.black website.</a>
+        </div>
+
+    </div>
+</div>

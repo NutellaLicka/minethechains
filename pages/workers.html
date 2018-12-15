@@ -1,0 +1,68 @@
+<script type="text/javascript"> 
+    function searchKeyPress(e)
+    {
+        // look for window.event in case event isn't passed in
+        e = e || window.event;
+        if (e.keyCode == 13)
+        {
+            document.getElementById('btnSearch').click();
+            return false;
+        }
+        return true;
+    }
+    $(document).ready(function(){
+        $('.btn-lg').click(function(){
+            window.location = "workers/" + $('.input-lg').val();
+        });
+    });
+</script>
+
+{{ function capitalizeFirstLetter(t){return t.charAt(0).toUpperCase()+t.slice(1)} }}
+{{ var i=0; for(var pool in it.stats.pools) { }}
+
+<div class="flex-container">
+<div class="poolWrapper">
+        <div class="poolLabel">
+            <div class="header" style="font-size: 1.4em">Pool Miners List &nbsp;&nbsp;</div>				
+                <small><span id="statsMiners{{=pool}}">{{=it.stats.pools[pool].minerCount}}</span> Miners &nbsp;&nbsp;
+                <span id="statsWorkers{{=pool}}">{{=it.stats.pools[pool].workerCount}}</span> Workers &nbsp;&nbsp;
+                <span id="statsWorkers{{=pool}}">{{=it.stats.pools[pool].shareCount}}</span> Total Shares </small>
+            <span style="float:right; margin-bottom: 8px;">
+                <div>Miner Lookup: 
+                <input type="text" class="form-control input-lg" onkeypress="return searchKeyPress(event);">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default btn-lg" type="button">Lookup</button>
+                    </span>
+                </div>
+            </span>	
+        </div>
+</div>
+</div>
+<div class="flex-container">
+    <div class="poolWrapper">
+        <div class="poolMinerTable">
+            <table class="pure-table" style="table-layout: inherit">
+                <thead>
+                <tr>
+                    <th>Address</th>
+                    <th>Shares</th>
+                    <th>Efficiency</th>
+                    <th>Hashrate</th>
+                </tr>
+                </thead>
+                {{ for(var worker in it.stats.pools[pool].miners) { }}
+                   {{var workerstat = it.stats.pools[pool].miners[worker];}}
+                <tbody>    
+                   <tr class="pure-table-odd">
+                        <td><a href="/workers/{{=worker.split('.')[0]}}">{{=worker.length > 40 ? worker.substring(0, 20) + '...' + worker.substring(worker.length-20, worker.length): worker}}</a></td> 
+                        <td>{{=Math.round(workerstat.currRoundShares * 100) / 100}}</td>
+                        <td>{{? workerstat.shares > 0}} {{=Math.floor(10000 * workerstat.shares / (workerstat.shares + workerstat.invalidshares)) / 100}}% {{??}} 0% {{?}}</td>
+                        <td>{{=workerstat.hashrateString}}</td>
+                    </tr>
+                </tbody>
+                {{ } }} 
+            </table>
+        </div>
+    </div>
+</div>
+{{ } }}
