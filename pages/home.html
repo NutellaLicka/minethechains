@@ -11,13 +11,12 @@
 </div>
 
 {{ for(var pool in it.stats.pools) { }}
-{{ function capitalizeFirstLetter(t){return t.charAt(0).toUpperCase()+t.slice(1)} }}
 
 <div class="welcomeText" style="font-size: 1.6em; color: var(--colour6); margin: 10px 0px 10px 0px">
         {{=it.stats.pools[pool].name}}
 </div>
 
-<div class="flex-container" style="margin: 40px 0px 40px 0px">
+<div class="flex-container" style="margin-bottom:40px">
 
     <div class="bannerHome">
             <div class="boxLowerHeaderHome">Block Height</div>
