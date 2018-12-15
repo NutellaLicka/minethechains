@@ -25,9 +25,10 @@
 {{ for(var pool in it.stats.pools) { }}
 
 <div class="flex-container">
+    <br>
     <div class="poolWrapper">
             <div class="poolLabel">
-                <div class="header" style="font-size: 1.4em">Pool Payments List &nbsp;&nbsp;</div>				
+                <div class="header" style="font-size: 1.4em">{{=it.stats.pools[pool].name}} Payments List &nbsp;&nbsp;</div>				
                     <div><span id="statsTotalPaid{{=pool}}">{{=(parseFloat(it.stats.pools[pool].poolStats.totalPaid)).toFixed(8)}}</span> Total Paid </div>
             </div>
     </div>
