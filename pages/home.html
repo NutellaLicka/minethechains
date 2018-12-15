@@ -14,7 +14,7 @@
     {{ for(var pool in it.stats.pools) { }}
     
     <div class="welcomeText" style="font-size: 1.5em; color: var(--colour6); margin: 10px 0px 10px 0px">
-        {{=it.stats.pools[pool]}}
+        {{=it.stats.pools[pool].name}}
     </div>
 
     <div class="bannerHome">
