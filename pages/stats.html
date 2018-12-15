@@ -35,9 +35,11 @@
 {{ function capitalizeFirstLetter(t){return t.charAt(0).toUpperCase()+t.slice(1)} }}
 {{ function readableDate(a){ return new Date(parseInt(a)).toString(); } }}
 
+{{ for(var pool in it.stats.pools) { }}
+<div class="welcomeText" style="font-size: 1.6em; color: var(--colour6); margin: 10px 0px 10px 0px">
+        {{=it.stats.pools[pool].name}}
+</div>
 <div class="flex-container">
-    
-        {{ for(var pool in it.stats.pools) { }}
         <div class="bannerHome">
                 <div class="boxLowerHeaderHome">Block Height</div>
                         <div class="infotextHome">
@@ -80,8 +82,8 @@
                         <span id="statsLuckDays{{=pool}}">{{=it.stats.pools[pool].luckDays}}</span> Days
                 </div>
         </div>
-        {{ } }}
 </div>
+{{ } }}
 
 <div class="flex-container">
 <div id="topCharts">
@@ -95,6 +97,7 @@
 <div class="flex-container">
         <div class="poolWrapper">
             <div class="poolMinerTable">
+            {{ for(var pool in it.stats.pools) { }}
                 <table class="pure-table">
                 <thead>
                 <tr>
@@ -104,7 +107,6 @@
                     <th style="width: 25%">Invalid Shares</th>
                 </tr>
                 </thead>
-                {{ for(var pool in it.stats.pools) { }}
                 <tbody>
                     <tr>
                     <td>{{=it.stats.pools[pool].name}}</td>
@@ -117,10 +119,10 @@
                 <table class="pure-table">
                     <thead>
                     <tr>
-                            <th style="width: 25%">Total Blocks</th>
-                            <th style="width: 25%">Pending</th>
-                            <th style="width: 25%">Confirmed</th>
-                            <th style="width: 25%">Orphaned</th>
+                        <th style="width: 25%">Total Blocks</th>
+                        <th style="width: 25%">Pending</th>
+                        <th style="width: 25%">Confirmed</th>
+                        <th style="width: 25%">Orphaned</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -131,7 +133,7 @@
                             <td>{{=it.stats.pools[pool].blocks.orphaned}}</td>
                     </tr>
                     </tbody>
-                {{ } }}
+            {{ } }}
                 </table>
             </div>
         </div>
@@ -194,8 +196,8 @@
                                     <small>Block:</small>
                                     {{if (String(it.stats.pools[pool].name).startsWith("zcash")) { }}
                                         <a href="https://explorer.zcha.in/blocks/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
-                                    {{ } else if (String(it.stats.pools[pool].name).startsWith("zclassic")) { }}
-                                        <a href="https://classic.zcha.in/blocks/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
+                                    {{ } else if (String(it.stats.pools[pool].name).startsWith("komodo")) { }}
+                                        <a href="http://kmd.explorer.dexstats.info/blocks/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
                                     {{ } else if (String(it.stats.pools[pool].name).startsWith("pirate")) { }}
                                     <a href="http://pirate.explorer.dexstats.info/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
                                     {{ } else { }}
