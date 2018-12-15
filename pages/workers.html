@@ -20,8 +20,7 @@
 {{ function capitalizeFirstLetter(t){return t.charAt(0).toUpperCase()+t.slice(1)} }}
 {{ var i=0; for(var pool in it.stats.pools) { }}
 
-<div class="flex-container">
-    <br>
+<div class="flex-container" style="margin: 40px 0px 40px 0px">
 <div class="poolWrapper">
         <div class="poolLabel">
             <div class="header" style="font-size: 1.4em">{{=it.stats.pools[pool].name}} Miners List &nbsp;&nbsp;</div>				
@@ -39,7 +38,7 @@
         </div>
 </div>
 </div>
-<div class="flex-container">
+<div class="flex-container" style="margin: 40px 0px 40px 0px">
     <div class="poolWrapper">
         <div class="poolMinerTable">
             <table class="pure-table" style="table-layout: inherit">

@@ -24,17 +24,14 @@
 {{ function readableDate(a){ return new Date(parseInt(a)).toString(); } }}
 {{ for(var pool in it.stats.pools) { }}
 
-<div class="flex-container">
-    <br>
+<div class="flex-container" style="margin: 40px 0px 40px 0px">
     <div class="poolWrapper">
             <div class="poolLabel">
                 <div class="header" style="font-size: 1.4em">{{=it.stats.pools[pool].name}} Payments List &nbsp;&nbsp;</div>				
                     <div><span id="statsTotalPaid{{=pool}}">{{=(parseFloat(it.stats.pools[pool].poolStats.totalPaid)).toFixed(8)}}</span> Total Paid </div>
             </div>
     </div>
-</div>
 
-<div class="flex-container">
 <div class="poolWrapper">
 <div class="poolMinerTable">
     <table class="pure-table" style="table-layout: fixed;">
@@ -53,14 +50,10 @@
                 <td class="paymentblocks" title="{{=it.stats.pools[pool].payments[p].opid}}">
                     {{if (String(it.stats.pools[pool].name).startsWith("zcash")) { }}
                         <a href="https://explorer.zcha.in/tx/{{=it.stats.pools[pool].payments[p].txid}}"  title="View transaction" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}}</a>
-                    {{ } else if (String(it.stats.pools[pool].name).startsWith("zclassic")) { }}
-                        <a href="https://classic.zcha.in/tx/{{=it.stats.pools[pool].payments[p].txid}}"  title="View transaction" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}}</a>
-                    {{ } else if (String(it.stats.pools[pool].name).startsWith("hush")) { }}
-                        <a href="https://explorer.myhush.org/tx/{{=it.stats.pools[pool].payments[p].txid}}"  title="View transaction" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}}</a>
-                    {{ } else if (String(it.stats.pools[pool].name).startsWith("zen")) { }}
-                        <a href="http://node1.zenchain.info:8886/tx/{{=it.stats.pools[pool].payments[p].txid}}"  title="View transaction" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}}</a>
+                    {{ } else if (String(it.stats.pools[pool].name).startsWith("komodo")) { }}
+                        <a href="http://kmd.explorer.dexstats.info/tx/{{=it.stats.pools[pool].payments[p].txid}}"  title="View transaction" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}}</a>
                     {{ } else if (typeof it.stats.pools[pool].payments[p].txid !== 'undefined' && String(it.stats.pools[pool].name).startsWith("pirate")) { }}
-                    <a href="http://pirate.explorer.dexstats.info/tx/{{=it.stats.pools[pool].payments[p].txid}}"  title="View transaction" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}}</a>
+                        <a href="http://pirate.explorer.dexstats.info/tx/{{=it.stats.pools[pool].payments[p].txid}}"  title="View transaction" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}}</a>
                     {{ } else { }}
                         {{=it.stats.pools[pool].payments[p].blocks}}
                     {{ } }}
