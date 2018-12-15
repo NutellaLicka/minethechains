@@ -35,6 +35,15 @@
 {{ function capitalizeFirstLetter(t){return t.charAt(0).toUpperCase()+t.slice(1)} }}
 {{ function readableDate(a){ return new Date(parseInt(a)).toString(); } }}
 
+<div class="flex-container">
+        <div id="topCharts">
+            <div class="chartWrapper">
+                <div class="chartLabel">Pool Hashrate</div>
+                <div class="chartHolder"><svg id="poolHashrate"></svg></div>
+            </div>
+        </div>
+</div>
+
 {{ for(var pool in it.stats.pools) { }}
 <div class="welcomeText" style="font-size: 1.6em; color: var(--colour6); margin: 10px 0px 10px 0px">
         {{=it.stats.pools[pool].name}}
@@ -83,19 +92,8 @@
                 </div>
         </div>
 </div>
-{{ } }}
 
 <div class="flex-container">
-<div id="topCharts">
-    <div class="chartWrapper">
-        <div class="chartLabel">Pool Hashrate</div>
-        <div class="chartHolder"><svg id="poolHashrate"></svg></div>
-    </div>
-</div>
-</div>
-
-<div class="flex-container">
-    {{ for(var pool in it.stats.pools) { }}
         <div class="poolWrapper">
             <div class="poolMinerTable">
                 <table class="pure-table">
@@ -136,9 +134,8 @@
                 </table>
             </div>
         </div>
-    {{ } }}
 </div> 
- 
+{{ } }}
 
 {{ for(var pool in it.stats.pools) { }}
     {{ var blockscomb = new Array; }}
