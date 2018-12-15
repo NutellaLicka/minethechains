@@ -95,9 +95,9 @@
 </div>
 
 <div class="flex-container">
+    {{ for(var pool in it.stats.pools) { }}
         <div class="poolWrapper">
             <div class="poolMinerTable">
-            {{ for(var pool in it.stats.pools) { }}
                 <table class="pure-table">
                 <thead>
                 <tr>
@@ -133,10 +133,10 @@
                             <td>{{=it.stats.pools[pool].blocks.orphaned}}</td>
                     </tr>
                     </tbody>
-            {{ } }}
                 </table>
             </div>
         </div>
+    {{ } }}
 </div> 
  
 
