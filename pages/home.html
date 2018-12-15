@@ -6,13 +6,17 @@
     MINE THE CHAINS
 </div>
 
-<div class="welcomeText" style="font-size: 2em">
+<div class="welcomeText" style="font-size: 2em; margin: 0px 0px 25px 0px">
     A Komodo AssetChain Mining Pool
 </div>
 
 <div class="flex-container">
     {{ for(var pool in it.stats.pools) { }}
     
+    <div class="welcomeText" style="font-size: 1.5em; color: var(--colour6); margin: 10px 0px 10px 0px">
+        {{=it.stats.pools[pool]}}
+    </div>
+
     <div class="bannerHome">
             <div class="boxLowerHeaderHome">Block Height</div>
                     <div class="infotextHome">
