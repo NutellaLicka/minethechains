@@ -96,22 +96,22 @@
             <ol>
                 <li>Generate a Transparent Address(starts with an R)
                     <code>
-                        ./komodo-cli -ac_name=NAME getnewaddress
+                        ./komodo-cli -ac_name=PIRATE getnewaddress
                     </code>
                 </li>
                 <li>Generate a new Sapling address(starts with zS)
                     <code>
-                        ./komodo-cli -ac_name=NAME z_getnewaddress
+                        ./komodo-cli -ac_name=PIRATE z_getnewaddress
                     </code>
                 </li>    
                 <li>Send your current funds from your Sprout address(zC) to your transaprent address (zC -> R)
                     <code>
-                        ./komodo-cli -ac_name=NAME z_sendmany "sproutzaddr" "[{"address":"taddr","amount":total - 0.0001}]"
+                        ./komodo-cli -ac_name=PIRATE z_sendmany "sproutzaddr" "[{"address":"taddr","amount":total - 0.0001}]"
                     </code>
                 </li>
                 <li>Send your funds from your Transparent address to your Sapling address (R -> zS)
                     <code>
-                        ./komodo-cli -ac_name=NAME z_sendmany "taddr" "[{"address":"saplingaddr","amount":total - 0.0002}]"
+                        ./komodo-cli -ac_name=PIRATE z_sendmany "taddr" "[{"address":"saplingaddr","amount":total - 0.0002}]"
                     </code>
                 </li>
             </ol>
