@@ -135,9 +135,9 @@
             </div>
         </div>
 </div> 
-{{ } }}
 
-{{ for(var pool in it.stats.pools) { }}
+
+
     {{ var blockscomb = new Array; }}
     <div class="blockfinds">
             <div class="BlockStats">
@@ -159,8 +159,8 @@
                                     <a href="https://explorer.zcha.in/blocks/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
                                 {{ } else if (String(it.stats.pools[pool].name).startsWith("zclassic")) { }}
                                     <a href="https://classic.zcha.in/blocks/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
-                                {{ } else if (String(it.stats.pools[pool].name).startsWith("hush")) { }}
-                                    <a href="https://explorer.myhush.org/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
+                                {{ } else if (String(it.stats.pools[pool].name).startsWith("komodo")) { }}
+                                    <a href="http://kmd.explorer.dexstats.info/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
                                 {{ } else if (String(it.stats.pools[pool].name).startsWith("pirate")) { }}
                                 <a href="http://pirate.explorer.dexstats.info/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
                                 {{ } else { }}
@@ -212,7 +212,7 @@
                     </div>
                 </div>
             </div>
-            {{ } }}
+{{ } }}
 
             
 
