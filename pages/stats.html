@@ -137,8 +137,9 @@
 </div> 
 {{ } }}
 
+{{ for(var pool in it.stats.pools) { }}
+{{ var blockscomb = new Array; }}
 <div class="flex-container">
-    {{ var blockscomb = new Array; }}
     <div class="blockfinds">
             <div class="BlockStats">
                 <div class="pendpaidHeader">Blocks Found &nbsp;&nbsp;
@@ -208,12 +209,11 @@
                                 <div><small>Mined By:</small> <a href="/workers/{{=block[3].split('.')[0]}}">{{=block[3].length > 40 ? block[3].substring(0, 10) + '...' + block[3].substring(block[3].length-20, block[3].length): block[3]}}</a></div>
                             </div>
                             {{blockscomb.push(block);}}
-                        {{ } }}
                     </div>
                 </div>
             </div>
 </div>
-
+{{ } }}
             
 
 
