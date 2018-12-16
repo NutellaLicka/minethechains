@@ -234,7 +234,6 @@ footer a{
 }
 
 .boxStatsList{
-    display: flex;
     flex-flow: column wrap;
     align-content: center;
     min-width: 330px;
