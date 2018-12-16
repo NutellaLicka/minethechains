@@ -135,7 +135,9 @@
             </div>
         </div>
 </div> 
+{{ } }}
 
+{{ for(var pool in it.stats.pools) { }}
 {{ var blockscomb = new Array; }}
 <div class="flex-container">
     <div class="blockfinds">
@@ -207,13 +209,140 @@
                                 <div><small>Mined By:</small> <a href="/workers/{{=block[3].split('.')[0]}}">{{=block[3].length > 40 ? block[3].substring(0, 10) + '...' + block[3].substring(block[3].length-20, block[3].length): block[3]}}</a></div>
                             </div>
                             {{blockscomb.push(block);}}
-                        {{ } }}
+                            {{ } }}
                     </div>
                 </div>
             </div>
 </div>
 {{ } }}
             
+
+
+
+
+<!-- I don't know if I wanna keep the pie chart
+    {{if (blockscomb.length > 0) { }}
+        <div id="bottomCharts{{=pool}}" style="text-align:center">
+            <div class="chartWrapper" style="text-align:center;">
+                <div class="chartLabel">Finders of the last {{=blockscomb.length}} blocks</div>
+                <div class="chartHolder" id="pie{{=pool}}"><svg id="blocksPie{{=pool}}" style="display: block; margin: auto; text-align: center"></svg></div>
+                <div class="hidden tooltip" id="tooltip{{=pool}}"><p><span id="value{{=pool}}"></span> blocks found by <span id="finderr{{=pool}}"></span></p></div>
+            </div>
+        </div>
+    
+        <script>
+        var blockscomb = ({{=JSON.stringify(blockscomb)}})
+        var groupedByFinder = {};
+        var data = [];
+
+        for (var i=0; i < blockscomb.length; i++) {
+            finder=blockscomb[i][3]; // if other doesn 't already have a property for the current letter
+            // create it and assign it to a new empty array
+            if (!(finder in groupedByFinder))
+                groupedByFinder[finder] = [];
+
+            groupedByFinder[finder].push(blockscomb[i]);
+        }
+
+        Object.keys(groupedByFinder).forEach(function(i) {
+            var obj = {};
+            obj.label = i
+            obj.value = groupedByFinder[i].length
+            data.push(obj)
+        });
+
+        //console.log(JSON.stringify(data))
+
+        var w = 1000;
+        var h = 500;
+        var r = h/2.5;
+        var legendRectSize = 18;
+        var legendSpacing = 5;
+
+        var color = d3.scale.category20c();
+        /*var div = d3.select("#pie{{=pool}}").append("div")
+            .attr("class", "tooltip")
+            .style("opacity", 0);*/
+
+        var vis = d3.select('#blocksPie{{=pool}}')
+            .data([data])
+            .attr("width", w)
+            .attr("height", h)
+            .attr("style", "display: block; margin: auto; width:800px; height: auto; display:inline-block")
+            .attr("preserveAspectRatio", "xMidYMin")
+            .append("svg:g")
+            .attr("transform", "translate(" + r + "," + r + ")");
+
+
+        var pie = d3.layout.pie().value(function(d){return d.value;});
+
+        // declare an arc generator function
+        var arc = d3.svg.arc().outerRadius(r);
+
+        // select paths, use arc generator to draw
+        var arcs = vis.selectAll("g.slice{{=pool}}")
+            .data(pie)
+            .enter()
+            .append("svg:g")
+            .attr("class", "slice{{=pool}}")
+            .attr("id", "slice")
+            .on("mouseover", function(d){
+                d3.select("#tooltip{{=pool}}")
+                    .attr("style", "left:" + (d3.event.layerX) + "px; top:" + (d3.event.layerY) + "px; opacity:1; display:block!important;position:absolute")
+                    .select("#value{{=pool}}")
+                    .text(d.data.value);
+                d3.select("#tooltip{{=pool}}")
+                    .select("#finderr{{=pool}}")
+                    .text(d.data.label.length > 40 ? d.data.label.substring(0, 20) + '...' + d.data.label.substring(d.data.label.length-20, d.data.label.length): d.data.label);
+            })
+            .on("mouseout", function(d) {
+                d3.select("#tooltip{{=pool}}")
+                    .attr("style", "");
+            })
+            .on('mousemove', function(d) {
+                d3.select("#tooltip{{=pool}}")
+                    .style('top', (d3.event.layerY) + 'px')
+                    .style('left', (d3.event.layerX) + 'px');
+            });
+
+        arcs.append("svg:path")
+            .attr("fill", function(d, i){
+            return color(i);
+            })
+            .attr("d", function (d) {
+            return arc(d);
+            });
+
+        var legend = vis.selectAll('.legend')
+            .data(color.domain())
+            .enter()
+            .append('g')
+            .attr('class', 'legend')
+            .attr('id', {{=JSON.stringify(pool)}})
+            .attr('transform', function(d, i) {
+                var height = legendRectSize + legendSpacing;
+                var offset = height * color.domain().length / 2;
+                var horz = 13 * legendRectSize;
+                var vert = (i * height) - r + height;
+                return 'translate(' + horz + ',' + vert + ')';
+            });
+
+        legend.append('rect')
+            .attr('width', legendRectSize)
+            .attr('height', legendRectSize)
+            .style('fill', color)
+            .style('stroke', color);
+
+        legend.append('text')
+            .attr('x', legendRectSize + legendSpacing)
+            .attr('y', legendRectSize - legendSpacing)
+            .text(function(d, i) {
+                return data[i].label.length > 40 ? data[i].label.substring(0, 20) + '...' + data[i].label.substring(data[i].label.length-20, data[i].label.length): data[i].label;
+            });
+        </script>
+        {{ } }}
+    {{ } }}
+    -->
 <script>
     document.querySelector('main').appendChild(document.createElement('script')).src = '/static/stats.js';
 
