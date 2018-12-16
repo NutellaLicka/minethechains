@@ -20,6 +20,7 @@
 <div id="holder">
     
     <div class="GS-menu">
+            <a href="#zMigrate"><button class="buttonoptions">zMigrate</button></a>
             <a href="#poolDetails"><button class="buttonoptions">Pool Details</button></a>
             <a href="#gpuMining"><button class="buttonoptions">GPU Mining</button></a>
             <a href="#createWallet"><button class="buttonoptions">Pirate Info</button></a>
@@ -56,7 +57,7 @@
                             <div class="coinInfoRowValues">
                                 <div class="coinInfoUsername">
                                     {{ if (it.poolsConfigs[pool].coin && it.poolsConfigs[pool].coin.privateChain) { }}
-                                        your {{=it.poolsConfigs[pool].coin.name}} wallet <b style="color:#C99631;">Z</b> address<br>
+                                        your {{=it.poolsConfigs[pool].coin.name}} wallet <b style="color:#C99631;">zS</b> address<br>
                                        
                                     {{ } else if (it.poolsConfigs[pool].coin) { }}
                                         your {{=it.poolsConfigs[pool].coin.name}} wallet address
@@ -75,7 +76,53 @@
                 {{ } }}
             {{ } }}
         </div>
-        
+        <img style="display: block; margin: auto; padding-top: 15px; height: 500px; width: 740px" src="/static/images/SaplingUpdatePic.png">
+        <div id="zMigrate" style="height:50px"></div>
+        <div class="menuHeader">How to update to Sapling<a href="#" style="font-size: 0.7em; float: right; color: var(--colour1); padding-right: 15px;">TOP</a></div>
+        <div class="sectionwords">
+            <p>
+            As of the recent hardfork for the Komodo Platform and all Asset Chains, Sapling has now been integrated. You are required to move ALL of your funds from your current Sprout addresses to the new Sapling addresses prior to the 15th of February 2019. After this date, any funds in Transparent or Sprout addresses will be unusable and effectively burnt.
+            </p>
+            <p>
+            For more information on the Sapling upgrade, refer to the links listed, or join the <a href="https://discord.gg/Gs9rj4a" target="_blank" style="color: var(--colour1)">Pirate</a> & <a href="https://discord.gg/QeukYy6" target="_blank" style="color: var(--colour1)">Komodo</a> discord.
+            </p>
+            <p>
+                <a href="https://techloverhd.com/2018/12/full-speed-ahead-the-first-sapling-specific-privacy-chain-is-here/" target="_blank" style="color: var(--colour1)"></a>Pirate Sapling Upgrade Article</a><br>
+                <a href="https://komodoplatform.com/sapling-unifying-blockchain-technology/" target="_blank" style="color: var(--colour1)">Komodo Platform Blockchain Update Article</a><br>
+            </p>
+            <ol>
+                <li>Generate a Transparent Address(starts with an R)
+                    <code>
+                        ./komodo-cli -ac_name=NAME getnewaddress
+                    </code>
+                </li>
+                <li>Generate a new Sapling address(starts with zS)
+                    <code>
+                        ./komodo-cli -ac_name=NAME z_getnewaddress
+                    </code>
+                </li>    
+                <li>Send your current funds from your Sprout address(zC) to your transaprent address (zC -> R)
+                    <code>
+                        ./komodo-cli -ac_name=NAME z_sendmany "sproutzaddr" "[{"address":"taddr","amount":<total - 0.0001>}]"
+                    </code>
+                </li>
+                <li>Send your funds from your Transparent address to your Sapling address (R -> zS)
+                    <code>
+                        ./komodo-cli -ac_name=NAME z_sendmany "taddr" "[{"address":"saplingaddr","amount":<total - 0.0002>}]"
+                    </code>
+                </li>
+            </ol>
+            <p>As you'll notice, the total is the amount in your wallet minus the transaction fee amount.</p>
+            <p>You are also able to use the zMigrate cli dAPP. You can build that as per the instructions below.</p>
+            <code>
+                cd ~/komodo/src
+                cc/dapps/makedapps 
+                ./zmigrate PIRATE saplingzaddr
+            </code>
+            <p>Repeat this ./zmigrate command until you have no funds left to migrate</p>
+            </div>
+        </div>
+
     <div id="gpuMining" style="height:50px"></div>
         <div class="menuHeader">GPU Mining<a href="#" style="font-size: 0.7em; float: right; color: var(--colour1); padding-right: 15px;">TOP</a></div>
         <div class="sectionwords">
