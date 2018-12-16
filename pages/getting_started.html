@@ -205,13 +205,13 @@
                 </div>
                 <div>Send your coins:
                     <code>
-                        ./komodo-cli -ac_name=PIRATE z_sendmany "fromZaddress" '[{"address": "toZaddress" ,"amount": ...}]'
+                        ./komodo-cli -ac_name=PIRATE z_sendmany "fromZSaddress" '[{"address": "toZSaddress" ,"amount": ...}]'
                     </code>
                 </div>
 
                 <div>Merge UTXO's:
                     <code>
-                        ./komodo-cli -ac_name=PIRATE z_mergetoaddress "*" "toZaddress"
+                        ./komodo-cli -ac_name=PIRATE z_mergetoaddress "ZSaddress" "ZSaddress"
                     </code>
                 </div>
             For more information visit the <a href="https://pirate.black/" target="_blank" style="color: var(--colour1)">pirate.black website.</a>
