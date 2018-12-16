@@ -136,8 +136,6 @@
         </div>
 </div> 
 
-
-
 {{ var blockscomb = new Array; }}
 <div class="flex-container">
     <div class="blockfinds">
@@ -209,8 +207,8 @@
                                 <div><small>Mined By:</small> <a href="/workers/{{=block[3].split('.')[0]}}">{{=block[3].length > 40 ? block[3].substring(0, 10) + '...' + block[3].substring(block[3].length-20, block[3].length): block[3]}}</a></div>
                             </div>
                             {{blockscomb.push(block);}}
+                        {{ } }}
                     </div>
-                    {{ } }}
                 </div>
             </div>
 </div>
