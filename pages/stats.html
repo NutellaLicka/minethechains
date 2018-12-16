@@ -213,8 +213,7 @@
                 </div>
             </div>
             {{ } }}
-        {{ } }}
-    {{ } }}
+
             
 
 
@@ -340,7 +339,8 @@
                 return data[i].label.length > 40 ? data[i].label.substring(0, 20) + '...' + data[i].label.substring(data[i].label.length-20, data[i].label.length): data[i].label;
             });
         </script>
-
+        {{ } }}
+    {{ } }}
     -->
 <script>
     document.querySelector('main').appendChild(document.createElement('script')).src = '/static/stats.js';
