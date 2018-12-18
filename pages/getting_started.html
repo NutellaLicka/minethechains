@@ -104,20 +104,25 @@
                     <code>
                         ./komodo-cli -ac_name=PIRATE z_getnewaddress
                     </code>
-                </li>    
+                </li>   
+                <li>Create a specific sized UTXO in your sprout address (send the funds to yourself or a new sprout address). In this example we use 1000 ARRR and 0.0002 for transaction fees.
+                    <code>
+                        ./komodo-cli -ac_name=PIRATE z_sendmany "sproutzaddr" '[{"address":"sproutzaddr","amount": 1000.0002}]'
+                    </code>
+                </li> 
                 <li>Send your current funds from your Sprout address(zC) to your transaprent address (zC -> R)
                     <code>
-                        ./komodo-cli -ac_name=PIRATE z_sendmany "sproutzaddr" '[{"address":"taddr","amount":total - 0.0001}]'
+                        ./komodo-cli -ac_name=PIRATE z_sendmany "sproutzaddr" '[{"address":"taddr","amount": 1000.0001}]'
                     </code>
                 </li>
                 <li>Send your funds from your Transparent address to your Sapling address (R -> zS)
                     <code>
-                        ./komodo-cli -ac_name=PIRATE z_sendmany "taddr" '[{"address":"saplingaddr","amount":total - 0.0002}]'
+                        ./komodo-cli -ac_name=PIRATE z_sendmany "taddr" '[{"address":"saplingaddr","amount": 1000}]'
                     </code>
                 </li>
             </ol>
-            <p>As you'll notice, the total is the amount in your wallet minus the transaction fee amount.</p>
-            <p>You are also able to use the zMigrate cli dAPP. You can build that as per the instructions below.</p>
+            <p>As you'll notice, the total amount in the transactions is decreasing by the 0.0001 transaction fee each time.</p>
+            <p>You are also able to use the zMigrate cli dAPP. You can build that as per the instructions below. Or wait for a GUI client to come out (roughly 20th Dec)</p>
             <code>
                 cd ~/komodo/src
             </code>
