@@ -111,9 +111,9 @@ header > .menu-list > a > .button:active {
 }
 
 .lookUp {
-    font-size: 13px;
+    font-size: 15px;
     text-align: center;
-    color: var(--colour6);
+    color: var(--colour3);
     font-family: var(--font2);
 }
 
