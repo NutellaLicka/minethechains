@@ -110,6 +110,12 @@ header > .menu-list > a > .button:active {
     color: var(--colour6);
 }
 
+.lookUp {
+    font-size: 13px;
+    text-align: center;
+    color: var(--colour6);
+    font-family: var(--font2);
+}
 
 /* **********Main********** */
 main {
