@@ -2,23 +2,24 @@
     
 </div>-->
 
-<div class="welcomeText">
+<div class="titlesHome">
+    <div class="welcomeText">
     MINE THE CHAINS
-</div>
+    </div>
 
-<div class="welcomeText" style="font-size: 2em; margin: 0px 0px 25px 0px">
-    A Komodo AssetChain Mining Pool
+    <div class="welcomeText" style="font-size: 25px; color: var(--colour1); margin: 0px 0px 25px 0px">
+        A Komodo & AssetChain Mining Pool
+    </div>
 </div>
-
 
 <div id="holder">
         <div id="menu">
 {{ for(var pool in it.stats.pools) { }}
-<div class="menuHeader" style="text-align: center; margin: 10px 0px 10px 0px">
+<div class="menuHeader" style="text-align: center; margin: 0px">
         {{=it.stats.pools[pool].name}}
 </div>
 
-<div class="flex-container" style="margin-bottom:40px">
+<div class="flex-container">
 
     <div class="bannerHome">
             <div class="boxLowerHeaderHome">Block Height</div>
