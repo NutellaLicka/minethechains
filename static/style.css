@@ -592,8 +592,8 @@ table {
 }
 
 input {
-    width: 170px;
-    height: 22px;
+    width: 100px;
+    height: 24px;
     border: 2px solid var(--colour3);
     border-radius: 5px 5px 5px 5px;
 }
@@ -603,7 +603,7 @@ input {
     background-color: var(--colour3);
     border: 2px solid var(--colour3);
     border-radius: 5px 5px 5px 5px;
-    width: 90px;
+    width: 50px;
     height: 30px;
     font-family: var(--font1);
     text-align: center;
