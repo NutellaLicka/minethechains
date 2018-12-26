@@ -45,9 +45,12 @@
 </div>
 
 {{ for(var pool in it.stats.pools) { }}
-<div class="poolHeader">
+<div id="menu">
+    <div class="poolHeader">
         {{=it.stats.pools[pool].name}}
+    </div>
 </div>
+
 <div class="flex-container">
         <div class="bannerHome">
                 <div class="boxLowerHeaderHome">Block Height</div>
@@ -215,7 +218,7 @@
                 </div>
             </div>
 </div>
-
+<div class="blockfinds">
 {{ for(var b in it.stats.pools[pool].pending.blocks) { }}
 {{ var block = it.stats.pools[pool].pending.blocks[b].split(":"); }}
 <div class="boxStatsList">
@@ -263,7 +266,7 @@
     </table>
 {{ blockscomb.push(block);}}
 {{ } }}
-
+</div>
 
 {{ } }}
     
