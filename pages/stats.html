@@ -35,6 +35,12 @@
 {{ function capitalizeFirstLetter(t){return t.charAt(0).toUpperCase()+t.slice(1)} }}
 {{ function readableDate(a){ return new Date(parseInt(a)).toString(); } }}
 
+<div class="GS-menu">
+        {{ for(var pool in it.stats.pools) { }}
+        <a href="#{{=it.stats.pools[pool].name}}"><button class="buttonoptions">{{=it.stats.pools[pool].name}}</button></a>
+        {{ } }}
+</div>
+
 <div class="flex-container">
         <div id="topCharts">
             <div class="chartWrapper">
@@ -46,7 +52,7 @@
 
 {{ for(var pool in it.stats.pools) { }}
 <div id="menu">
-    <div class="poolHeader">
+    <div class="poolHeader" id="{{=it.stats.pools[pool].name}}">
         {{=it.stats.pools[pool].name}}
     </div>
 </div>
@@ -137,7 +143,7 @@
                 </table>
             </div>
         </div>
-        
+</div>
 {{ var blockscomb = new Array; }}
 <div class="flex-container">
     <div class="blockfinds">
@@ -293,8 +299,6 @@
                 </div>
             </div>
 </div>
-
-</div> 
 {{ } }}
     
 <script>
