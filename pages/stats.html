@@ -185,9 +185,53 @@
                                 {{ } }}
                             </div>
                             <div><small>Mined By:</small> <a href="/workers/{{=block[3].split('.')[0]}}">{{=block[3].length > 40 ? block[3].substring(0, 10) + '...' + block[3].substring(block[3].length-20, block[3].length): block[3]}}</a></div>
+                        
+                            <div class="boxStatsList">
+                                    <table class="pending">
+                                        <tr>
+                                            <th>Block</th>
+                                            <th>Date</th>
+                                            <th>Miner</th>
+                                            <th>Amount</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                {{if (String(it.stats.pools[pool].name).startsWith("komodo")) { }}
+                                                    <a href="http://kmd.explorer.dexstats.info/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
+                                                {{ } else if (String(it.stats.pools[pool].name).startsWith("pirate")) { }}
+                                                <a href="http://pirate.explorer.dexstats.info/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
+                                                {{ } else { }}
+                                                    {{=block[2]}}
+                                                {{ } }}
+                                            </td>
+                                            <td>
+                                                {{if (block[4] != null) { }}
+                                                    <span style="padding-left: 18px;"><small>{{=readableDate(block[4])}}</small></span>
+                                                {{ } }}
+                                            </td>
+                                            <td>
+                                                <a href="/workers/{{=block[3].split('.')[0]}}">{{=block[3].length > 40 ? block[3].substring(0, 10) + '...' + block[3].substring(block[3].length-20, block[3].length): block[3]}}</a>
+                                            </td>
+                                            <td>
+                                                Amount Here
+                                            </td>
+                                            <td>
+                                                    {{if (it.stats.pools[pool].pending.confirms) { }}
+                                                    {{if (it.stats.pools[pool].pending.confirms[block[0]]) { }}
+                                                    <span style="float:right; color: red;"><small>WAITING ON NOTARISATION</small></span>
+                                                    {{ } else { }}
+                                                    <span style="float:right; color: red;"><small>CONFIRMING</small></span>
+                                                    {{ } }}
+                                                {{ } else { }}
+                                                    <span style="float:right; color: red;"><small>CONFIRMING</small></span>
+                                                {{ } }}
+                                            </td>
+                                        </tr>
+                                    </table>
                         </div>
                         {{ blockscomb.push(block);}}
-                    {{ } }}
+                            {{ } }}
 
                     {{ var i=0; for(var b in it.stats.pools[pool].confirmed.blocks) { }}
                         {{ if (i < 8) { i++; }}
@@ -210,6 +254,41 @@
                                     <span style="float:right; padding-left: 18px; color: green;"><small>*PAID*</small></span>
                                 </div>
                                 <div><small>Mined By:</small> <a href="/workers/{{=block[3].split('.')[0]}}">{{=block[3].length > 40 ? block[3].substring(0, 10) + '...' + block[3].substring(block[3].length-20, block[3].length): block[3]}}</a></div>
+                            
+                                <table class="paid">
+                                        <tr>
+                                            <th>Block</th>
+                                            <th>Date</th>
+                                            <th>Miner</th>
+                                            <th>Amount</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                {{if (String(it.stats.pools[pool].name).startsWith("komodo")) { }}
+                                                <a href="http://kmd.explorer.dexstats.info/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
+                                                {{ } else if (String(it.stats.pools[pool].name).startsWith("pirate")) { }}
+                                                <a href="http://pirate.explorer.dexstats.info/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
+                                                {{ } else { }}
+                                                   {{=block[2]}}
+                                                {{ } }}
+                                            </td>
+                                            <td>
+                                            {{if (block[4] != null) { }}
+                                                <span style="padding-left: 18px;"><small>{{=readableDate(block[4])}}</small></span>
+                                            {{ } }}
+                                            </td>
+                                            <td>
+                                                <a href="/workers/{{=block[3].split('.')[0]}}">{{=block[3].length > 40 ? block[3].substring(0, 10) + '...' + block[3].substring(block[3].length-20, block[3].length): block[3]}}</a>
+                                            </td>
+                                            <td>
+                                                Amount Here
+                                            </td>
+                                            <td>
+                                                <span style="float:right; padding-left: 18px; color: green;"><small>PAID</small></span>    
+                                            </td>
+                                        </tr>
+                                    </table>
                             </div>
                             {{blockscomb.push(block);}}
                             {{ } }}
@@ -218,101 +297,6 @@
                 </div>
             </div>
 </div>
-
-<div class="blockfinds">
-{{ for(var b in it.stats.pools[pool].pending.blocks) { }}
-{{ var block = it.stats.pools[pool].pending.blocks[b].split(":"); }}
-<div class="boxStatsList">
-    <table class="pending">
-        <tr>
-            <th>Block</th>
-            <th>Date</th>
-            <th>Miner</th>
-            <th>Amount</th>
-            <th>Status</th>
-        </tr>
-        <tr>
-            <td>
-                {{if (String(it.stats.pools[pool].name).startsWith("komodo")) { }}
-                    <a href="http://kmd.explorer.dexstats.info/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
-                {{ } else if (String(it.stats.pools[pool].name).startsWith("pirate")) { }}
-                <a href="http://pirate.explorer.dexstats.info/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
-                {{ } else { }}
-                    {{=block[2]}}
-                {{ } }}
-            </td>
-            <td>
-                {{if (block[4] != null) { }}
-                    <span style="padding-left: 18px;"><small>{{=readableDate(block[4])}}</small></span>
-                {{ } }}
-            </td>
-            <td>
-                <a href="/workers/{{=block[3].split('.')[0]}}">{{=block[3].length > 40 ? block[3].substring(0, 10) + '...' + block[3].substring(block[3].length-20, block[3].length): block[3]}}</a>
-            </td>
-            <td>
-                Amount Here
-            </td>
-            <td>
-                    {{if (it.stats.pools[pool].pending.confirms) { }}
-                    {{if (it.stats.pools[pool].pending.confirms[block[0]]) { }}
-                    <span style="float:right; color: red;"><small>WAITING ON NOTARISATION</small></span>
-                    {{ } else { }}
-                    <span style="float:right; color: red;"><small>CONFIRMING</small></span>
-                    {{ } }}
-                {{ } else { }}
-                    <span style="float:right; color: red;"><small>CONFIRMING</small></span>
-                {{ } }}
-            </td>
-        </tr>
-    </table>
-{{ blockscomb.push(block);}}
-{{ } }}
-
-{{ var i=0; for(var b in it.stats.pools[pool].confirmed.blocks) { }}
-{{ if (i < 10) { i++; }}
-    {{ var block = it.stats.pools[pool].confirmed.blocks[b].split(":"); }}
-<table class="paid">
-        <tr>
-            <th>Block</th>
-            <th>Date</th>
-            <th>Miner</th>
-            <th>Amount</th>
-            <th>Status</th>
-        </tr>
-        <tr>
-            <td>
-                {{if (String(it.stats.pools[pool].name).startsWith("komodo")) { }}
-                <a href="http://kmd.explorer.dexstats.info/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
-                {{ } else if (String(it.stats.pools[pool].name).startsWith("pirate")) { }}
-                <a href="http://pirate.explorer.dexstats.info/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
-                {{ } else { }}
-                   {{=block[2]}}
-                {{ } }}
-            </td>
-            <td>
-            {{if (block[4] != null) { }}
-                <span style="padding-left: 18px;"><small>{{=readableDate(block[4])}}</small></span>
-            {{ } }}
-            </td>
-            <td>
-                <a href="/workers/{{=block[3].split('.')[0]}}">{{=block[3].length > 40 ? block[3].substring(0, 10) + '...' + block[3].substring(block[3].length-20, block[3].length): block[3]}}</a>
-            </td>
-            <td>
-                Amount Here
-            </td>
-            <td>
-                <span style="float:right; padding-left: 18px; color: green;"><small>PAID</small></span>    
-            </td>
-        </tr>
-    </table>
-
-    {{blockscomb.push(block);}}
-    {{ } }}
-{{ } }}
-</div>
-
-
-
 
 {{ } }}
     
