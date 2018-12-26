@@ -45,7 +45,7 @@
 </div>
 
 {{ for(var pool in it.stats.pools) { }}
-<div class="welcomeText" style="font-size: 1.6em; color: var(--colour6); margin: 10px 0px 10px 0px">
+<div class="poolHeader">
         {{=it.stats.pools[pool].name}}
 </div>
 <div class="flex-container">
@@ -215,6 +215,56 @@
                 </div>
             </div>
 </div>
+
+{{ for(var b in it.stats.pools[pool].pending.blocks) { }}
+{{ var block = it.stats.pools[pool].pending.blocks[b].split(":"); }}
+<div class="boxStatsList">
+    <table class="pending">
+        <tr>
+            <th>Block</th>
+            <th>Date</th>
+            <th>Miner</th>
+            <th>Amount</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>
+                {{if (String(it.stats.pools[pool].name).startsWith("komodo")) { }}
+                    <a href="http://kmd.explorer.dexstats.info/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
+                {{ } else if (String(it.stats.pools[pool].name).startsWith("pirate")) { }}
+                <a href="http://pirate.explorer.dexstats.info/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
+                {{ } else { }}
+                    {{=block[2]}}
+                {{ } }}
+            </td>
+            <td>
+                {{if (block[4] != null) { }}
+                    <span style="padding-left: 18px;"><small>{{=readableDate(block[4])}}</small></span>
+                {{ } }}
+            </td>
+            <td>
+                <a href="/workers/{{=block[3].split('.')[0]}}">{{=block[3].length > 40 ? block[3].substring(0, 10) + '...' + block[3].substring(block[3].length-20, block[3].length): block[3]}}</a>
+            </td>
+            <td>
+                Amount Here
+            </td>
+            <td>
+                    {{if (it.stats.pools[pool].pending.confirms) { }}
+                    {{if (it.stats.pools[pool].pending.confirms[block[0]]) { }}
+                    <span style="float:right; color: red;"><small>WAITING ON NOTARISATION</small></span>
+                    {{ } else { }}
+                    <span style="float:right; color: red;"><small>CONFIRMING</small></span>
+                    {{ } }}
+                {{ } else { }}
+                    <span style="float:right; color: red;"><small>CONFIRMING</small></span>
+                {{ } }}
+            </td>
+        </tr>
+    </table>
+{{ blockscomb.push(block);}}
+{{ } }}
+
+
 {{ } }}
     
 <script>
