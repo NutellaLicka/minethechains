@@ -292,7 +292,6 @@ footer a{
     margin: 10px;
     width: 250px;
     height: 50px;
-
 }
 
 .buttonoptions {
@@ -307,8 +306,6 @@ footer a{
     -webkit-transition-duration: 0.2s;
     transition-duration: 0.2s;
     font-family: var(--font1);
-    border-radius: 10px;
-
 }
 
 .buttonoptions:hover {
@@ -538,7 +535,7 @@ a.miningOption:hover{
 }
 
 .blockfinds {
-    max-width: 1500px;
+    max-width: 1080px;
     margin: auto;
     margin-top: 25px;
     
