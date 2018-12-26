@@ -555,6 +555,15 @@ table {
     font-family: var(--font1);
 }
 
+.poolHeader{
+    font-family: var(--font1);
+    color: var(--colour3);
+    border-bottom: 1px solid var(--colour3);
+    font-size: 1.6em;
+    padding: 20px 0px 4px 15px;
+    margin: 10px 0px 10px 0px
+}
+
 /* ***WORKERS*** */
 #bottomNotes {
     display: block;
