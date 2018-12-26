@@ -156,7 +156,7 @@
                     <!--<div id="{{=it.stats.pools[pool].name}}NewBlocks"></div>-->
                     {{ for(var b in it.stats.pools[pool].pending.blocks) { }}
                         {{ var block = it.stats.pools[pool].pending.blocks[b].split(":"); }}
-                        <div class="pending">
+                        <!--<div class="pending">
                             <div>
                                 <small>Block:</small>
                                 {{if (String(it.stats.pools[pool].name).startsWith("zcash")) { }}
@@ -185,7 +185,7 @@
                                 {{ } }}
                             </div>
                             <div><small>Mined By:</small> <a href="/workers/{{=block[3].split('.')[0]}}">{{=block[3].length > 40 ? block[3].substring(0, 10) + '...' + block[3].substring(block[3].length-20, block[3].length): block[3]}}</a></div>
-                        </div>
+                        </div>-->
                         <div class="boxStatsList">
                                 <table class="pending">
                                     <tr>
@@ -219,7 +219,7 @@
                                         <td>
                                                 {{if (it.stats.pools[pool].pending.confirms) { }}
                                                 {{if (it.stats.pools[pool].pending.confirms[block[0]]) { }}
-                                                <span style="float:right; color: red;"><small>WAITING ON NOTARISATION</small></span>
+                                                <span style="float:right; color: red;"><small>PENDING</small></span>
                                                 {{ } else { }}
                                                 <span style="float:right; color: red;"><small>CONFIRMING</small></span>
                                                 {{ } }}
@@ -235,7 +235,7 @@
                     {{ var i=0; for(var b in it.stats.pools[pool].confirmed.blocks) { }}
                         {{ if (i < 8) { i++; }}
                             {{ var block = it.stats.pools[pool].confirmed.blocks[b].split(":"); }}
-                            <div class="paid">
+                            <!--<div class="paid">
                                 <div>
                                     <small>Block:</small>
                                     {{if (String(it.stats.pools[pool].name).startsWith("zcash")) { }}
@@ -253,7 +253,7 @@
                                     <span style="float:right; padding-left: 18px; color: green;"><small>*PAID*</small></span>
                                 </div>
                                 <div><small>Mined By:</small> <a href="/workers/{{=block[3].split('.')[0]}}">{{=block[3].length > 40 ? block[3].substring(0, 10) + '...' + block[3].substring(block[3].length-20, block[3].length): block[3]}}</a></div>
-                            </div>
+                            </div>-->
                             <table class="paid">
                                     <tr>
                                         <th>Block</th>
