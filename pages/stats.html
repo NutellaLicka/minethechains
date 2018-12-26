@@ -160,36 +160,6 @@
                     <!--<div id="{{=it.stats.pools[pool].name}}NewBlocks"></div>-->
                     {{ for(var b in it.stats.pools[pool].pending.blocks) { }}
                         {{ var block = it.stats.pools[pool].pending.blocks[b].split(":"); }}
-                        <!--<div class="pending">
-                            <div>
-                                <small>Block:</small>
-                                {{if (String(it.stats.pools[pool].name).startsWith("zcash")) { }}
-                                    <a href="https://explorer.zcha.in/blocks/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
-                                {{ } else if (String(it.stats.pools[pool].name).startsWith("zclassic")) { }}
-                                    <a href="https://classic.zcha.in/blocks/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
-                                {{ } else if (String(it.stats.pools[pool].name).startsWith("komodo")) { }}
-                                    <a href="http://kmd.explorer.dexstats.info/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
-                                {{ } else if (String(it.stats.pools[pool].name).startsWith("pirate")) { }}
-                                <a href="http://pirate.explorer.dexstats.info/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
-                                {{ } else { }}
-                                    {{=block[2]}}
-                                {{ } }}
-
-                                {{if (block[4] != null) { }}
-                                    <span style="padding-left: 18px;"><small>{{=readableDate(block[4])}}</small></span>
-                                {{ } }}
-                                {{if (it.stats.pools[pool].pending.confirms) { }}
-                                    {{if (it.stats.pools[pool].pending.confirms[block[0]]) { }}
-                                    <span style="float:right; color: red;"><small>{{=it.stats.pools[pool].pending.confirms[block[0]]}} of 100</small></span>
-                                    {{ } else { }}
-                                    <span style="float:right; color: red;"><small>*PENDING*</small></span>
-                                    {{ } }}
-                                {{ } else { }}
-                                    <span style="float:right; color: red;"><small>*PENDING*</small></span>
-                                {{ } }}
-                            </div>
-                            <div><small>Mined By:</small> <a href="/workers/{{=block[3].split('.')[0]}}">{{=block[3].length > 40 ? block[3].substring(0, 10) + '...' + block[3].substring(block[3].length-20, block[3].length): block[3]}}</a></div>
-                        </div>-->
                         <div class="boxStatsList">
                                 <table class="pending">
                                     <tr>
@@ -239,25 +209,6 @@
                     {{ var i=0; for(var b in it.stats.pools[pool].confirmed.blocks) { }}
                         {{ if (i < 8) { i++; }}
                             {{ var block = it.stats.pools[pool].confirmed.blocks[b].split(":"); }}
-                            <!--<div class="paid">
-                                <div>
-                                    <small>Block:</small>
-                                    {{if (String(it.stats.pools[pool].name).startsWith("zcash")) { }}
-                                        <a href="https://explorer.zcha.in/blocks/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
-                                    {{ } else if (String(it.stats.pools[pool].name).startsWith("zclassic")) { }}
-                                        <a href="https://classic.zcha.in/blocks/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
-                                    {{ } else if (String(it.stats.pools[pool].name).startsWith("pirate")) { }}
-                                    <a href="http://pirate.explorer.dexstats.info/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
-                                    {{ } else { }}
-                                        {{=block[2]}}
-                                    {{ } }}
-                                    {{if (block[4] != null) { }}
-                                        <span style="padding-left: 18px;"><small>{{=readableDate(block[4])}}</small></span>
-                                    {{ } }}
-                                    <span style="float:right; padding-left: 18px; color: green;"><small>*PAID*</small></span>
-                                </div>
-                                <div><small>Mined By:</small> <a href="/workers/{{=block[3].split('.')[0]}}">{{=block[3].length > 40 ? block[3].substring(0, 10) + '...' + block[3].substring(block[3].length-20, block[3].length): block[3]}}</a></div>
-                            </div>-->
                             <table class="paid">
                                     <tr>
                                         <th>Block</th>
