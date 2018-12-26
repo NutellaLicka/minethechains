@@ -137,19 +137,17 @@
                 </table>
             </div>
         </div>
-</div> 
-{{ } }}
-
-{{ for(var pool in it.stats.pools) { }}
+        
 {{ var blockscomb = new Array; }}
 <div class="flex-container">
     <div class="blockfinds">
             <div class="BlockStats">
-                <div class="pendpaidHeader">Blocks Found &nbsp;&nbsp;
+                <div class="pendpaidHeader"><span id="statsValidBlocks{{=pool}}">{{=it.stats.pools[pool].poolStats.validBlocks}}</span> Blocks Found &nbsp;&nbsp; 
                     <span style="float:right;">
-                <div><span id="statsValidBlocks{{=pool}}">{{=it.stats.pools[pool].poolStats.validBlocks}}</span> Blocks &nbsp;&nbsp;
-                        Paid: <span id="statsTotalPaid{{=pool}}">{{=(parseFloat(it.stats.pools[pool].poolStats.totalPaid)).toFixed(8)}}</span> {{=it.stats.pools[pool].symbol}}
-                </div>&nbsp;&nbsp;</span>
+                        <div>
+                            Paid: <span id="statsTotalPaid{{=pool}}">{{=(parseFloat(it.stats.pools[pool].poolStats.totalPaid)).toFixed(8)}}</span> {{=it.stats.pools[pool].symbol}}
+                        </div>
+                    </span>
                 </div>
 
                 <div class="boxStatsList" style="margin-top: 9px;">
@@ -219,12 +217,12 @@
                                         <td>
                                                 {{if (it.stats.pools[pool].pending.confirms) { }}
                                                 {{if (it.stats.pools[pool].pending.confirms[block[0]]) { }}
-                                                <span style="float:right; color: red;"><small>PENDING</small></span>
+                                                <span style="color: red;"><small>PENDING</small></span>
                                                 {{ } else { }}
-                                                <span style="float:right; color: red;"><small>CONFIRMING</small></span>
+                                                <span style="color: red;"><small>CONFIRMING</small></span>
                                                 {{ } }}
                                             {{ } else { }}
-                                                <span style="float:right; color: red;"><small>CONFIRMING</small></span>
+                                                <span style="color: red;"><small>CONFIRMING</small></span>
                                             {{ } }}
                                         </td>
                                     </tr>
@@ -284,7 +282,7 @@
                                             Amount Here
                                         </td>
                                         <td>
-                                            <span style="float:right; padding-left: 18px; color: green;"><small>PAID</small></span>    
+                                            <span style="color: green;"><small>PAID</small></span>    
                                         </td>
                                     </tr>
                                 </table>
@@ -296,6 +294,7 @@
             </div>
 </div>
 
+</div> 
 {{ } }}
     
 <script>
