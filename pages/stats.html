@@ -207,7 +207,7 @@
                             {{ } }}
 
                     {{ var i=0; for(var b in it.stats.pools[pool].confirmed.blocks) { }}
-                        {{ if (i < 8) { i++; }}
+                        {{ if (i < 10) { i++; }}
                             {{ var block = it.stats.pools[pool].confirmed.blocks[b].split(":"); }}
                             <table class="paid">
                                     <tr>
