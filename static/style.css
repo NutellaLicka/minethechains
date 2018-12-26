@@ -553,6 +553,7 @@ table {
 .pendpaidHeader {
     font-size: 1.3em;
     font-family: var(--font1);
+    color: var(--colour1)
 }
 
 .poolHeader{
