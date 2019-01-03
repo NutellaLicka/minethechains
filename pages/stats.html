@@ -51,7 +51,7 @@
 </div>
 
 {{ for(var pool in it.stats.pools) { }}
-<div id="menu">
+<div id="menu" style="display: block; flex-direction: unset">
     <div class="poolHeader" id="{{=it.stats.pools[pool].name}}">
         {{=it.stats.pools[pool].name}}
     </div>
@@ -162,6 +162,11 @@
                         {{ var block = it.stats.pools[pool].pending.blocks[b].split(":"); }}
                         <div class="boxStatsList">
                                 <table class="pending">
+                                    <col width="40px">
+                                    <col width="150px">
+                                    <col width="250px">
+                                    <col width="30px">
+                                    <col width="75px">
                                     <tr>
                                         <th>Block</th>
                                         <th>Date</th>
