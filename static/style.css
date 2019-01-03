@@ -547,6 +547,14 @@ table {
     width: 100%;
 }
 
+table > paid > tabletop {
+    background-color: var(--colour3)
+}
+
+table > pending > tabletop {
+    background-color: var(--colour1)
+}
+
 .pendpaidHeader {
     font-size: 1.3em;
     font-family: var(--font1);
