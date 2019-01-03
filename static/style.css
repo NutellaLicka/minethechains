@@ -547,11 +547,11 @@ table {
     width: 100%;
 }
 
-.paid > .tabletop {
+#paid th {
     background-color: var(--colour3)
 }
 
-.pending > .tabletop {
+#pending th {
     background-color: var(--colour1)
 }
 
