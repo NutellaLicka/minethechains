@@ -49,6 +49,10 @@ header > .navbar {
     height: 50px;
 }
 
+main > .menupadding {
+    height: 50px;
+}
+
 header > .navbar a{
     float: left;
     display: block;
