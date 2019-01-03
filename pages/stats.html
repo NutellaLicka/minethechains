@@ -161,7 +161,7 @@
                     {{ for(var b in it.stats.pools[pool].pending.blocks) { }}
                         {{ var block = it.stats.pools[pool].pending.blocks[b].split(":"); }}
                         <div class="boxStatsList">
-                                <table class="pending" id="pending">
+                                <table class="pending" id="pendingTable">
                                         <col width="100px">
                                         <col width="300px">
                                         <col width="400px">
@@ -214,7 +214,7 @@
                     {{ var i=0; for(var b in it.stats.pools[pool].confirmed.blocks) { }}
                         {{ if (i < 10) { i++; }}
                             {{ var block = it.stats.pools[pool].confirmed.blocks[b].split(":"); }}
-                            <table class="paid" id="paid">
+                            <table class="paid" id="paidTable">
                                         <col width="100px">
                                         <col width="300px">
                                         <col width="400px">
