@@ -263,10 +263,14 @@
 </div>
 {{ } }}
 
-{{ for(var pool in it.stats.pools[pool].name.startsWith("komodo")) { }}
-    <p>
-        TEST
-    </p>  
+{{ for(var pool in it.stats.pools[pool]) { }}
+{{if (String(it.stats.pools[pool].name).startsWith("komodo")) { }}
+<p>
+    TEST
+</p> 
+{{ } else { }}
+
+{{ } }}
 {{ } }}
 
 <script>
