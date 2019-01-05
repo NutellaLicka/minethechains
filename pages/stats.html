@@ -263,16 +263,6 @@
 </div>
 {{ } }}
 
-{{ for(var pool in it.stats.pools[pool]) { }}
-{{if (String(it.stats.pools[pool].name).startsWith("komodo")) { }}
-<p>
-    TEST
-</p> 
-{{ } else { }}
-
-{{ } }}
-{{ } }}
-
 <script>
     document.querySelector('main').appendChild(document.createElement('script')).src = '/static/stats.js';
 
