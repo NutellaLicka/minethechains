@@ -15,10 +15,7 @@ var func = async() => {
 });
 };
 
-
 const app = document.getElementById('KMDPrice');
-app.appendChild(KMDPrice);
-
 
 
 var poolHashrateData;
