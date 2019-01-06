@@ -8,14 +8,15 @@ const CoinGeckoClient = new CoinGecko();
 var func = async() => {
   let ping = await CoinGeckoClient.ping();
   //let KMDPrice = await CoinGeckoClient.coins.fetch('komodo', {});
-  let KMDPrice = await CoinGeckoClient.coins.simple.price({
+  let KMDPrice = await CoinGeckoClient.simple.price({
     ids: ['komodo'],
     vs_currencies: ['btc', 'usd'],
     include_24hr_vol: ['true'],
 });
 };
 
-const KMDPrice = document.getElementById('KMDPrice');
+const appl = document.getElementById('KMDPrice');
+appl.appendChild(KMDPrice);
 
 var poolHashrateData;
 var poolHashrateChart;
