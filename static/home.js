@@ -16,7 +16,11 @@ var func = async() => {
 };
 
 const appl = document.getElementById('KMDPrice');
+KMDPrice.textContent = CoinGeckoClient.simple.price.ids
+
 appl.appendChild(KMDPrice);
+
+
 
 var poolHashrateData;
 var poolHashrateChart;
