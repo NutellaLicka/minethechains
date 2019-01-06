@@ -8,7 +8,7 @@ const CoinGeckoClient = new CoinGecko();
 var func = async() => {
   let ping = await CoinGeckoClient.ping();
   //let KMDPrice = await CoinGeckoClient.coins.fetch('komodo', {});
-  let KMDPrice = await CoinGeckoClient.simple.price({
+  let KMDPrice = await CoinGeckoClient.coins.simple.price({
     ids: ['komodo'],
     vs_currencies: ['btc', 'usd'],
     include_24hr_vol: ['true'],
