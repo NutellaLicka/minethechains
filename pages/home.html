@@ -78,22 +78,19 @@
             </div>
     </div>
 </div>
-
+{{ } }}
 
 <div id="coinDetails" class="menuHeader">
-{{if (String(it.stats.pools[pool].name).startsWith("komodo")) { }}
-<div class="coinPaprika">
-    <script type="text/javascript" src="https://unpkg.com/@coinpaprika/widget-currency/dist/widget.min.js"></script><div class="coinpaprika-currency-widget cp-widget__night-mode" data-primary-currency="USD" data-currency="kmd-komodo" data-modules='["market_details","chart"]' data-update-active="false"></div>
+    <div class="flex-container">
+        <div class="coinPaprika">
+            <script type="text/javascript" src="https://unpkg.com/@coinpaprika/widget-currency/dist/widget.min.js"></script><div class="coinpaprika-currency-widget cp-widget__night-mode" data-primary-currency="USD" data-currency="kmd-komodo" data-modules='["market_details","chart"]' data-update-active="false"></div>
+        </div>
+
+        <div class="coinPaprika">
+            <script type="text/javascript" src="https://unpkg.com/@coinpaprika/widget-currency/dist/widget.min.js"></script><div class="coinpaprika-currency-widget cp-widget__night-mode" data-primary-currency="USD" data-currency="arrr-pirate" data-modules='["market_details","chart"]' data-update-active="false"></div>
+        </div>
+    </div>
 </div>
-{{ } else if (String(it.stats.pools[pool].name).startsWith("pirate")) { }}
-<div class="coinPaprika">
-    <script type="text/javascript" src="https://unpkg.com/@coinpaprika/widget-currency/dist/widget.min.js"></script><div class="coinpaprika-currency-widget cp-widget__night-mode" data-primary-currency="USD" data-currency="arrr-pirate" data-modules='["market_details","chart"]' data-update-active="false"></div>
-</div>
-{{ } else { }}
-<div class="coinPaprika"></div>
-{{ } }}
-</div>
-{{ } }}
 
 <div id="CompetitionResults" class="menuHeader" style="text-align: center">Christmas Mining Competition Results!</div>
 
