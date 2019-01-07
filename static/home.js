@@ -13,7 +13,13 @@ var func = async() => {
     vs_currencies: ['btc', 'usd'],
     include_24hr_vol: ['true'],
 });
-document.getElementById('KMDPrice').innerHTML =  "Hello"; //info.jsonData[ 0 ].btc;
+
+if (this.readyState == 4 && this.status == 200) {
+    document.getElementById('KMDPrice').innerHTML =  info.jsonData[ 0 ].btc;
+    //document.getElementById("demo").innerHTML =
+    //this.responseText;
+  }
+
 };
 
 
