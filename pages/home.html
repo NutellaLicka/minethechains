@@ -21,15 +21,15 @@
 </div>
 
 {{if (String(it.stats.pools[pool].name).startsWith("komodo")) { }}
-<div class="CMC">
-    <script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/currency.js"></script><div class="coinmarketcap-currency-widget" data-currencyid="1521" data-base="USD" data-secondary="BTC" data-ticker="true" data-rank="true" data-marketcap="true" data-volume="true" data-stats="USD" data-statsticker="false"></div>
+<div class="coinPaprika">
+    <script type="text/javascript" src="https://unpkg.com/@coinpaprika/widget-currency/dist/widget.min.js"></script><div class="coinpaprika-currency-widget cp-widget__night-mode" data-primary-currency="USD" data-currency="kmd-komodo" data-modules='["market_details","chart"]' data-update-active="false"></div>
 </div>
 {{ } else if (String(it.stats.pools[pool].name).startsWith("pirate")) { }}
-<div class="CMC">
-<script type="text/javascript" src="https://unpkg.com/@coinpaprika/widget-currency/dist/widget.min.js"></script><div class="coinpaprika-currency-widget cp-widget__night-mode" data-primary-currency="USD" data-currency="arrr-pirate" data-modules='["market_details"]' data-update-active="true" data-update-timeout="5m"></div>
+<div class="coinPaprika">
+    <script type="text/javascript" src="https://unpkg.com/@coinpaprika/widget-currency/dist/widget.min.js"></script><div class="coinpaprika-currency-widget cp-widget__night-mode" data-primary-currency="USD" data-currency="arrr-pirate" data-modules='["market_details","chart"]' data-update-active="false"></div>
 </div>
 {{ } else { }}
-<div class="CMC"></div>
+<div class="coinPaprika"></div>
 {{ } }}
 
 <div class="flex-container">
