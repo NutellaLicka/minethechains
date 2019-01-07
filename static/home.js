@@ -13,9 +13,9 @@ var func = async() => {
     vs_currencies: ['btc', 'usd'],
     include_24hr_vol: ['true'],
 });
+document.getElementById('KMDPrice').innerHTML =  "Hello"; //info.jsonData[ 0 ].btc;
 };
 
-document.getElementById('KMDPrice').innerHTML =  "Hello"; //info.jsonData[ 0 ].btc;
 
 var poolHashrateData;
 var poolHashrateChart;
