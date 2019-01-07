@@ -217,7 +217,8 @@ footer a{
 
 .CMC {
     width: 400px;
-    background-color: white;
+    color: white;
+    margin: auto;
 }
 
 /* */
