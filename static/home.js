@@ -14,7 +14,7 @@ var func = async() => {
     include_24hr_vol: ['true'],
 });
 
-if (this.readyState == 4 && this.status == 200) {
+if (app.readyState == 4 && app.status == 200) {
     document.getElementById('KMDPrice').innerHTML =  info.jsonData[ 0 ].btc;
     //document.getElementById("demo").innerHTML =
     //this.responseText;
