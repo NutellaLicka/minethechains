@@ -11,6 +11,10 @@
     <div class="welcomeText" style="font-size: 25px; color: var(--colour1); margin: 0px 0px 25px 0px">
         A Komodo & AssetChain Mining Pool
     </div>
+
+    <div class="info" style="font-size: 1.1em">
+        If your AssetChain project is in need of a mining pool, please email minethechain@protonmail.com to enquire about having one set up.
+    </div>
 </div>
 
 <div id="holder">
@@ -49,21 +53,6 @@
                 </div>
      </div>
 
-     <div class="bannerHome">
-        <div class="boxLowerHeaderHome">Pool Workers</div>
-            <div class="infotextHome">
-                    <div><span id="statsMiners{{=pool}}">{{=it.stats.pools[pool].minerCount}}</span> Miners</div>
-                    <div><span id="statsWorkers{{=pool}}">{{=it.stats.pools[pool].workerCount}}</span> Workers</div>
-            </div>
-    </div>
-    
-    <div class="bannerHome">
-        <div class="boxLowerHeaderHome">Pool Luck</div>
-            <div class="infotextHome">
-                    <span id="statsLuckDays{{=pool}}">{{=it.stats.pools[pool].luckDays}}</span> Days
-            </div>
-    </div>
-
     <div class="bannerHome">
             <div class="boxLowerHeaderHome">Blocks Found</div>
                 <div class="infotextHome">
@@ -80,7 +69,7 @@
 </div>
 {{ } }}
 
-<div id="coinDetails" class="menuHeader" style="text-align: center">Coin Information</div>
+<div id="coinDetails" class="menuHeader" style="text-align: center; margin: 10px">Coin Price Information</div>
     <div class="flex-container">
         <div class="coinPaprika">
             <script type="text/javascript" src="https://unpkg.com/@coinpaprika/widget-currency/dist/widget.min.js"></script><div class="coinpaprika-currency-widget cp-widget__night-mode" data-primary-currency="USD" data-currency="kmd-komodo" data-modules='["market_details","chart"]' data-update-active="false"></div>
