@@ -215,6 +215,11 @@ footer a{
     margin: auto;
 }
 
+.CMC {
+    width: 400px;
+    background-color: white;
+}
+
 /* */
 .banner {
     color: var(--colour6);
