@@ -15,8 +15,7 @@ var func = async() => {
 });
 };
 
-const app = document.getElementById('KMDPrice');
-
+document.getElementById('KMDPrice').value = info.jsonData[ 0 ].btc;
 
 var poolHashrateData;
 var poolHashrateChart;
