@@ -15,10 +15,22 @@ var func = async() => {
 });
 
 if (app.readyState == 4 && app.status == 200) {
-    document.getElementById('KMDPrice').innerHTML =  info.jsonData[ 0 ].btc;
+    var price = document.getElementById('KMDPrice');
+    for(var i = 0; i < app.length; i++) {
+        var komodobtc = document.createElement("btcprice");
+        btcprice.innerHTML = komodo[i].btc;
+        price.appendChild(btcprice);
+        var btcvolume = document.createElement("btcvolume");
+        btcvolume.innerHTML = komodo[i].btc_24h_vol;
+        price.appendChild(btcvolume);
+    }
     //document.getElementById("demo").innerHTML =
     //this.responseText;
   }
+else {
+    var price = document.getElementById('KMDPrice');
+    KMDPrice.innerHTML = "API ERROR"
+}
 
 };
 
