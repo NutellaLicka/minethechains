@@ -177,6 +177,7 @@ footer a{
     font-family: var(--font1);
     text-align: center;
     margin: 0px 0px 25px 0px;
+    text-shadow: 5px 5px 7px black;
 }
 .flex-container {
     display: flex;
