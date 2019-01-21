@@ -47,6 +47,7 @@ header > .navbar {
     z-index: 99;
     background-color: var(--colour4);
     height: 50px;
+    border-bottom: 2px solid black
 }
 
 header > .navbar a{
