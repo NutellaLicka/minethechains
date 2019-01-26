@@ -356,12 +356,14 @@ code {
 .poolConfig {
     max-width: 900px;
     background-color: var(--colour3);
-    padding: 20px;
+    padding: 10px;
     margin: 10px;
 }
 
 .configDetails {
-    display: none;
+    background-color: var(--colour1);
+    border-top: 2px solid black;
+
 }
 
 .coinInfoHeader {
