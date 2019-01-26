@@ -348,15 +348,27 @@ code {
     display: block;
     margin: 15px;
     padding: 20px;
-    background-color: var(--colour2);
+    background-color: var(--colour1);
     font-size: 1em;
     color: black;
+}
+
+.poolConfig {
+    max-width: 900px;
+    background-color: var(--colour3);
+    padding: 20px;
+    margin: 10px;
+}
+
+.configDetails {
+    display: none;
 }
 
 .coinInfoHeader {
     color: var(--colour6);
     font-family: var(--font1);
     font-size: 1.4em;
+    text-align: center;
 }
 
 .coinInfoRows {
@@ -370,6 +382,8 @@ code {
     font-family: var(--font2);
     margin: 15px;
 }
+
+
 
 /* *******No idea what this shit is for********** 
 .glow{
