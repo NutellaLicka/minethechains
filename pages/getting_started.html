@@ -33,12 +33,14 @@
                 {{ for (var pool in it.poolsConfigs) { }}
                 <div class="poolConfig">
                         <div class="coinInfoHeader">
-                            {{if (String(it.stats.pools[pool].name).startsWith("n")) { }}
-                            <img style="display: block; margin: auto; padding-top: 15px;" src="/static/images/SaplingUpdatePic.png">
-                            {{ } else if (String(it.stats.pools[pool].name).startsWith("b")) { }}
-                            <img style="display: block; margin: auto; padding-top: 15px;" src="/static/images/SaplingUpdatePic.png">
+                            {{if (String(it.stats.pools[pool].name).startsWith("komodo")) { }}
+                            <img style="display: block; margin: auto; padding-top: 15px;" src="/static/images/KMDlogo.png"><br>
+                            Komodo Configuration<br>
+                            {{ } else if (String(it.stats.pools[pool].name).startsWith("pirate")) { }}
+                            <img style="display: block; margin: auto; padding-top: 15px;" src="/static/images/Plogo.png"><br>
+                            Pirate Configuration<br>
                             {{ } else { }}
-                            <button class="buttonoptions" onclick="configDetailsButton()"><span class="coinInfoName">{{=it.poolsConfigs[pool].coin.name}}</span> Configuration</button>
+                            <span class="coinInfoName">{{=it.poolsConfigs[pool].coin.name}}</span> Configuration<br>
                             {{ } }}
                         </div>
 
