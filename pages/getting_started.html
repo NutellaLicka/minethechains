@@ -31,8 +31,18 @@
         <div class="menuHeader">Pool Configuration Details<a href="#" style="font-size: 0.7em; float: right; color: var(--colour1); padding-right: 15px;">TOP</a></div>
         <div>
                 {{ for (var pool in it.poolsConfigs) { }}
-                    <code>
-                        <div class="coinInfoHeader"><span class="coinInfoName">{{=it.poolsConfigs[pool].coin.name}}</span> Configuration:</div>
+                <div class="poolConfig">
+                        <div class="coinInfoHeader">
+                            {{if (String(it.stats.pools[pool].name).startsWith("komod")) { }}
+                            <img style="display: block; margin: auto; padding-top: 15px;" src="/static/images/SaplingUpdatePic.png">
+                            {{ } else if (String(it.stats.pools[pool].name).startsWith("pirat")) { }}
+                            <img style="display: block; margin: auto; padding-top: 15px;" src="/static/images/SaplingUpdatePic.png">
+                            {{ } else { }}
+                            <button class="buttonoptions" onclick="configDetailsButton()"><span class="coinInfoName">{{=it.poolsConfigs[pool].coin.name}}</span> Configuration</button>
+                            {{ } }}
+                        </div>
+
+                    <div class="configDetails" id="configDetails">
                         <div class="coinInfoRows">
                             <div class="coinInfoRowKeys">
                                 <div>Username:</div>
@@ -60,7 +70,8 @@
                                 {{ } }}
                             </div>
                         </div>
-                    </code>
+                    </div>
+                </div>
                 {{ } }}
         </div>
 
@@ -212,3 +223,14 @@
     </div>
 </div>
 </div>
+
+<script>
+    function configDetailsButton() {
+      var x = document.getElementById("configDetails");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+    }
+</script>
