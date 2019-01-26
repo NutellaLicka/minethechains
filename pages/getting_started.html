@@ -33,9 +33,9 @@
                 {{ for (var pool in it.poolsConfigs) { }}
                 <div class="poolConfig">
                         <div class="coinInfoHeader">
-                            {{if (String(it.stats.pools[pool].name).startsWith("komod")) { }}
+                            {{if (String(it.stats.pools[pool].name).startsWith("n")) { }}
                             <img style="display: block; margin: auto; padding-top: 15px;" src="/static/images/SaplingUpdatePic.png">
-                            {{ } else if (String(it.stats.pools[pool].name).startsWith("pirat")) { }}
+                            {{ } else if (String(it.stats.pools[pool].name).startsWith("b")) { }}
                             <img style="display: block; margin: auto; padding-top: 15px;" src="/static/images/SaplingUpdatePic.png">
                             {{ } else { }}
                             <button class="buttonoptions" onclick="configDetailsButton()"><span class="coinInfoName">{{=it.poolsConfigs[pool].coin.name}}</span> Configuration</button>
