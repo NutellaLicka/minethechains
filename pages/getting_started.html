@@ -34,13 +34,13 @@
                 <div class="poolConfig">
                         <div class="coinInfoHeader">
                             {{if (String(it.stats.pools[pool].name).startsWith("komodo")) { }}
-                            <img style="display: block; margin: auto; padding-top: 15px;" src="/static/images/KMDlogo.png"><br>
-                            Komodo Configuration<br>
+                            <img class="coinLogo" src="/static/images/KMDlogo.png"><br>
+                            Komodo Configuration
                             {{ } else if (String(it.stats.pools[pool].name).startsWith("pirate")) { }}
-                            <img style="display: block; margin: auto; padding-top: 15px;" src="/static/images/Plogo.png"><br>
-                            Pirate Configuration<br>
+                            <img class="coinLogo" style="width: 250px" src="/static/images/PirateLogo.png"><br>
+                            Pirate Configuration
                             {{ } else { }}
-                            <span class="coinInfoName">{{=it.poolsConfigs[pool].coin.name}}</span> Configuration<br>
+                            <span class="coinInfoName">{{=it.poolsConfigs[pool].coin.name}}</span> Configuration
                             {{ } }}
                         </div>
 
@@ -62,13 +62,14 @@
                                     {{ } else if (it.poolsConfigs[pool].coin) { }}
                                         your {{=it.poolsConfigs[pool].coin.name}} wallet address
                                     {{ } else { }}
-                                        your public key
+                                        
                                     {{ } }}
                                 </div>
+
                                 <div>anything</div>
                                 <div>{{=it.poolsConfigs[pool].coin.algorithm}}</div>
                                 {{ for (var port in it.poolsConfigs[pool].ports) { }}
-                                    <div class="coinInfoData">{{=it.portalConfig.website.stratumHost}}:{{=port}}</div>
+                                    <div class="coinInfoData">{{=it.portalConfig.website.stratumHost}} Port:{{=port}}</div>
                                 {{ } }}
                             </div>
                         </div>
