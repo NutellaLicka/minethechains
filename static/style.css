@@ -357,7 +357,8 @@ code {
     max-width: 900px;
     background-color: var(--colour3);
     padding: 10px;
-    margin: 10px;
+    margin: auto;
+    margin-top: 20px;
 }
 
 .configDetails {
@@ -366,6 +367,10 @@ code {
 
 }
 
+.coinLogo {
+    height: 75px;
+    width: 75px;
+}
 .coinInfoHeader {
     color: var(--colour6);
     font-family: var(--font1);
@@ -492,6 +497,7 @@ a.miningOption:hover{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 250px;
 }
 #coinInfoRows > div > div,
 .coinInfoRows > div > div {
