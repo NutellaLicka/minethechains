@@ -50,8 +50,9 @@
                                 <div>Username:</div>
                                 <div>Password:</div>
                                 <div>Algorithm:</div>
+                                <div>Server/Stratum:</div>
                                 {{ for (var port in it.poolsConfigs[pool].ports) { }}
-                                    <div class="coinInfoData">{{= it.poolsConfigs[pool].ports[port].label ? it.poolsConfigs[pool].ports[port].label : 'URL'}}</div>
+                                    <div>{{= it.poolsConfigs[pool].ports[port].label ? it.poolsConfigs[pool].ports[port].label : 'URL'}} Port</div>
                                 {{ } }}
                             </div>
                             <div class="coinInfoRowValues">
@@ -65,12 +66,11 @@
                                         
                                     {{ } }}
                                 </div>
-
                                 <div>anything</div>
                                 <div>{{=it.poolsConfigs[pool].coin.algorithm}}</div>
+                                <div>{{=it.portalConfig.website.stratumHost}}</div>
                                 {{ for (var port in it.poolsConfigs[pool].ports) { }}
-                                    <div class="coinInfoData">Server/Stratum: {{=it.portalConfig.website.stratumHost}}</div>
-                                    <div>Port: {{=port}}</div>
+                                    <div>{{=port}}</div>
                                 {{ } }}
                             </div>
                         </div>
