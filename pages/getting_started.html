@@ -69,7 +69,8 @@
                                 <div>anything</div>
                                 <div>{{=it.poolsConfigs[pool].coin.algorithm}}</div>
                                 {{ for (var port in it.poolsConfigs[pool].ports) { }}
-                                    <div class="coinInfoData">{{=it.portalConfig.website.stratumHost}} Port:{{=port}}</div>
+                                    <div class="coinInfoData">Server/Stratum: {{=it.portalConfig.website.stratumHost}}</div>
+                                    <div>Port: {{=port}}</div>
                                 {{ } }}
                             </div>
                         </div>
