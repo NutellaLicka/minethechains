@@ -162,80 +162,27 @@
                         ./komodo-cli -ac_name=PIRATE z_gettotalbalance
                     </code>
                 </div>
+
                 <div>Send your coins:
                     <code>
-                        ./komodo-cli -ac_name=PIRATE z_sendmany "fromZSaddress" '[{"address": "toZSaddress" ,"amount": ...}]'
+                        ./komodo-cli -ac_name=PIRATE z_sendmany "fromZSaddress" '[{"address": "toZSaddress" ,"amount": 1000}]'
                     </code>
                 </div>
 
-                <div>Merge UTXO's:
-                    <code>
-                        ./komodo-cli -ac_name=PIRATE z_mergetoaddress "ZSaddress" "ZSaddress"
-                    </code>
-                </div>
-            For more information visit the <a href="https://pirate.black/" target="_blank" style="color: var(--colour1)">pirate.black website.</a>
-        </div>
-        
-        <div id="zMigrate" style="height:50px"></div>
-
-        <div class="menuHeader">How to update to Sapling<a href="#" style="font-size: 0.7em; float: right; color: var(--colour1); padding-right: 15px;">TOP</a></div>
-        <div class="sectionwords">
-            <p>
-            As of the recent hardfork for the Komodo Platform and all Asset Chains, Sapling has now been integrated. You are required to move ALL of your funds from your current Sprout addresses to the new Sapling addresses prior to the 1st of February 2019(to ensure you have enough time to migrate). After Feb the 15th, any funds in Transparent or Sprout addresses will be unusable and effectively burnt.
-            </p>
-            <p>
-            For more information on the Sapling upgrade, refer to the links listed, or join the <a href="https://discord.gg/Gs9rj4a" target="_blank" style="color: var(--colour1)">Pirate</a> & <a href="https://discord.gg/QeukYy6" target="_blank" style="color: var(--colour1)">Komodo</a> discord.
-            </p>
-            <p>
-                <a href="https://techloverhd.com/2018/12/full-speed-ahead-the-first-sapling-specific-privacy-chain-is-here/" target="_blank" style="color: var(--colour1)">Pirate Sapling Upgrade Article</a><br>
-                <a href="https://komodoplatform.com/sapling-unifying-blockchain-technology/" target="_blank" style="color: var(--colour1)">Komodo Platform Blockchain Update Article</a><br>
-                <a href="https://github.com/PirateNetwork/docs/wiki/How-to-Migrate-Pirate-(ARRR)-from-sprout-address-to-sapling-address" target="_blank" style="color: var(--colour1)">Pirate GIT guide</a>
-            </p>
-            <ol>
-                <li>Generate a Transparent Address(starts with an R)
-                    <code>
-                        ./komodo-cli -ac_name=PIRATE getnewaddress
-                    </code>
-                </li>
-                <li>Generate a new Sapling address(starts with zS)
+                <div>Generate a new Sapling address(starts with zS)
                     <code>
                         ./komodo-cli -ac_name=PIRATE z_getnewaddress
                     </code>
-                </li>   
-                <li>Create a specific sized UTXO in your sprout address (send the funds to yourself or a new sprout address). In this example we use 1000 ARRR and 0.0002 for transaction fees.
+                </div>   
+
+                <div>Create a specific sized UTXO in your sprout address (send the funds to yourself or a new sprout address). In this example we use 1000 ARRR and 0.0002 for transaction fees.
                     <code>
-                        ./komodo-cli -ac_name=PIRATE z_sendmany "sproutzaddr" '[{"address":"sproutzaddr","amount": 1000.0002}]'
+                        ./komodo-cli -ac_name=PIRATE z_sendmany "zaddr" '[{"address":"zaddr","amount": 1000}]'
                     </code>
-                </li> 
-                <li>Send your current funds from your Sprout address(zC) to your transaprent address (zC -> R)
-                    <code>
-                        ./komodo-cli -ac_name=PIRATE z_sendmany "sproutzaddr" '[{"address":"taddr","amount": 1000.0001}]'
-                    </code>
-                </li>
-                <li>Send your funds from your Transparent address to your Sapling address (R -> zS)
-                    <code>
-                        ./komodo-cli -ac_name=PIRATE z_sendmany "taddr" '[{"address":"saplingaddr","amount": 1000}]'
-                    </code>
-                </li>
-            </ol>
-            <p>As you'll notice, the total amount in the transactions is decreasing by the 0.0001 transaction fee each time.</p>
-            <p>You are also able to use the zMigrate cli dAPP. You can build that as per the instructions below. Or wait for a GUI client to come out (roughly 20th Dec)</p>
-            <code>
-                cd ~/komodo/src
-            </code>
-            <code>
-                cc/dapps/makedapps 
-            </code>
-            <code>
-                ./zmigrate PIRATE saplingzaddr
-            </code>
-            <p>Repeat this ./zmigrate command until you have no funds left to migrate</p>
+                </div> 
+            For more information visit the <a href="https://pirate.black/" target="_blank" style="color: var(--colour1)">pirate.black website.</a>
         </div>
-
-
-
     </div>
-</div>
 </div>
 
 <script>
