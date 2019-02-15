@@ -23,7 +23,6 @@
             <a href="#poolDetails"><button class="buttonoptions">Pool Details</button></a>
             <a href="#gpuMining"><button class="buttonoptions">GPU Mining</button></a>
             <a href="#createWallet"><button class="buttonoptions">Pirate Info</button></a>
-            <a href="#zMigrate"><button class="buttonoptions">zMigrate</button></a>
     </div>
 
 <div id="menu">    
@@ -175,11 +174,12 @@
                     </code>
                 </div>   
 
-                <div>Create a specific sized UTXO in your sprout address (send the funds to yourself or a new sprout address). In this example we use 1000 ARRR and 0.0002 for transaction fees.
+                <div>Create a specific sized UTXO in your wallet.
                     <code>
-                        ./komodo-cli -ac_name=PIRATE z_sendmany "zaddr" '[{"address":"zaddr","amount": 1000}]'
+                        ./komodo-cli -ac_name=PIRATE z_sendmany "zaddr1" '[{"address":"zaddr1","amount": 1000}]'
                     </code>
                 </div> 
+                
             For more information visit the <a href="https://pirate.black/" target="_blank" style="color: var(--colour1)">pirate.black website.</a>
         </div>
     </div>
