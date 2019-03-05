@@ -13,9 +13,6 @@ request.onload = function () {
   if (request.status >= 200 && request.status < 400) {
     document.getElementById("pirateHash").innerHTML = dataa.btc;
 
-    const h1 = document.createElement('h1');
-      h1.textContent = dataa.btc;
-
   } else {
     document.getElementById("pirateHash").innerHTML = "err";
 
