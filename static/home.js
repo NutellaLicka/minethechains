@@ -4,10 +4,45 @@ request('https://dexstats.info/api/miningcalculator.php?coin=PIRATE&yoursol=1000
   console.log('error:', error); // Print the error if one occurred
 
   console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-  
+
   console.log('body:', body); // Print the HTML for the Google homepage.
 });
 //111111
+
+//.....
+const hash = document.getElementById('pirateHash');
+
+// Create a request variable and assign a new XMLHttpRequest object to it.
+var request = new XMLHttpRequest();
+// Open a new connection, using the GET request on the URL endpoint
+request.open('GET', 'https://dexstats.info/api/miningcalculator.php?coin=PIRATE&yoursol=10000&include=1', true);
+request.onload = function () {
+  // Begin accessing JSON data here
+  var dataa = JSON.parse(this.response);
+
+  // Log each expectedcoins
+  if (request.status >= 200 && request.status < 400) {
+    document.getElementById("pirateHash").innerHTML = dataa.expectedcoins;
+
+    const h1 = document.createElement('h1');
+      h1.textContent = dataa.expectedcoins;
+
+  } else {
+    document.getElementById("pirateHash").innerHTML = "err";
+
+    const h1 = document.createElement('h1');
+    h1.textContent = 'Error!';
+
+    console.log('error!');
+  }
+
+};
+
+// Send request
+request.send();
+
+
+//.....
 
 
 var poolHashrateData;
