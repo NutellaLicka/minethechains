@@ -1,11 +1,9 @@
-console.log('hello world');
-
 //.....
 const hash = document.getElementById('pirateHash');
 
 const container = document.createElement('div');
 
-app.appendChild(container);
+hash.appendChild(container);
 
 // Create a request variable and assign a new XMLHttpRequest object to it.
 var request = new XMLHttpRequest();
