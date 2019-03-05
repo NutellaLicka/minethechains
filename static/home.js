@@ -1,38 +1,4 @@
-//1. Import coingecko-api
-const CoinGecko = require('coingecko-api');
-
-//2. Initiate the CoinGecko API Client
-const CoinGeckoClient = new CoinGecko();
-
-//3. Make calls
-var func = async() => {
-  let ping = await CoinGeckoClient.ping();
-  //let KMDPrice = await CoinGeckoClient.coins.fetch('komodo', {});
-  let app = await CoinGeckoClient.simple.price({
-    ids: ['komodo'],
-    vs_currencies: ['btc', 'usd'],
-    include_24hr_vol: ['true'],
-});
-
-if (app.readyState == 4 && app.status == 200) {
-    var price = document.getElementById('KMDPrice');
-    for(var i = 0; i < app.length; i++) {
-        var komodobtc = document.createElement("btcprice");
-        btcprice.innerHTML = komodo[i].btc;
-        price.appendChild(btcprice);
-        var btcvolume = document.createElement("btcvolume");
-        btcvolume.innerHTML = komodo[i].btc_24h_vol;
-        price.appendChild(btcvolume);
-    }
-    //document.getElementById("demo").innerHTML =
-    //this.responseText;
-  }
-else {
-    var price = document.getElementById('KMDPrice');
-    KMDPrice.innerHTML = "API ERROR"
-}
-
-};
+console.log('hello world');
 
 //.....
 const hash = document.getElementById('pirateHash');
