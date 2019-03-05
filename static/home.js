@@ -1,37 +1,24 @@
-//.....
-const hash = document.getElementById('pirateHash');
+//111111
+const https = require('https');
 
-// Create a request variable and assign a new XMLHttpRequest object to it.
-var request = new XMLHttpRequest();
-// Open a new connection, using the GET request on the URL endpoint
-request.open('GET', 'https://dexstats.info/api/miningcalculator.php?coin=PIRATE&yoursol=10000&include=1', true);
-request.onload = function () {
-  // Begin accessing JSON data here
-  var dataa = JSON.parse(this.response);
+https.get('https://dexstats.info/api/miningcalculator.php?coin=PIRATE&yoursol=10000&include=1', (resp) => {
+  let data = '';
 
-  // Log each expectedcoins
-  if (request.status >= 200 && request.status < 400) {
-    document.getElementById("pirateHash").innerHTML = dataa.expectedcoins;
+  // A chunk of data has been recieved.
+  resp.on('data', (chunk) => {
+    data += chunk;
+  });
 
-    const h1 = document.createElement('h1');
-      h1.textContent = dataa.expectedcoins;
+  // The whole response has been received. Print out the result.
+  resp.on('end', () => {
+    console.log(JSON.parse(data).expectedcoins);
+  });
 
-  } else {
-    document.getElementById("pirateHash").innerHTML = "err";
+}).on("error", (err) => {
+  console.log("Error: " + err.message);
+});
 
-    const h1 = document.createElement('h1');
-    h1.textContent = 'Error!';
-
-    console.log('error!');
-  }
-
-};
-
-// Send request
-request.send();
-
-
-//.....
+//111111
 
 
 var poolHashrateData;
