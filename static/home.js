@@ -7,12 +7,11 @@ var request = new XMLHttpRequest();
 request.open('GET', 'https://api.coingecko.com/api/v3/simple/price?ids=komodo&vs_currencies=btc&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true&include_last_updated_at=true');
 request.onload = function () {
   // Begin accessing JSON data here
-  var dataa = JSON.parse(this.response.komodo);
-
+  var dataa = JSON.parse(this.response);
   // Log each kmd to btc price
   if (request.status >= 200 && request.status < 400) {
-    document.getElementById("pirateHash").innerHTML = Data.btc;
-    console.log(Data.btc_market_cap);
+    document.getElementById("pirateHash").innerHTML = dataa.komodo.btc;
+    console.log(dataa.komodo.btc_market_cap);
   } else {
     document.getElementById("pirateHash").innerHTML = "err";
 
