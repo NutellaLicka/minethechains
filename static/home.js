@@ -60,6 +60,8 @@ request.onload = function () {
     //document.getElementById("pirateHash").innerHTML = "Error!";
     const h1 = document.createElement('h1');
     h1.textContent = 'Error!';
+
+    console.log('error!');
   }
 
 };
