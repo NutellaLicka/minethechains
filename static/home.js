@@ -4,7 +4,7 @@ const hash = document.getElementById('pirateHash');
 // Create a request variable and assign a new XMLHttpRequest object to it.
 var request = new XMLHttpRequest();
 // Open a new connection, using the GET request on the URL endpoint
-request.open('GET', 'https://api.coingecko.com/api/v3/simple/price?ids=komodo&vs_currencies=btc');
+request.open('GET', 'https://api.coingecko.com/api/v3/simple/price?ids=komodo&vs_currencies=btc1');
 request.onload = function () {
   // Begin accessing JSON data here
   var dataa = JSON.parse(this.response);
