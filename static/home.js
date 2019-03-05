@@ -4,7 +4,7 @@ const hash = document.getElementById('pirateHash');
 // Create a request variable and assign a new XMLHttpRequest object to it.
 var request = new XMLHttpRequest();
 // Open a new connection, using the GET request on the URL endpoint
-request.open('GET', 'https://api.coingecko.com/api/v3/simple/price?ids=komodo&vs_currencies=btc1');
+request.open('GET', 'https://api.coingecko.com/api/v3/simple/price?ids=komodo&vs_currencies=btc&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true&include_last_updated_at=true');
 request.onload = function () {
   // Begin accessing JSON data here
   var dataa = JSON.parse(this.response);
@@ -12,12 +12,10 @@ request.onload = function () {
   // Log each kmd to btc price
   if (request.status >= 200 && request.status < 400) {
     document.getElementById("pirateHash").innerHTML = dataa.btc;
-
+    console.log(dataa.btc_market_cap);
   } else {
     document.getElementById("pirateHash").innerHTML = "err";
 
-    const h1 = document.createElement('h1');
-    h1.textContent = 'Error!';
 
     console.log('error!');
   }
