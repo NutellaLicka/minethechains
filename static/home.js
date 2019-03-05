@@ -1,23 +1,12 @@
 //111111
-const http = require('http');
+var request = require('request');
+request('https://dexstats.info/api/miningcalculator.php?coin=PIRATE&yoursol=10000&include=1', function (error, response, body) {
+  console.log('error:', error); // Print the error if one occurred
 
-http.get('https://dexstats.info/api/miningcalculator.php?coin=PIRATE&yoursol=10000&include=1', (resp) => {
-  let data = '';
-
-  // A chunk of data has been recieved.
-  resp.on('data', (chunk) => {
-    data += chunk;
-  });
-
-  // The whole response has been received. Print out the result.
-  resp.on('end', () => {
-    console.log(JSON.parse(data).expectedcoins);
-  });
-
-}).on("error", (err) => {
-  console.log("Error: " + err.message);
+  console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+  
+  console.log('body:', body); // Print the HTML for the Google homepage.
 });
-
 //111111
 
 
