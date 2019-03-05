@@ -1,7 +1,7 @@
 //111111
-const https = require('https');
+const http = require('http');
 
-https.get('https://dexstats.info/api/miningcalculator.php?coin=PIRATE&yoursol=10000&include=1', (resp) => {
+http.get('https://dexstats.info/api/miningcalculator.php?coin=PIRATE&yoursol=10000&include=1', (resp) => {
   let data = '';
 
   // A chunk of data has been recieved.
