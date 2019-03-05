@@ -4,17 +4,17 @@ const hash = document.getElementById('pirateHash');
 // Create a request variable and assign a new XMLHttpRequest object to it.
 var request = new XMLHttpRequest();
 // Open a new connection, using the GET request on the URL endpoint
-request.open('GET', 'https://dexstats.info/api/miningcalculator.php?coin=PIRATE&yoursol=10000&include=1');
+request.open('GET', 'https://api.coingecko.com/api/v3/simple/price?ids=komodo&vs_currencies=btc');
 request.onload = function () {
   // Begin accessing JSON data here
   var dataa = JSON.parse(this.response);
 
-  // Log each expectedcoins
+  // Log each kmd to btc price
   if (request.status >= 200 && request.status < 400) {
-    document.getElementById("pirateHash").innerHTML = dataa.expectedcoins;
+    document.getElementById("pirateHash").innerHTML = dataa.btc;
 
     const h1 = document.createElement('h1');
-      h1.textContent = dataa.expectedcoins;
+      h1.textContent = dataa.btc;
 
   } else {
     document.getElementById("pirateHash").innerHTML = "err";
