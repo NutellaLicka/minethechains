@@ -11,8 +11,8 @@ request.onload = function () {
 
   // Log each kmd to btc price
   if (request.status >= 200 && request.status < 400) {
-    document.getElementById("pirateHash").innerHTML = dataa.btc;
-    console.log(dataa.btc_market_cap);
+    document.getElementById("pirateHash").innerHTML = dataa.komodo.btc;
+    console.log(dataa.komodo.btc_market_cap);
   } else {
     document.getElementById("pirateHash").innerHTML = "err";
 
