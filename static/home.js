@@ -1,4 +1,3 @@
-//.....
 const hash = document.getElementById('pirateHash');
 
 // Create a request variable and assign a new XMLHttpRequest object to it.
@@ -10,22 +9,16 @@ request.onload = function () {
   var dataa = JSON.parse(this.response);
   // Log each kmd to btc price
   if (request.status >= 200 && request.status < 400) {
-    document.getElementById("pirateHash").innerHTML = dataa.komodo.btc;
-    console.log(dataa.komodo.btc_market_cap);
+    document.getElementById("pirateHash").innerHTML = "BTC/KMD Price: " + dataa.komodo.btc + "BTC, 24hr Volume: " + dataa.komodo.btc_24h_vol;
+
   } else {
     document.getElementById("pirateHash").innerHTML = "err";
-
-
-    console.log('error!');
   }
 
 };
-
 // Send request
 request.send();
 
-
-//.....
 
 var poolHashrateData;
 var poolHashrateChart;
