@@ -1,25 +1,37 @@
-//111111
+//.....
 const hash = document.getElementById('pirateHash');
 
-var request = require('request');
-request('https://dexstats.info/api/miningcalculator.php?coin=PIRATE&yoursol=10000&include=1', function (error, response, body) {
-    if (request.status >= 200 && request.status < 400) {
-        document.getElementById("pirateHash").innerHTML = dataa.expectedcoins;
-    
-        const h1 = document.createElement('h1');
-          h1.textContent = dataa.expectedcoins;
-    
-      } else {
-        document.getElementById("pirateHash").innerHTML = "err";
-    
-        const h1 = document.createElement('h1');
-        h1.textContent = 'Error!';
-    
-        console.log('error!');
-      }
+// Create a request variable and assign a new XMLHttpRequest object to it.
+var request = new XMLHttpRequest();
+// Open a new connection, using the GET request on the URL endpoint
+request.open('https://dexstats.info/api/miningcalculator.php?coin=PIRATE&yoursol=10000&include=1');
+request.onload = function () {
+  // Begin accessing JSON data here
+  var dataa = JSON.parse(this.response);
 
-});
-//111111
+  // Log each expectedcoins
+  if (request.status >= 200 && request.status < 400) {
+    document.getElementById("pirateHash").innerHTML = dataa.expectedcoins;
+
+    const h1 = document.createElement('h1');
+      h1.textContent = dataa.expectedcoins;
+
+  } else {
+    document.getElementById("pirateHash").innerHTML = "err";
+
+    const h1 = document.createElement('h1');
+    h1.textContent = 'Error!';
+
+    console.log('error!');
+  }
+
+};
+
+// Send request
+request.send();
+
+
+//.....
 
 var poolHashrateData;
 var poolHashrateChart;
