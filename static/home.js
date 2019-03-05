@@ -1,10 +1,6 @@
 //.....
 const hash = document.getElementById('pirateHash');
 
-const container = document.createElement('div');
-
-hash.appendChild(container);
-
 // Create a request variable and assign a new XMLHttpRequest object to it.
 var request = new XMLHttpRequest();
 // Open a new connection, using the GET request on the URL endpoint
@@ -15,13 +11,14 @@ request.onload = function () {
 
   // Log each expectedcoins
   if (request.status >= 200 && request.status < 400) {
-    //document.getElementById("pirateHash").innerHTML = dataa.expectedcoins;
+    document.getElementById("pirateHash").innerHTML = dataa.expectedcoins;
 
     const h1 = document.createElement('h1');
       h1.textContent = dataa.expectedcoins;
 
   } else {
-    //document.getElementById("pirateHash").innerHTML = "Error!";
+    document.getElementById("pirateHash").innerHTML = "err";
+
     const h1 = document.createElement('h1');
     h1.textContent = 'Error!';
 
