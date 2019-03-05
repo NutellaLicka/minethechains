@@ -35,22 +35,31 @@ else {
 };
 
 //.....
+const hash = document.getElementById('pirateHash');
+
+const container = document.createElement('div');
+
+app.appendChild(container);
 
 // Create a request variable and assign a new XMLHttpRequest object to it.
 var request = new XMLHttpRequest();
-
 // Open a new connection, using the GET request on the URL endpoint
 request.open('GET', 'https://dexstats.info/api/miningcalculator.php?coin=PIRATE&yoursol=10000&include=1', true);
-
 request.onload = function () {
   // Begin accessing JSON data here
   var dataa = JSON.parse(this.response);
 
   // Log each expectedcoins
   if (request.status >= 200 && request.status < 400) {
-    document.getElementById("pirateHash").innerHTML = dataa.expectedcoins;
+    //document.getElementById("pirateHash").innerHTML = dataa.expectedcoins;
+
+    const h1 = document.createElement('h1');
+      h1.textContent = dataa.expectedcoins;
+
   } else {
-    document.getElementById("pirateHash").innerHTML = "Error!";
+    //document.getElementById("pirateHash").innerHTML = "Error!";
+    const h1 = document.createElement('h1');
+    h1.textContent = 'Error!';
   }
 
 };
