@@ -3,12 +3,16 @@
 <div id="topCharts">
     <div class="chartWrapper">
 		<div class="chartLabel" style="font-size: 1.5em">
+			{{ for(var pool in it.stats.pools) { }}
+
 			{{if (String(it.stats.pools[pool].name).startsWith("komodo")) { }}
 				<div>{{=it.stats.pools[pool].name}} Mining Stats</div>
 				{{ } else if (String(it.stats.pools[pool].name).startsWith("pirate")) { }}
 				<div>{{=it.stats.pools[pool].name}} Mining Stats</div>
 				{{ } else { }}
-					{{=block[2]}}
+				<div>Mining Worker Stats</div>>
+			{{ } }}
+			
 			{{ } }}
 			<!--<div style="float:left; padding-right: 18px;"><span id="statsWorkers">...</span></div>-->			
             <div style="float:left; margin-right: 9px;">{{=String(it.stats.address).split(".")[0].length > 40 ? String(it.stats.address).split(".")[0].substring(0, 10) + '...' + String(it.stats.address).split(".")[0].substring(String(it.stats.address).split(".")[0].length-10, String(it.stats.address).split(".")[0].length): String(it.stats.address).split(".")[0]}}</div>
