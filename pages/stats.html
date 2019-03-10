@@ -33,7 +33,7 @@
 </style>
         
 {{ function capitalizeFirstLetter(t){return t.charAt(0).toUpperCase()+t.slice(1)} }}
-<!--{{ function readableDate(a){ return new Date(parseInt(a)).toString(); } }}-->
+{{ function readableDate(a){ return new Date(parseInt(a)).toUTCString(); } }}
 
 <div class="GS-menu">
         {{ for(var pool in it.stats.pools) { }}
