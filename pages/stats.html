@@ -33,7 +33,7 @@
 </style>
         
 {{ function capitalizeFirstLetter(t){return t.charAt(0).toUpperCase()+t.slice(1)} }}
-{{ function readableDate(a){ return new Date(parseInt(a)).toUTCString(); } }}
+{{ function readableDate(a){ return new Date(parseInt(a)).toTimeString(); } }}
 
 <div class="GS-menu">
         {{ for(var pool in it.stats.pools) { }}
@@ -164,9 +164,9 @@
                                 <table class="pending" id="pendingTable">
                                         <col width="100px">
                                         <col width="300px">
-                                        <col width="400px">
+                                        <col width="350px">
                                         <col width="100px">
-                                        <col width="100px">
+                                        <col width="150px">
                                     <tr>
                                         <th>Block</th>
                                         <th>Date</th>
@@ -217,9 +217,9 @@
                             <table class="paid" id="paidTable">
                                         <col width="100px">
                                         <col width="300px">
-                                        <col width="400px">
+                                        <col width="350px">
                                         <col width="100px">
-                                        <col width="100px">
+                                        <col width="150px">
                                     <tr>
                                         <th>Block</th>
                                         <th>Date</th>
