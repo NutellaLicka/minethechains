@@ -225,18 +225,22 @@ footer a{
 .features {
     width: 300px;
     height: 300px;
+    margin: 10px;
 }
 
 .fHead {
     color: var(--colour1);
     text-align: center;
     font-size: 3em;
+    font-family: var(--font3);
+    height: 75px;
 }
 
 .fBody {
     color: var(--colour2);
-    text-align: center:
+    text-align: center;
     font-size: 1.5em;
+    font-family: var(--font4)
 }
 
 .fLogo {
