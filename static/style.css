@@ -222,6 +222,27 @@ footer a{
     padding: 0px 5px 0px 5px;
 }
 
+.features {
+    width: 300px;
+    height: 300px;
+}
+
+.features.fHead {
+    color: var(--colour1);
+    text-align: center;
+    font-size: 3em;
+}
+
+.features.fBody {
+    color: var(--colour2);
+    text-align: center:
+    font-size: 1.5em;
+}
+
+.features.fLogo {
+    width: 100px;
+}
+
 /* */
 .banner {
     color: var(--colour6);
