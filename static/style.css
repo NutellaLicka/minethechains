@@ -250,6 +250,10 @@ footer a{
     margin-bottom: 20px;
 }
 
+.mainLogo {
+    height: 150px;
+}
+
 /* */
 .banner {
     color: var(--colour6);
