@@ -48,15 +48,23 @@
     .lookUp {
         display: none;
     } 
+
+    .navbar {
+        overflow: hidden;
+    }
+
+    .navbar #myLinks {
+        display: none;
+    }
+
+    #mobileButton {
+        display: block;
+    }
 }
 
-@media screen and (max-width: 400px) {
-    .lookUp {
-    display: none;
-    } 
- }
-
-
+    #mobileButton {
+        display: none;
+    }
 </style>
 <script type="text/javascript"> 
     function searchKeyPress(e)
@@ -75,13 +83,22 @@
             window.location = "workers/" + $('.input-lg').val();
         });
     });
+
+    function mobileFunction() {
+    var x = document.getElementById("myLinks");
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
+    }
+    }
 </script>
 
 <div class="navbar">
         <a class="home" href="/">
             HOME
         </a>
-
+    <div id="myLinks">
         <a href="/getting_started">
             GETTING STARTED
         </a>
@@ -101,7 +118,13 @@
         <a href="/api">
             API
         </a>
-       
+    </div>
+
+    <div id="mobileButton">
+    <a href="javascript:void(0);" class="mobileMenuIcon" onclick="mobileFunction()">
+    <i class="fa fa-bars"></i>
+    </div>
+
         <span style="float:right; padding: 10px">
             <div class="lookUp" id="lookUp">Miner Search: 
             <input type="text" class="form-control input-lg" onkeypress="return searchKeyPress(event);">
