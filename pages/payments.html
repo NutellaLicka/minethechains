@@ -28,7 +28,7 @@
     <div class="poolWrapper">
             <div class="poolLabel">
                 <div class="header" style="font-size: 1.4em">{{=it.stats.pools[pool].name}} Payments List &nbsp;&nbsp;</div>				
-                    <div><span id="statsTotalPaid{{=pool}}">{{=(parseFloat(it.stats.pools[pool].poolStats.totalPaid)).toFixed(8)}}</span> Total Paid </div>
+                    <div><span id="statsTotalPaid{{=pool}}">{{=(parseFloat(it.stats.pools[pool].poolStats.totalPaid)).toFixed(4)}}</span> Total Paid </div>
             </div>
     </div>
 
@@ -48,10 +48,8 @@
             <tbody>
                 <tr>
                 <td class="paymentblocks" title="{{=it.stats.pools[pool].payments[p].opid}}">
-                    {{if (String(it.stats.pools[pool].name).startsWith("zcash")) { }}
-                        <a href="https://explorer.zcha.in/tx/{{=it.stats.pools[pool].payments[p].txid}}"  title="View transaction" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}}</a>
-                    {{ } else if (String(it.stats.pools[pool].name).startsWith("komodo")) { }}
-                        <a href="http://kmd.explorer.dexstats.info/tx/{{=it.stats.pools[pool].payments[p].txid}}"  title="View transaction" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}}</a>
+                    {{if (String(it.stats.pools[pool].name).startsWith("komodo")) { }}
+                        <a href="https://kmdexplorer.io/tx/{{=it.stats.pools[pool].payments[p].txid}}"  title="View transaction" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}}</a>
                     {{ } else if (typeof it.stats.pools[pool].payments[p].txid !== 'undefined' && String(it.stats.pools[pool].name).startsWith("pirate")) { }}
                         <a href="http://pirate.explorer.dexstats.info/tx/{{=it.stats.pools[pool].payments[p].txid}}"  title="View transaction" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}}</a>
                     {{ } else { }}
@@ -61,7 +59,7 @@
             <td>{{=readableDate(it.stats.pools[pool].payments[p].time)}}</td>
             <td>{{=it.stats.pools[pool].payments[p].miners}}</td>
             <td>{{=Math.round(it.stats.pools[pool].payments[p].shares)}}</td>
-            <td>{{=it.stats.pools[pool].payments[p].paid}} {{=it.stats.pools[pool].symbol}}</td>
+            <td>{{=(parseFloat(it.stats.pools[pool].payments[p].paid)).toFixed(2)}} {{=it.stats.pools[pool].symbol}}</td>
         </tr>
         </tbody>
         {{ } }}

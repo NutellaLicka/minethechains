@@ -273,22 +273,22 @@
     const blockAmount = document.getElementById('blockAmount');
     const blockAmounts = document.getElementById('blockAmounts');
     var blockHash = '0000000057c2f1879a19ee1b399a8173a934d8149587c1d8920c39bdbf22c99a';
-
+    var tx = 'f1167e109f5d2754499a726bdc808cdc8fc7e82baec4cf968987fa52c105ee8d';
+    //{{=it.stats.pools[pool].payments[p].txid}}
     // Create a request variable and assign a new XMLHttpRequest object to it.
     var request = new XMLHttpRequest();
     // Open a new connection, using the GET request on the URL endpoint
-    request.open('GET', 'https://kmdexplorer.io/insight-api-komodo/block/'+blockHash+'');
+    request.open('GET', 'https://kmdexplorer.io/tx/'+tx+'');
+    request.open('GET', 'https://kmdexplorer.io/block/'+blockHash+'');
 
     request.onload = function kmdExplorerAPI() {
     //  Begin accessing JSON data here
         var dataa = JSON.parse(this.response);
         var tx = dataa.tx[0];
-
-        request.open('GET', 'https://kmdexplorer.io/insight-api-komodo/tx/'+dataa.tx[0]+'');
     //   Log each kmd to btc price
         if (request.status >= 200 && request.status < 399) {
             document.getElementById("blockAmount").innerHTML = "EXPLORER API, block hash= " + dataa.version + "TX1: " + dataa.tx[0];
-            document.getElementById("blockAmounts").innerHTML = "vout 0 " + vout[0].value;
+            document.getElementById("blockAmounts").innerHTML = "vout 0 " + dataa.vout[0].value;
 
         } else {
         document.getElementById("blockAmount").innerHTML = "???";
