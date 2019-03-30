@@ -65,7 +65,8 @@
 </style>
         
 {{ function capitalizeFirstLetter(t){return t.charAt(0).toUpperCase()+t.slice(1)} }}
-{{ function readableDate(a){ return new Date(parseInt(a)).toLocaleTimeString(); } }}
+{{ function readableTime(a){ return new Date(parseInt(a)).toLocaleTimeString(); } }}
+{{ function readableDate(a){ return new Date(parseInt(a)).toLocaleDateString(); } }}
 
 <div class="GS-menu">
         {{ for(var pool in it.stats.pools) { }}
@@ -272,7 +273,7 @@
                                         </td>
                                         <td>
                                         {{if (block[4] != null) { }}
-                                            <span style="padding-left: 18px;"><small>{{=readableDate(block[4])}}</small></span>
+                                            <span style="padding-left: 18px;"><small>{{=readableTime(block[4])}}{{=readableDate(block[4])}}</small></span>
                                         {{ } }}
                                         </td>
                                         <td>
