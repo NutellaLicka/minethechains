@@ -218,7 +218,8 @@ footer a{
 }
 
 .coinPaprika {
-    width: 450px;
+    width: 45%;
+    min-width: 300px;
     padding: 0px 5px 0px 5px;
 }
 
@@ -317,7 +318,7 @@ footer a{
 /* ***GETTING STARTED*** */
 #holder{
     display: flex;
-    flex-direction: column;
+    justify-content: center;
 }
 
 .GS-menu {
