@@ -44,11 +44,13 @@
 
 <header>
 <style>
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 980px) {
     .lookUp {
         display: none;
     } 
+}
 
+@media screen and (max-width: 800px) {
     .navbar {
         overflow: hidden;
     }
@@ -57,7 +59,7 @@
         display: none;
     }
 
-    #mobileButton {
+    .mobileButton {
         display: block;
     }
 }
@@ -117,7 +119,7 @@
         </a>
     </div>
 
-    <div id="mobileButton">
+    <div class="mobileButton">
     <!--<a href="javascript:void(0);" class="mobileMenuIcon" onclick="mobileFunction()">-->
     <i class="fa fa-bars"></i>
     </div>
