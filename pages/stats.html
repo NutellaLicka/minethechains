@@ -235,11 +235,11 @@
                                             <a href="https://kmdexplorer.io/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
                                                 <script>
                                                         const blockAmount = document.getElementById('blockAmount');
-                                                        //var blockHash = '03903b52098d328706126cfd677c099b1b18454320367dcc6b647bcbedee690f';
+                                                        var blockHash = '{{=block[0]}}';
                                                         // Create a request variable and assign a new XMLHttpRequest object to it.
                                                         var request = new XMLHttpRequest();
                                                         // Open a new connection, using the GET request on the URL endpoint
-                                                        request.open('GET', 'https://kmdexplorer.io/block/{{=block[0]}}');
+                                                        request.open('GET', 'https://kmdexplorer.io/block/'+blockHash+'');
                                                         request.onload = function kmdExplorerAPI() {
                                                         //  Begin accessing JSON data here
                                                             var dataa = JSON.parse(this.response);
