@@ -22,7 +22,8 @@ request.onload = function () {
   }
 
 };
- Send request
+
+//Send request
 request.send();
 
 
