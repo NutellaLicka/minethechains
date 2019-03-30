@@ -274,7 +274,7 @@
     // Create a request variable and assign a new XMLHttpRequest object to it.
     var request = new XMLHttpRequest();
     // Open a new connection, using the GET request on the URL endpoint
-    request.open('GET', 'https://kmdexplorer.io/block/'+blockHash+'');
+    request.open('GET', 'https://kmdexplorer.io/insight-api-komodo/block/'+blockHash+'');
     request.onload = function kmdExplorerAPI() {
     //  Begin accessing JSON data here
         var dataa = JSON.parse(this.response);
