@@ -44,6 +44,8 @@
         {{ } }}
 </div>
 
+<div id="blockAmount"></div>
+
 <div class="flex-container">
         <div id="topCharts">
             <div class="chartWrapper">
@@ -197,7 +199,7 @@
                                             <a href="/workers/{{=block[3].split('.')[0]}}">{{=block[3].length > 40 ? block[3].substring(0, 10) + '...' + block[3].substring(block[3].length-15, block[3].length): block[3]}}</a>
                                         </td>
                                         <td>
-                                            <div id="blockAmount"></div>
+                                            TBA
                                         </td>
                                         <td>
                                                 {{if (it.stats.pools[pool].pending.confirms) { }}
