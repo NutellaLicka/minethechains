@@ -123,7 +123,7 @@ main {
     position: relative;
     display: flex;
     flex-direction: column;
-    min-width: 380px;
+    min-width: 325px;
     margin: 50px 16px 0px 16px;
 }
 
@@ -595,7 +595,7 @@ a.miningOption:hover{
 }
 
 .blockfinds {
-    max-width: 1080px;
+    width: 1080px;
     margin: auto;
     margin-top: 25px;
     
