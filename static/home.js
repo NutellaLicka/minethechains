@@ -18,7 +18,7 @@ request.onload = function coingeckoAPI() {
   if (request.status >= 200 && request.status < 400) {
 //    document.getElementById("komodoHash").innerHTML = "BTC/KMD Price: " + dataa.komodo.btc + "BTC, 24hr Volume: " + dataa.komodo.btc_24h_vol;
 //    document.getElementById("komodoHash").innerHTML = "BTC/USD Price: " + dataa.komodo.usd + "BTC, 24hr Volume: " + dataa.komodo.usd_24h_vol;
-    document.getElementById("komodoHash").innerHTML = "EXPLORER API " + dataa.hash + dataa.poolInfo.poolName;
+//    document.getElementById("komodoHash").innerHTML = "EXPLORER API " + dataa.hash + dataa.poolInfo.poolName;
 
   } else {
     document.getElementById("komodoHash").innerHTML = "???";
