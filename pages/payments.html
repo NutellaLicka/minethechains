@@ -21,7 +21,7 @@
     });
 });
 </script>
-{{ function readableDate(a){ return new Date(parseInt(a)).toString(); } }}
+{{ function readableDate(a){ return new Date(parseInt(a)).toLocaleString(); } }}
 {{ for(var pool in it.stats.pools) { }}
 
 <div class="flex-container" style="margin: 40px 0px 40px 0px">
