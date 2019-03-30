@@ -9,7 +9,7 @@ request.open('GET', 'https://api.coingecko.com/api/v3/simple/price?ids=komodo&vs
 //ARRR to USD https://api.coingecko.com/api/v3/simple/price?ids=pirate-chain&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true&include_last_updated_at=true
 //ARRR to BTC https://api.coingecko.com/api/v3/simple/price?ids=pirate-chain&vs_currencies=btc&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true&include_last_updated_at=true
 
-request.onload = function () {
+request.onload = function coingeckoAPI() {
 //  Begin accessing JSON data here
   var dataa = JSON.parse(this.response);
 //   Log each kmd to btc price
