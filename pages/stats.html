@@ -65,8 +65,7 @@
 </style>
         
 {{ function capitalizeFirstLetter(t){return t.charAt(0).toUpperCase()+t.slice(1)} }}
-{{ function readableTime(a){ return new Date(parseInt(a)).toLocaleTimeString(); } }}
-{{ function readableDate(a){ return new Date(parseInt(a)).toLocaleDateString(); } }}
+{{ function readableDate(a){ return new Date(parseInt(a)).toLocaleString(); } }}
 
 <div class="GS-menu">
         {{ for(var pool in it.stats.pools) { }}
@@ -196,11 +195,11 @@
                         {{ var block = it.stats.pools[pool].pending.blocks[b].split(":"); }}
                         <div class="boxStatsList">
                                 <table class="pending" id="pendingTable">
-                                        <col style="max-width: 100px">
-                                        <col style="max-width: 300px">
-                                        <col style="max-width: 350px">
-                                        <col style="max-width: 100px">
-                                        <col style="max-width: 150px">
+                                        <col style="width: 10%">
+                                        <col style="width: 30%">
+                                        <col style="width: 35%">
+                                        <col style="width: 10%">
+                                        <col style="width: 15%">
                                     <tr>
                                         <th>Block</th>
                                         <th>Date</th>
@@ -249,11 +248,11 @@
                         {{ if (i < 10) { i++; }}
                             {{ var block = it.stats.pools[pool].confirmed.blocks[b].split(":"); }}
                             <table class="paid" id="paidTable">
-                                <col style="max-width: 100px">
-                                <col style="max-width: 300px">
-                                <col style="max-width: 350px">
-                                <col style="max-width: 100px">
-                                <col style="max-width: 150px">
+                                <col style="width: 10%">
+                                <col style="width: 30%">
+                                <col style="width: 35%">
+                                <col style="width: 10%">
+                                <col style="width: 15%">
                                     <tr>
                                         <th>Block</th>
                                         <th>Date</th>
@@ -273,7 +272,7 @@
                                         </td>
                                         <td>
                                         {{if (block[4] != null) { }}
-                                            <span style="padding-left: 18px;"><small>{{=readableTime(block[4])}}{{=readableDate(block[4])}}</small></span>
+                                            <span style="padding-left: 18px;"><small>{{=readableDate(block[4])}}</small></span>
                                         {{ } }}
                                         </td>
                                         <td>
