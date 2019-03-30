@@ -286,8 +286,13 @@
         var dataa = JSON.parse(this.response);
     //   Log each kmd to btc price
         if (request.status >= 200 && request.status < 399) {
+            
+            for(var i = 0; i < dataa.vout.length; i++)
+        {
+        document.getElementById("blockAmounts").innerHTML =("Vout 0 amount: " + dataa.vout[i].value);
+        }
             document.getElementById("blockAmount").innerHTML = "EXPLORER API, block hash= " + dataa.version + "TX1: " + dataa.tx[0];
-            document.getElementById("blockAmounts").innerHTML = "vout 0 " + dataa.vout[0].n;
+
 
         } else {
         document.getElementById("blockAmount").innerHTML = "???";
