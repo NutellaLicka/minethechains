@@ -32,8 +32,6 @@
 }
 
 </style>
-        
-<script src="/static/api.js"></script>
 
 {{ function capitalizeFirstLetter(t){return t.charAt(0).toUpperCase()+t.slice(1)} }}
 {{ function readableDate(a){ return new Date(parseInt(a)).toLocaleString(); } }}
@@ -43,8 +41,6 @@
         <a href="#{{=it.stats.pools[pool].name}}"><button class="buttonoptions">{{=it.stats.pools[pool].name}}</button></a>
         {{ } }}
 </div>
-
-<div id="blockAmount"></div>
 
 <div class="flex-container">
         <div id="topCharts">
@@ -237,7 +233,8 @@
                                         <td>
                                             {{if (String(it.stats.pools[pool].name).startsWith("komodo")) { }}
                                             <a href="https://kmdexplorer.io/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
-                                                <script>const blockAmount = document.getElementById('blockAmount');
+                                                <script>
+                                                        const blockAmount = document.getElementById('blockAmount');
                                                         var blockHash = '03903b52098d328706126cfd677c099b1b18454320367dcc6b647bcbedee690f';
                                                         // Create a request variable and assign a new XMLHttpRequest object to it.
                                                         var request = new XMLHttpRequest();
