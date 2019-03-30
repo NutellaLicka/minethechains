@@ -42,6 +42,8 @@
         {{ } }}
 </div>
 
+<div id="blockAmount"></div>
+
 <div class="flex-container">
         <div id="topCharts">
             <div class="chartWrapper">
@@ -233,30 +235,6 @@
                                         <td>
                                             {{if (String(it.stats.pools[pool].name).startsWith("komodo")) { }}
                                             <a href="https://kmdexplorer.io/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
-                                                <script>
-                                                        const blockAmount = document.getElementById('blockAmount');
-                                                        var blockHash = '0000000057c2f1879a19ee1b399a8173a934d8149587c1d8920c39bdbf22c99a';
-                                                        // Create a request variable and assign a new XMLHttpRequest object to it.
-                                                        var request = new XMLHttpRequest();
-                                                        // Open a new connection, using the GET request on the URL endpoint
-                                                        request.open('GET', 'https://kmdexplorer.io/block/'+blockHash+'');
-                                                        request.onload = function kmdExplorerAPI() {
-                                                        //  Begin accessing JSON data here
-                                                            var dataa = JSON.parse(this.response);
-                                                        //   Log each kmd to btc price
-                                                            if (request.status >= 200 && request.status < 399) {
-                                                            document.getElementById("blockAmount").innerHTML = "EXPLORER API, block hash= " + dataa.version;
-                                                        
-                                                            } else {
-                                                            document.getElementById("blockAmount").innerHTML = "???";
-                                                            }
-                                                        
-                                                        };
-                                                        //Send request
-                                                        request.send();
-                                                    </script>
-                                            <div id="blockAmount"></div>
-
                                             {{ } else if (String(it.stats.pools[pool].name).startsWith("pirate")) { }}
                                             <a href="http://pirate.explorer.dexstats.info/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
                                             {{ } else { }}
@@ -291,7 +269,27 @@
 {{ } }}
 
 <script>
+    const blockAmount = document.getElementById('blockAmount');
+    var blockHash = '0000000057c2f1879a19ee1b399a8173a934d8149587c1d8920c39bdbf22c99a';
+    // Create a request variable and assign a new XMLHttpRequest object to it.
+    var request = new XMLHttpRequest();
+    // Open a new connection, using the GET request on the URL endpoint
+    request.open('GET', 'https://kmdexplorer.io/block/'+blockHash+'');
+    request.onload = function kmdExplorerAPI() {
+    //  Begin accessing JSON data here
+        var dataa = JSON.parse(this.response);
+    //   Log each kmd to btc price
+        if (request.status >= 200 && request.status < 399) {
+        document.getElementById("blockAmount").innerHTML = "EXPLORER API, block hash= " + dataa.version;
     
+        } else {
+        document.getElementById("blockAmount").innerHTML = "???";
+        }
+    
+    };
+    //Send request
+    request.send();
+
     document.querySelector('main').appendChild(document.createElement('script')).src = '/static/stats.js';
 
     $(function() {
