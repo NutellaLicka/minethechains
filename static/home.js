@@ -1,5 +1,5 @@
-const hash = document.getElementById('pirateHash');
-const hash = document.getElementById('komodoHash');
+const piratehash = document.getElementById('pirateHash');
+const komodohash = document.getElementById('komodoHash');
 
 // Create a request variable and assign a new XMLHttpRequest object to it.
 var request = new XMLHttpRequest();
