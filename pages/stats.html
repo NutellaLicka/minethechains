@@ -30,6 +30,38 @@
     }
 
 }
+
+@media screen and (max-width: 650px) {
+     /* small boxes */
+    .buttonoptions {
+        width: 100%;
+        border-radius: 0px;
+        margin: 0px;
+        margin-bottom: 10px;
+    }
+    .blockbuttons{
+        width: 100%;
+    }
+    .BlockStats {
+        padding: 0px;
+    }
+    .boxStatsList {
+        width: 100%;
+    }
+    .boxStatsList > .pending {
+        margin-bottom: 0px;
+    }
+    .boxStatsList > .paid {
+        margin-bottom: 0px;
+    }
+    .blockfinds {
+        margin-top: 10px;
+    }
+    .pendpaidHeader {
+        padding: 25px;
+    }
+
+}
 </style>
         
 {{ function capitalizeFirstLetter(t){return t.charAt(0).toUpperCase()+t.slice(1)} }}
@@ -163,11 +195,11 @@
                         {{ var block = it.stats.pools[pool].pending.blocks[b].split(":"); }}
                         <div class="boxStatsList">
                                 <table class="pending" id="pendingTable">
-                                        <col width="100px">
-                                        <col width="300px">
-                                        <col width="350px">
-                                        <col width="100px">
-                                        <col width="150px">
+                                        <col style="max-width: 100px">
+                                        <col style="max-width: 300px">
+                                        <col style="max-width: 350px">
+                                        <col style="max-width: 100px">
+                                        <col style="max-width: 150px">
                                     <tr>
                                         <th>Block</th>
                                         <th>Date</th>
