@@ -252,7 +252,8 @@ footer a{
 }
 
 .mainLogo {
-    height: 150px;
+    height: 75px;
+    padding-top: 15px;
 }
 
 /* */
