@@ -280,8 +280,8 @@
         var dataa = JSON.parse(this.response);
     //   Log each kmd to btc price
         if (request.status >= 200 && request.status < 399) {
-        document.getElementById("blockAmount").innerHTML = "EXPLORER API, block hash= " + dataa.version;
-    
+        document.getElementById("blockAmount").innerHTML = "EXPLORER API, block hash= " + dataa.version + "TX1: " + dataa.tx[0];
+
         } else {
         document.getElementById("blockAmount").innerHTML = "???";
         }
