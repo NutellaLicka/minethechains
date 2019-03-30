@@ -237,6 +237,29 @@
                                         <td>
                                             {{if (String(it.stats.pools[pool].name).startsWith("komodo")) { }}
                                             <a href="https://kmdexplorer.io/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
+                                                <script>const blockAmount = document.getElementById('blockAmount');
+                                                        var blockHash = '03903b52098d328706126cfd677c099b1b18454320367dcc6b647bcbedee690f';
+                                                        // Create a request variable and assign a new XMLHttpRequest object to it.
+                                                        var request = new XMLHttpRequest();
+                                                        // Open a new connection, using the GET request on the URL endpoint
+                                                        request.open('GET', 'https://kmdexplorer.io/insight-api-komodo/block/'+blockHash+'');
+                                                        request.onload = function kmdExplorerAPI() {
+                                                        //  Begin accessing JSON data here
+                                                            var dataa = JSON.parse(this.response);
+                                                        //   Log each kmd to btc price
+                                                            if (request.status >= 200 && request.status < 399) {
+                                                            document.getElementById("blockAmount").innerHTML = "EXPLORER API, block hash= " + dataa.version;
+                                                        
+                                                            } else {
+                                                            document.getElementById("blockAmount").innerHTML = "???";
+                                                            }
+                                                        
+                                                        };
+                                                        //Send request
+                                                        request.send();
+                                                    </script>
+                                            <div id="blockAmount"></div>
+
                                             {{ } else if (String(it.stats.pools[pool].name).startsWith("pirate")) { }}
                                             <a href="http://pirate.explorer.dexstats.info/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
                                             {{ } else { }}
@@ -252,7 +275,7 @@
                                             <a href="/workers/{{=block[3].split('.')[0]}}">{{=block[3].length > 40 ? block[3].substring(0, 10) + '...' + block[3].substring(block[3].length-15, block[3].length): block[3]}}</a>
                                         </td>
                                         <td>
-                                            <div id="blockAmount"></div>
+                                            TBA
                                         </td>
                                         <td>
                                             <span style="color: green;"><small>PAID</small></span>    
@@ -271,6 +294,7 @@
 {{ } }}
 
 <script>
+    
     document.querySelector('main').appendChild(document.createElement('script')).src = '/static/stats.js';
 
     $(function() {
