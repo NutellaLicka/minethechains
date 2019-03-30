@@ -184,7 +184,7 @@
                 <div class="pendpaidHeader"><span id="statsValidBlocks{{=pool}}">{{=it.stats.pools[pool].poolStats.validBlocks}}</span> Blocks Found &nbsp;&nbsp; 
                     <span style="float:right;">
                         <div>
-                            Paid: <span id="statsTotalPaid{{=pool}}">{{=(parseFloat(it.stats.pools[pool].poolStats.totalPaid)).toFixed(8)}}</span> {{=it.stats.pools[pool].symbol}}
+                            Paid: <span id="statsTotalPaid{{=pool}}">{{=(parseFloat(it.stats.pools[pool].poolStats.totalPaid)).toFixed(4)}}</span> {{=it.stats.pools[pool].symbol}}
                         </div>
                     </span>
                 </div>
@@ -207,7 +207,7 @@
                                         <th>Amount</th>
                                         <th>Status</th>
                                     </tr>
-                                    <tr>
+                                    <tr style="height: 35px;">
                                         <td>
                                             {{if (String(it.stats.pools[pool].name).startsWith("komodo")) { }}
                                                 <a href="http://kmd.explorer.dexstats.info/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
@@ -223,7 +223,7 @@
                                             {{ } }}
                                         </td>
                                         <td>
-                                            <a href="/workers/{{=block[3].split('.')[0]}}">{{=block[3].length > 40 ? block[3].substring(0, 10) + '...' + block[3].substring(block[3].length-20, block[3].length): block[3]}}</a>
+                                            <a href="/workers/{{=block[3].split('.')[0]}}">{{=block[3].length > 40 ? block[3].substring(0, 10) + '...' + block[3].substring(block[3].length-15, block[3].length): block[3]}}</a>
                                         </td>
                                         <td>
                                             $
@@ -276,7 +276,7 @@
                                         {{ } }}
                                         </td>
                                         <td>
-                                            <a href="/workers/{{=block[3].split('.')[0]}}">{{=block[3].length > 40 ? block[3].substring(0, 10) + '...' + block[3].substring(block[3].length-20, block[3].length): block[3]}}</a>
+                                            <a href="/workers/{{=block[3].split('.')[0]}}">{{=block[3].length > 40 ? block[3].substring(0, 10) + '...' + block[3].substring(block[3].length-15, block[3].length): block[3]}}</a>
                                         </td>
                                         <td>
                                             $
