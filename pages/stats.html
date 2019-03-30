@@ -272,14 +272,14 @@
 <script>
     const blockAmount = document.getElementById('blockAmount');
     const blockAmounts = document.getElementById('blockAmounts');
-    var blockHash = '0000000057c2f1879a19ee1b399a8173a934d8149587c1d8920c39bdbf22c99a';
+    //var blockHash = '0000000057c2f1879a19ee1b399a8173a934d8149587c1d8920c39bdbf22c99a';
     var tx = 'f1167e109f5d2754499a726bdc808cdc8fc7e82baec4cf968987fa52c105ee8d';
 
     // Create a request variable and assign a new XMLHttpRequest object to it.
     var request = new XMLHttpRequest();
     // Open a new connection, using the GET request on the URL endpoint
     request.open('GET', 'https://kmdexplorer.io/insight-api-komodo/tx/'+tx+'');
-    request.open('GET', 'https://kmdexplorer.io/insight-api-komodo/block/'+blockHash+'');
+    //request.open('GET', 'https://kmdexplorer.io/insight-api-komodo/block/'+blockHash+'');
 
     request.onload = function kmdExplorerAPI() {
     //  Begin accessing JSON data here
@@ -291,8 +291,8 @@
                 {
                 document.getElementById("blockAmounts").innerHTML =("Vout 0 amount: " + dataa.vout[i].value);
                 }
-        document.getElementById("blockAmount").innerHTML = "EXPLORER API, block hash= " + dataa.version + "TX1: " + dataa.tx[0];
-        //document.getElementById("blockAmounts").innerHTML =("Vout 0 amount: " + dataa.vout[i].value);
+        //document.getElementById("blockAmount").innerHTML = "EXPLORER API, block hash= " + dataa.version + "TX1: " + dataa.tx[0];
+        document.getElementById("blockAmounts").innerHTML =("Vout 0 amount: " + dataa.vout[i].value);
         
         } else {
         document.getElementById("blockAmount").innerHTML = "???";
