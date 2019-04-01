@@ -61,8 +61,6 @@
                                 <div class="coinInfoUsername">
                                     {{ if (it.poolsConfigs[pool].coin && it.poolsConfigs[pool].coin.privateChain) { }}
                                         your {{=it.poolsConfigs[pool].coin.name}} wallet <b style="color:#C99631;">zS</b> address<br>
-                                    {{ else if (it.poolsConfigs[pool].coin && it.poolsConfigs[pool].coin.privateChain) { }}
-                                    your {{=it.poolsConfigs[pool].coin.name}} wallet <b style="color:#D62600;">R</b> address<br>
                                     {{ } else if (it.poolsConfigs[pool].coin) { }}
                                         your {{=it.poolsConfigs[pool].coin.name}} wallet address
                                     {{ } else { }}
