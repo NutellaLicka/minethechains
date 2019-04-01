@@ -123,7 +123,7 @@ main {
     position: relative;
     display: flex;
     flex-direction: column;
-    min-width: 325px;
+    min-width: 380px;
     margin: 50px 16px 0px 16px;
 }
 
@@ -218,15 +218,14 @@ footer a{
 }
 
 .coinPaprika {
-    width: 45%;
-    min-width: 300px;
+    width: 450px;
     padding: 0px 5px 0px 5px;
 }
 
 .features {
     width: 300px;
     height: 300px;
-    margin: 20px;
+    margin: 10px;
 }
 
 .fHead {
@@ -251,21 +250,6 @@ footer a{
     margin-bottom: 20px;
 }
 
-.mainLogo {
-    height: 75px;
-    padding-top: 15px;
-}
-
-.mobileMenuIcon {
-    background: black;
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-
-#mobileButton {
-    display: none;
-}
 /* */
 .banner {
     color: var(--colour6);
@@ -329,15 +313,18 @@ footer a{
 /* ***GETTING STARTED*** */
 #holder{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
 }
 
 .GS-menu {
-    margin: auto;
-    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .GS-menu > a {
+    margin: 10px;
     width: 250px;
     height: 50px;
 }
@@ -606,7 +593,7 @@ a.miningOption:hover{
 }
 
 .blockfinds {
-    width: 1080px;
+    max-width: 1080px;
     margin: auto;
     margin-top: 25px;
     
