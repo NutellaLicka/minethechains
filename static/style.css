@@ -131,6 +131,19 @@ header > .menu-list > a > .button:active {
     height: 25px;
 }
 
+.alertInfoMobile {
+    font-size: 17px;
+    text-align: center;
+    color: firebrick;
+    font-family: var(--font2);
+    top: 0px;
+    z-index: 99;
+    position: fixed;
+    background: var(--colour1);
+    width: 100%;
+    height: 25px;
+    display: none;
+}
 /* **********Main********** */
 main {
     position: relative;
