@@ -19,7 +19,7 @@ html, body, button, input, select, textarea, {
     --font5: 'IBM Plex Mono', bold;
 }
 
-/* colours
+ /*colours {
     --colour1: #bababa;
     --colour2: #BA9E71;
     --colour3: #B48D48;
@@ -28,7 +28,7 @@ html, body, button, input, select, textarea, {
     --colour6: black;
     --colour7: #d1a446;
     --colour8: #29407C;
-    */
+ }*/
 
 
 /* **********Body********** */
@@ -116,6 +116,12 @@ header > .menu-list > a > .button:active {
     text-align: center;
     color: var(--colour3);
     font-family: var(--font2);
+}
+
+.alertInfo {
+    font-size: 10px;
+    text-align: center;
+    color: #BA9E71;
 }
 
 /* **********Main********** */
