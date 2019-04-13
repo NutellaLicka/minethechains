@@ -42,7 +42,7 @@ body {
 
 header > .navbar {
     position: fixed;
-    top: 0;
+    top: 25px;
     width: 100%;
     z-index: 99;
     background-color: var(--colour4);
