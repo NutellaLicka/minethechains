@@ -54,6 +54,10 @@
                             <a href="https://kmdexplorer.io/tx/{{=it.stats.pools[pool].payments[p].txid}}"  title="View transaction" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}}</a>
                         {{ } else if (typeof it.stats.pools[pool].payments[p].txid !== 'undefined' && String(it.stats.pools[pool].name).startsWith("pirate")) { }}
                             <a href="http://pirate.explorer.dexstats.info/tx/{{=it.stats.pools[pool].payments[p].txid}}"  title="View transaction" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}}</a>
+                        {{ } else if (typeof it.stats.pools[pool].payments[p].txid !== 'undefined' && String(it.stats.pools[pool].name).startsWith("rfox")) { }}
+                        <a href="http://rfox.explorer.dexstats.info/tx/{{=it.stats.pools[pool].payments[p].txid}}"  title="View transaction" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}}</a>
+                        {{ } else if (typeof it.stats.pools[pool].payments[p].txid !== 'undefined' && String(it.stats.pools[pool].name).startsWith("our")) { }}
+                        <a href="http://our.explorer.dexstats.info/tx/{{=it.stats.pools[pool].payments[p].txid}}"  title="View transaction" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}}</a>
                         {{ } else { }}
                             {{=it.stats.pools[pool].payments[p].blocks}}
                         {{ } }}
