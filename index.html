@@ -44,11 +44,20 @@
 
 <header>
 <style>
-/*    @media screen and (max-width: 800px) {
-     /* phone size 
+    @media screen and (max-width: 1000px) {
+     /* phone size */
+    .lookUp {
+        display: none;
+    }
 
+    .alertInfo {
+        display: none;
+    }
+    #alertMobile {
+        display: block;
+    }
 }
-
+/*
 @media screen and (max-width: 400px) { }
 
 */
@@ -73,7 +82,11 @@
 </script>
 
 <div class="alertInfo">
-        NutellaLicka for Komodo Notary Node. Check out their <a href="https://komodoelection.com/proposals/nutellalicka/" target="blank" rel="noopener noreferrer" style="color: var(--colour2);">Notary Proposal</a> and show your support through voting.
+    NutellaLicka for Komodo Notary Node. Check out their <a href="https://komodoelection.com/proposals/nutellalicka/" target="blank" rel="noopener noreferrer" style="color: var(--colour2);">Notary Proposal</a> and show your support through voting.
+</div>
+
+<div class="alertInfo" style="display: none;" id="alertMobile">
+        <a href="https://komodoelection.com/proposals/nutellalicka/" target="blank" rel="noopener noreferrer" style="color: var(--colour2);">Notary Proposal</a>
 </div>
 
 <div class="navbar">
