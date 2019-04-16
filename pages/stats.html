@@ -203,12 +203,12 @@
                                             TBA
                                         </td>
                                         <td>
-                                                {{if (it.stats.pools[pool].pending.confirms) { }}
+                                            {{if (it.stats.pools[pool].pending.confirms) { }}
                                                 {{if (it.stats.pools[pool].pending.confirms[block[0]]) { }}
                                                 <span style="color: red;"><small>PENDING</small></span>
-                                                {{ } else { }}
-                                                <span style="color: red;"><small>CONFIRMING</small></span>
-                                                {{ } }}
+                                                    {{ } else { }}
+                                                    <span style="color: red;"><small>CONFIRMING</small></span>
+                                                    {{ } }}
                                             {{ } else { }}
                                                 <span style="color: red;"><small>CONFIRMING</small></span>
                                             {{ } }}
@@ -234,7 +234,7 @@
                                         <th>Amount</th>
                                         <th>Status</th>
                                     </tr>
-                                    <tr>
+                                    <tr style="height: 35px;">
                                         <td>
                                             {{if (String(it.stats.pools[pool].name).startsWith("komodo")) { }}
                                             <a href="https://kmdexplorer.io/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
