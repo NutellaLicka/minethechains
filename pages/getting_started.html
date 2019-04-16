@@ -38,9 +38,15 @@
                             {{if (String(it.stats.pools[pool].name).startsWith("komodo")) { }}
                             <img class="coinLogo" src="/static/images/KMDlogo.png"><br>
                             Komodo Configuration
+
                             {{ } else if (String(it.stats.pools[pool].name).startsWith("pirate")) { }}
                             <img class="coinLogo" src="/static/images/PirateLogo.png"><br>
                             Pirate Configuration
+
+                            {{ } else if (String(it.stats.pools[pool].name).startsWith("redfox labs")) { }}
+                            <img class="coinLogo" src="/static/images/RFOX.png"><br>
+                            RedFOX Labs Configuration
+
                             {{ } else { }}
                             <span class="coinInfoName">{{=it.poolsConfigs[pool].coin.name}}</span> Configuration
                             {{ } }}
