@@ -55,10 +55,12 @@
 </div>
 
 {{ for(var pool in it.stats.pools) { }}
-<div id="menu" style="display: block; flex-direction: unset;">
-    <div id="{{=it.stats.pools[pool].name}}" style="height: 50px;"></div>
-    <div class="poolHeader">
-        {{=it.stats.pools[pool].name}}
+<div class="flex-container">
+    <div id="menu" style="display: block; flex-direction: unset;">
+        <div id="{{=it.stats.pools[pool].name}}" style="height: 50px;"></div>
+        <div class="poolHeader">
+            {{=it.stats.pools[pool].name}}
+        </div>
     </div>
 </div>
 
