@@ -220,7 +220,6 @@
                                 </table>
                         {{ blockscomb.push(block);}}
                             {{ } }}
-                        {{ } }}
                     {{ var i=0; for(var b in it.stats.pools[pool].confirmed.blocks) { }}
                         {{ if (i < 10) { i++; }}
                             {{ var block = it.stats.pools[pool].confirmed.blocks[b].split(":"); }}
@@ -273,7 +272,7 @@
             </div>
         </div>
 </div>
-
+{{ } }}
 
 
 <script>
