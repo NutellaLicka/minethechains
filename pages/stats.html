@@ -165,7 +165,6 @@
                 </div>
 
                 <div class="boxStatsList" style="margin-top: 9px;">
-                    <!--<div id="{{=it.stats.pools[pool].name}}NewBlocks"></div>-->
                     {{ for(var b in it.stats.pools[pool].pending.blocks) { }}
                         {{ var block = it.stats.pools[pool].pending.blocks[b].split(":"); }}
                         <div class="boxStatsList">
@@ -265,10 +264,10 @@
                                             <span style="color: green;"><small>PAID</small></span>    
                                         </td>
                                     </tr>
-                                </table>
-                                {{ } }}
-                            {{ } }}
-                        {{blockscomb.push(block);}}
+                            </table>
+                        {{ } }}
+                    {{ } }}
+                      
                     </div>
                 </div>
             </div>
