@@ -58,8 +58,9 @@
     .mobileNav {
         display: block;
     }
-    main {
-        margin: 25px 0px 0px 0px;
+
+    .marquee {
+        display: none;
     }
 }
 
@@ -84,7 +85,7 @@
 }
 
 .mobileNav a.icon {
-  background: black;
+  background: #2a344b;
   display: block;
   position: absolute;
   right: 0;
@@ -96,6 +97,9 @@
   color: black;
 }
 
+#pageLinks {
+    color: #29407C;
+}
 
 /*
 @media screen and (max-width: 400px) { }
@@ -175,8 +179,8 @@
 </div>
 
 <!-- Mobile Nav Bar-->
-    <div class="mobileNav">
-        <a href="https://minethechains.com" class="home">MINETHECHAINS</a>
+    <div class="mobileNav" >
+        <a href="javascript:void(0);" onclick="mobileMenu()"class="home">MINETHECHAINS</a>
         <div id="pageLinks">
             <a class="home" href="/">
                 HOME
@@ -207,8 +211,9 @@
 <main>
     
 <script src="https://widgets.coingecko.com/coingecko-coin-price-marquee-widget.js"></script>
-<coingecko-coin-price-marquee-widget  coin-ids="bitcoin,komodo,pirate-chain" currency="usd" background-color="#ffffff" locale="en"></coingecko-coin-price-marquee-widget>
-
+<div class="marquee">
+    <coingecko-coin-price-marquee-widget  coin-ids="bitcoin,komodo,pirate-chain" currency="usd" background-color="#ffffff" locale="en"></coingecko-coin-price-marquee-widget>
+</div>
     {{=it.page}}
 </main>
 
