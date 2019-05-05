@@ -40,6 +40,10 @@ body {
 
 /* **********Header********** */
 
+header {
+    height: 76px;
+}
+
 header > .navbar {
     position: fixed;
     top: 25px;
@@ -150,7 +154,6 @@ main {
     display: flex;
     flex-direction: column;
     min-width: 380px;
-    margin: 75px 0px 0px 0px;
 }
 
 a {
