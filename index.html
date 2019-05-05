@@ -105,6 +105,9 @@
 
 .mainMob {
     color: var(--colour5);
+    display: block;
+    position: absolute;
+    top: 0;
 }
 </style>
 
@@ -182,6 +185,14 @@
 
 <!-- Mobile Nav Bar-->
     <div class="mobileNav" >
+        <a href="javascript:void(0);" onclick="mobileMenu()">
+            <div class="mainMob">
+                MINETHECHAINS MENU
+            </div>
+            <div class="icon">
+                <i class="fa fa-bars"></i>
+            </div>
+        </a>
         <div id="pageLinks">
             <a class="home" href="/">
                 HOME
@@ -202,12 +213,6 @@
                 API
             </a>
         </div>
-        <a href="javascript:void(0);" class="mainMob" onclick="mobileMenu()">
-            MINETHECHAINS MENU
-            <div class="icon">
-                <i class="fa fa-bars"></i>
-            </div>
-        </a>
     </div>
 
 </header>
