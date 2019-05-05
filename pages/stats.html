@@ -233,8 +233,8 @@
                                     <tr>
                                         <th>Block</th>
                                         <th>Date</th>
-                                        <th>Miner</th>
-                                        <th>Amount</th>
+                                        <th class="noneDisp">Miner</th>
+                                        <th class="noneDisp">Amount</th>
                                         <th>Status</th>
                                     </tr>
                                     <tr style="height: 35px;">
@@ -254,10 +254,10 @@
                                             <span style="padding-left: 18px;"><small>{{=readableDate(block[4])}}</small></span>
                                         {{ } }}
                                         </td>
-                                        <td>
+                                        <td class="noneDisp">
                                             <a href="/workers/{{=block[3].split('.')[0]}}">{{=block[3].length > 40 ? block[3].substring(0, 10) + '...' + block[3].substring(block[3].length-15, block[3].length): block[3]}}</a>
                                         </td>
-                                        <td>
+                                        <td class="noneDisp">
                                             TBA
                                         </td>
                                         <td>
