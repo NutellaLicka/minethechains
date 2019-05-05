@@ -74,16 +74,8 @@
   width: 100%;
 }
 
-.mobileNav #pageLinks {
+.mobileNav .pageLinks {
   display: none;
-}
-
-.mobileNav a {
-  color: white;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-  display: block;
 }
 
 .mobileNav .icon {
@@ -99,22 +91,45 @@
   background: var(--colour3);
 }
 
-.mobileNav a:hover {
-  background-color: var(--colour3);
-  color: black;
-}
-
 .mobileNav .mobMenuHeader {
     background-color: var(--colour4);
 }
 
-#pageLinks {
+.mobMenuHeader a {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+
+.mobMenuHeader a:hover {
+  background-color: var(--colour3);
+  color: black;
+}
+
+.pageLinks {
     color: var(--colour6);
+}
+
+.pageLinks a {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+
+.pageLinks a:hover {
+  background-color: var(--colour3);
+  color: black;
 }
 
 .mainMob {
     top: 0;
 }
+
+
 </style>
 
 <script type="text/javascript"> 
@@ -201,8 +216,8 @@
                 </div>
             </a>
         </div>
-        <div id="pageLinks">
-            <a class="home" href="/">
+        <div id="pageLinks" class="pageLinks">
+            <a href="/">
                 HOME
             </a>
             <a href="/getting_started">
