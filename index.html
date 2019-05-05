@@ -46,14 +46,52 @@
 <style>
     @media screen and (max-width: 1000px) {
      /* phone size */
-    .lookUp {
-        display: none;
-    }
-
     #alertComp {
         display: none;
     }
+
+    .navbar {
+        display: none;
+    }
+
+    .mobileNav {
+        display: block;
+    }
 }
+
+
+.mobileNav {
+  overflow: hidden;
+  background-color: #333;
+  position: relative;
+}
+
+.mobileNav #myLinks {
+  display: none;
+}
+
+.mobileNav a {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+
+.mobileNav a.icon {
+  background: black;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.mobileNav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+
 /*
 @media screen and (max-width: 400px) { }
 
@@ -76,6 +114,15 @@
             window.location = "workers/" + $('.input-lg').val();
         });
     });
+
+    function mobileMenu() {
+    var x = document.getElementById("pageLinks");
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
+    }
+    }
 </script>
 
 <div class="alertInfo" id="alertComp">
@@ -86,40 +133,70 @@
         <a href="https://komodoelection.com/proposals/nutellalicka/" target="blank" rel="noopener noreferrer" style="color: var(--colour2);">NutellaLicka's KMD Notary Proposal</a>
 </div>
 
+<!-- Normal Nav Bar-->
 <div class="navbar">
-        <a class="home" href="/">
-            HOME
-        </a>
+    <a class="home" href="/">
+        HOME
+    </a>
 
-        <a href="/getting_started">
-            GETTING STARTED
-        </a>
+    <a href="/getting_started">
+        GETTING STARTED
+    </a>
 
-        <a href="/stats">
-            POOL STATS
-        </a>
+    <a href="/stats">
+        POOL STATS
+    </a>
+
+    <a href="/workers">
+        MINERS
+    </a>
+
+    <a href="/payments">
+        PAYMENTS
+    </a>
+
+    <a href="/api">
+        API
+    </a>
     
-        <a href="/workers">
-            MINERS
-        </a>
-
-        <a href="/payments">
-            PAYMENTS
-        </a>
-
-        <a href="/api">
-            API
-        </a>
-       
-        <span style="float:right; padding: 10px">
-            <div class="lookUp">Miner Search: 
-            <input type="text" class="form-control input-lg" onkeypress="return searchKeyPress(event);">
-                <span class="input-group-btn" placeholder="ADDRESS">
-                    <button class="btn btn-default btn-lg" type="button" id="btnSearch">Go</button>
-                </span>
-            </div>
-        </span>
+    <span style="float:right; padding: 10px">
+        <div class="lookUp">Miner Search: 
+        <input type="text" class="form-control input-lg" onkeypress="return searchKeyPress(event);">
+            <span class="input-group-btn" placeholder="ADDRESS">
+                <button class="btn btn-default btn-lg" type="button" id="btnSearch">Go</button>
+            </span>
+        </div>
+    </span>
 </div>
+
+<!-- Mobile Nav Bar-->
+    <div class="mobileNav">
+        <a href="#home" class="home">HOME</a>
+        <div id="pageLinks">
+            <a class="home" href="/">
+                HOME
+            </a>
+            <a href="/getting_started">
+                GETTING STARTED
+            </a>
+            <a href="/stats">
+                POOL STATS
+            </a>
+            <a href="/workers">
+                MINERS
+            </a>
+            <a href="/payments">
+                PAYMENTS
+            </a>
+            <a href="/api">
+                API
+            </a>
+        </div>
+        <a href="javascript:void(0);" class="icon" onclick="mobileMenu()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+
 </header>
 
 <main>
