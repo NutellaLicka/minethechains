@@ -1,3 +1,12 @@
+<style>
+        @media screen and (max-width: 800px) {
+             /* phone size */
+             .noneDisp {
+                display: none;
+            }
+        }
+</style>
+
 {{ function capitalizeFirstLetter(t){return t.charAt(0).toUpperCase()+t.slice(1)} }}
 {{ var i=0; for(var pool in it.stats.pools) { }}
 
@@ -16,22 +25,22 @@
                 <thead>
                 <tr>
                     <th>Address</th>
-                    <th>Shares</th>
-                    <th>Efficiency</th>
+                    <th class="noneDisp">Shares</th>
+                    <th class="noneDisp">Efficiency</th>
                     <th>Hashrate</th>
                 </tr>
                 </thead>
-                {{ for(var worker in it.stats.pools[pool].miners) { }}
-                   {{var workerstat = it.stats.pools[pool].miners[worker];}}
-                <tbody>    
-                   <tr class="pure-table-odd">
-                        <td><a href="/workers/{{=worker.split('.')[0]}}">{{=worker.length > 40 ? worker.substring(0, 20) + '...' + worker.substring(worker.length-20, worker.length): worker}}</a></td> 
-                        <td>{{=Math.round(workerstat.currRoundShares * 100) / 100}}</td>
-                        <td>{{? workerstat.shares > 0}} {{=Math.floor(10000 * workerstat.shares / (workerstat.shares + workerstat.invalidshares)) / 100}}% {{??}} 0% {{?}}</td>
-                        <td>{{=workerstat.hashrateString}}</td>
-                    </tr>
-                </tbody>
-                {{ } }} 
+                    {{ for(var worker in it.stats.pools[pool].miners) { }}
+                    {{var workerstat = it.stats.pools[pool].miners[worker];}}
+                        <tbody>    
+                            <tr class="pure-table-odd">
+                                <td><a href="/workers/{{=worker.split('.')[0]}}">{{=worker.length > 40 ? worker.substring(0, 10) + '...' + worker.substring(worker.length-10, worker.length): worker}}</a></td> 
+                                <td>{{=Math.round(workerstat.currRoundShares * 100) / 100}}</td>
+                                <td>{{? workerstat.shares > 0}} {{=Math.floor(10000 * workerstat.shares / (workerstat.shares + workerstat.invalidshares)) / 100}}% {{??}} 0% {{?}}</td>
+                                <td>{{=workerstat.hashrateString}}</td>
+                            </tr>
+                        </tbody>
+                    {{ } }} 
             </table>
         </div>
     </div>
