@@ -253,7 +253,7 @@
                                             <a href="/workers/{{=block[3].split('.')[0]}}">{{=block[3].length > 30 ? block[3].substring(0, 10) + '...' + block[3].substring(block[3].length-15, block[3].length): block[3]}}</a>
                                         </td>
                                         <td class="noneDisp">
-                                            TBA
+                                            {{=block[1]}}
                                         </td>
                                         <td>
                                             <span style="color: green;"><small>PAID</small></span>    
@@ -273,6 +273,8 @@
 
 
 <script>
+    //tx hash of a block = {{=block[2]}}
+    //block hash = {{=block[0]}}
     //const blockAmount = document.getElementById('blockAmount');
     //const blockAmounts = document.getElementById('blockAmounts');
     //var blockHash = '0000000057c2f1879a19ee1b399a8173a934d8149587c1d8920c39bdbf22c99a';
