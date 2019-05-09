@@ -161,19 +161,19 @@ $.getJSON('/api/blocks', function(data){
             var pools1 = pools[i].split(":");
     }
     if (String(pools1).startsWith('komodo')) {
-            document.getElementById(tx).innerHTML = "kmd";
+           // document.getElementById(tx).innerHTML = "kmd";
             //apiRequest.open('GET', 'https://kmdexplorer.io/insight-api-komodo/tx/'+tx+'');
     }
         else if (String(pools1).startsWith('redfox'))  {
-            document.getElementById(tx).innerHTML = "redfox";
+            //document.getElementById(tx).innerHTML = "redfox";
             //apiRequest.open('GET', 'http://rfox.explorer.dexstats.info/insight-api-komodo/tx/'+tx+'');
         }
         else if (String(pools1).startsWith('pirate'))  {
-            document.getElementById(tx).innerHTML = "pirate";
+            //document.getElementById(tx).innerHTML = "pirate";
             //apiRequest.open('GET', 'http://pirate.explorer.dexstats.info/insight-api-komodo/tx/'+tx+'');
         }
             else {
-                document.getElementById(tx).innerHTML = "other";
+              //  document.getElementById(tx).innerHTML = "other";
             }
 
 
