@@ -143,22 +143,24 @@ statsSource.addEventListener('message', function(e){
 });
 
 $.getJSON('/api/blocks', function(data){
-    /* go through all blocks listed on /api/blocks */
     var blocks = Object.values(data);
+    var pools = Object.keys(data);
+
+    /* go through all blocks listed on /api/blocks */
     for(var i = 0; i < blocks.length; i++) {
         var blocksobj = blocks[i].split(":");
-    
+    };
     /*set the tx variable */
     var tx = blocksobj[1];
 
     /*go through each block to check the pool then conduct the GET request*/
-    var pools = Object.keys(data);
     for(var i = 0; i < pools.length; i++) {
             var pools1 = pools[i].split(":");
+    }
     if (String(pools1).startsWith('komodo')) {
             document.getElementById(tx).innerHTML = "kmd";
             //apiRequest.open('GET', 'https://kmdexplorer.io/insight-api-komodo/tx/'+tx+'');
-        }
+    }
         else if (String(pools1).startsWith('redfox'))  {
             document.getElementById(tx).innerHTML = "redfox";
             //apiRequest.open('GET', 'http://rfox.explorer.dexstats.info/insight-api-komodo/tx/'+tx+'');
@@ -167,11 +169,10 @@ $.getJSON('/api/blocks', function(data){
             document.getElementById(tx).innerHTML = "pirate";
             //apiRequest.open('GET', 'http://pirate.explorer.dexstats.info/insight-api-komodo/tx/'+tx+'');
         }
-        else {
-            document.getElementById(tx).innerHTML = "other";
-        }
-    }
-    };
+            else {
+                document.getElementById(tx).innerHTML = "other";
+            }
+
 
 
 
