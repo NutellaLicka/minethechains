@@ -142,7 +142,7 @@ statsSource.addEventListener('message', function(e){
     }
 });
 
-$.getJSON('/api/blocks', function(){
+$.getJSON('/api/blocks', function(data){
     var blocks = data;
     for(var i = 0; i < blocks.length; i++) {
         var tx = blocks[1];
