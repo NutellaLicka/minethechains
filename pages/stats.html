@@ -252,8 +252,8 @@
                                         <td class="noneDisp">
                                             <a href="/workers/{{=block[3].split('.')[0]}}">{{=block[3].length > 30 ? block[3].substring(0, 10) + '...' + block[3].substring(block[3].length-15, block[3].length): block[3]}}</a>
                                         </td>
-                                        <td class="noneDisp">
-                                            TBA
+                                        <td class="noneDisp" id="{{=block[1]}}">
+                                        
                                         </td>
                                         <td>
                                             <span style="color: green;"><small>PAID</small></span>    
@@ -273,39 +273,41 @@
 
 
 <script>
-    //tx hash of a block = {{=block[2]}}
+    //tx hash of a block = {{=block[1]}}
     //block hash = {{=block[0]}}
     //const blockAmount = document.getElementById('blockAmount');
-    //const blockAmounts = document.getElementById('blockAmounts');
+    //const txhash = document.getElementById('{{=block[1]}}');
     //var blockHash = '0000000057c2f1879a19ee1b399a8173a934d8149587c1d8920c39bdbf22c99a';
-    //var tx = 'f1167e109f5d2754499a726bdc808cdc8fc7e82baec4cf968987fa52c105ee8d';
+    //var tx = 'f1167e109f5d2754499a726bdc808cdc8fc7e82baec4cf968987fa52c105ee8d'; 
+    var tx = '{{=block[1]}}';
 
     // Create a request variable and assign a new XMLHttpRequest object to it.
-    //var request = new XMLHttpRequest();
+    var request = new XMLHttpRequest();
     // Open a new connection, using the GET request on the URL endpoint
-    //request.open('GET', 'https://kmdexplorer.io/insight-api-komodo/tx/'+tx+'');
+    request.open('GET', 'https://kmdexplorer.io/insight-api-komodo/tx/'+tx+'');
     //request.open('GET', 'https://kmdexplorer.io/insight-api-komodo/block/'+blockHash+'');
 
-    //request.onload = function kmdExplorerAPI() {
-    //  Begin accessing JSON data here
-    //    var dataa = JSON.parse(this.response);
-    //   Log each kmd to btc price
-    //    if (request.status >= 200 && request.status < 399) {
+    request.onload = function kmdExplorerAPI() {
+      //Begin accessing JSON data here
+        var dataa = JSON.parse(this.response);
+       //Log each kmd to btc price
+        if (request.status >= 200 && request.status < 399) {
             
-    //        for(var i = 0; i < dataa.vout; i++)
-    //            {
-    //            document.getElementById("blockAmounts").innerHTML =(dataa.vout[i].value);
-    //            }
+            for(var i = 0; i < dataa.vout; i++)
+                {
+                document.getElementById("{{=block[1]}}").innerHTML =(dataa.vout[i].value);
+                }
         //document.getElementById("blockAmount").innerHTML = "EXPLORER API, block hash= " + dataa.version + "TX1: " + dataa.tx[0];
-    //    document.getElementById("blockAmounts").innerHTML =(+ dataa.vout[i].value);
+        document.getElementById("{{=block[1]}}").innerHTML =(+ dataa.vout[i].value);
         
-    //    } else {
-    //    document.getElementById("blockAmount").innerHTML = "???";
-   //     }
+        } else {
+        document.getElementById("blockAmount").innerHTML = "???";
+        }
     
-   // };
+    };
+
     //Send request
-   // request.send();
+    request.send();
 
     document.querySelector('main').appendChild(document.createElement('script')).src = '/static/stats.js';
 
