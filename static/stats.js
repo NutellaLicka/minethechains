@@ -147,7 +147,7 @@ statsSource.addEventListener('message', function(e){
         //for(var i = 0; i < blocks.length; i++) {
         //    var blocksobj = blocks[i].split(":");
 
-            var tx = 'f1167e109f5d2754499a726bdc808cdc8fc7e82baec4cf968987fa52c105ee8d' //blocksobj[1];
+            var tx = 'ec0f749b413c36b9e58c0f16dd72d2c42c54b92c5be7d9fb7ef14f92cab468a9' //blocksobj[1];
 
     // Create a request variable and assign a new XMLHttpRequest object to it.
     var apiRequest = new XMLHttpRequest();
