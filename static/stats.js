@@ -144,15 +144,18 @@ statsSource.addEventListener('message', function(e){
 
 $.getJSON('/api/blocks', function(data){
     var blocks = Object.values(data);
-        for(var i = 0; i < blocks.length; i++) {
+        //for(var i = 0; i < blocks.length; i++) {
             var blocksobj = blocks[i].split(":");
 
-            var tx = blocksobj[1];
+            var tx = f1167e109f5d2754499a726bdc808cdc8fc7e82baec4cf968987fa52c105ee8d //blocksobj[1];
 
     // Create a request variable and assign a new XMLHttpRequest object to it.
     var apiRequest = new XMLHttpRequest();
     // Open a new connection, using the GET request on the URL endpoint
+    //apiRequest.open('GET', 'https://kmdexplorer.io/insight-api-komodo/tx/'+tx+'');
+    
     apiRequest.open('GET', 'https://kmdexplorer.io/insight-api-komodo/tx/'+tx+'');
+    //apiRequest.open('GET', 'http://rfox.explorer.dexstats.info/insight-api-komodo/tx/'+tx+'');
 
     apiRequest.onload = function kmdExplorerAPI() {
       //Begin accessing JSON data here
@@ -162,17 +165,16 @@ $.getJSON('/api/blocks', function(data){
             
             for(var i = 0; i < dataa.vout; i++)
                 {
-                document.getElementById(blocks[1]).innerHTML =(dataa.vout[i].value);
+                    document.getElementById(tx).innerHTML =(dataa.vout[i].value); //blocks[1]
                 }
-        document.getElementById(blocks[1]).innerHTML =(+ dataa.vout[i].value);
-        
-        } else {
-        document.getElementById(blocks[1]).innerHTML = "???";
-        }
+                    document.getElementById(tx).innerHTML =(+ dataa.vout[i].value); //blocks[1]
+                } else {
+                    document.getElementById(tx).innerHTML = "???"; //blocks[1] instead of tx
+                }
     
     };
 
     //Send request
     apiRequest.send();
-    }
+   // }
 });
