@@ -149,7 +149,7 @@ $.getJSON('/api/blocks', function(data){
         var blocksobj = blocks[i].split(":");
     }
     /*set the tx variable */
-    var tx = blocksobj[1];
+    var tx = 'blocksobj[1]';
 
     /*go through each block to check the pool*/
     var pools = Object.keys(data);
