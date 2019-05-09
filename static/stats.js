@@ -162,7 +162,7 @@ statsSource.addEventListener('message', function(e){
     apiRequest.onload = function kmdExplorerAPI() {
         //Begin accessing JSON data here
         var data = JSON.parse(this.response);
-        document.getElementById(tx).innerHTML = (data.vout[0].value); //blocks[1]    
+        document.getElementById(tx).innerHTML = (parseFloat(data.vout[0].value).toFixed(2)); //blocks[1]    
     };
 
     //Send request
