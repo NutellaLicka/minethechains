@@ -152,6 +152,7 @@ $.getJSON('/api/blocks', function(data){
     };
     /*set the tx variable */
     var tx = blocksobj[1];
+    document.getElementById(tx).innerHTML = "...";
 
     /*go through each block to check the pool then conduct the GET request*/
     for(var i = 0; i < pools.length; i++) {
