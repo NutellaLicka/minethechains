@@ -161,7 +161,7 @@ statsSource.addEventListener('message', function(e){
       //Begin accessing JSON data here
         var dataa = JSON.parse(this.response);
        //Log each kmd to btc price
-        if (request.status >= 200 && request.status < 399) {
+        if (apiRequest.status >= 200 && apiRequest.status < 399) {
             
             for(var i = 0; i < dataa.vout; i++)
                 {
