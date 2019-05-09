@@ -168,10 +168,11 @@ statsSource.addEventListener('message', function(e){
                         document.getElementById(tx).innerHTML = (data.vout[i].value); //blocks[1]
                     };
             }
-                    //document.getElementById(tx).innerHTML =(data.vout[i].value); //blocks[1]
         else {
             document.getElementById(tx).innerHTML = "???"; //blocks[1] instead of tx
         }
+        
+        document.getElementById(tx).innerHTML = (data.vout[i].value); //blocks[1]
     
     };
 
