@@ -143,9 +143,8 @@ statsSource.addEventListener('message', function(e){
 });
 
 $.getJSON('/api/blocks', function(){
-    for(var b in blocks) {
-        
-        var tx = "{{=block[1]}}"
+    for(var i=0; i < block.length; i++) {
+        var tx = block[1];
 
     // Create a request variable and assign a new XMLHttpRequest object to it.
     var apiRequest = new XMLHttpRequest();
@@ -160,12 +159,12 @@ $.getJSON('/api/blocks', function(){
             
             for(var i = 0; i < dataa.vout; i++)
                 {
-                document.getElementById("{{=block[1]}}").innerHTML =(dataa.vout[i].value);
+                document.getElementById(block[1]).innerHTML =(dataa.vout[i].value);
                 }
-        document.getElementById("{{=block[1]}}").innerHTML =(+ dataa.vout[i].value);
+        document.getElementById(block[1]).innerHTML =(+ dataa.vout[i].value);
         
         } else {
-        document.getElementById("blockAmount").innerHTML = "???";
+        document.getElementById(block[1]).innerHTML = "???";
         }
     
     };
