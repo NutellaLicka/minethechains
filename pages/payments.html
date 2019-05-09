@@ -74,17 +74,17 @@
                     <tr>
                     <td class="paymentblocks" title="{{=it.stats.pools[pool].payments[p].opid}}">
                         {{if (String(it.stats.pools[pool].name).startsWith("zcash")) { }}
-                            <a href="https://explorer.zcha.in/tx/{{=it.stats.pools[pool].payments[p].txid}}"  title="View transaction" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}}</a>
+                            <a href="https://explorer.zcha.in/tx/{{=it.stats.pools[pool].payments[p].txid}}"  title="View Explorer Tx" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}} </a> 
                         {{ } else if (String(it.stats.pools[pool].name).startsWith("komodo")) { }}
-                            <a href="https://kmdexplorer.io/tx/{{=it.stats.pools[pool].payments[p].txid}}"  title="View transaction" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}}</a>
+                            <a href="https://kmdexplorer.io/tx/{{=it.stats.pools[pool].payments[p].txid}}"  title="View Explorer Tx" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}} </a> 
                         {{ } else if (typeof it.stats.pools[pool].payments[p].txid !== 'undefined' && String(it.stats.pools[pool].name).startsWith("pirate")) { }}
-                            <a href="http://pirate.explorer.dexstats.info/tx/{{=it.stats.pools[pool].payments[p].txid}}"  title="View transaction" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}}</a>
+                            <a href="http://pirate.explorer.dexstats.info/tx/{{=it.stats.pools[pool].payments[p].txid}}"  title="View Explorer Tx" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}} </a> 
                         {{ } else if (typeof it.stats.pools[pool].payments[p].txid !== 'undefined' && String(it.stats.pools[pool].name).startsWith("redfox labs")) { }}
-                        <a href="http://rfox.explorer.dexstats.info/tx/{{=it.stats.pools[pool].payments[p].txid}}"  title="View transaction" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}}</a>
+                        <a href="http://rfox.explorer.dexstats.info/tx/{{=it.stats.pools[pool].payments[p].txid}}"  title="View Explorer Tx" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}} </a> 
                         {{ } else if (typeof it.stats.pools[pool].payments[p].txid !== 'undefined' && String(it.stats.pools[pool].name).startsWith("our")) { }}
-                        <a href="http://our.explorer.dexstats.info/tx/{{=it.stats.pools[pool].payments[p].txid}}"  title="View transaction" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}}</a>
+                        <a href="http://our.explorer.dexstats.info/tx/{{=it.stats.pools[pool].payments[p].txid}}"  title="View Explorer Tx" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}} </a> 
                         {{ } else { }}
-                            {{=it.stats.pools[pool].payments[p].blocks}}
+                            {{=it.stats.pools[pool].payments[p].blocks}} 
                         {{ } }}
                 </td>
                 <td>{{=readableDate(it.stats.pools[pool].payments[p].time)}}</td>
