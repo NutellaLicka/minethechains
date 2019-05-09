@@ -142,8 +142,8 @@ statsSource.addEventListener('message', function(e){
     }
 });
 
-$.getJSON('/api/blocks', function(data){
-    var blocks = Object.values(data);
+//$.getJSON('/api/blocks', function(data){
+//    var blocks = Object.values(data);
         //for(var i = 0; i < blocks.length; i++) {
         //    var blocksobj = blocks[i].split(":");
 
@@ -177,4 +177,4 @@ $.getJSON('/api/blocks', function(data){
     //Send request
     apiRequest.send();
    // }
-});
+//});
