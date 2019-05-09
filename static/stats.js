@@ -153,7 +153,7 @@ $.getJSON('/api/blocks', function(data){
     /*set the tx variable */
     var tx = blocksobj[1];
     };
-    
+    /*ERROR HERE FOR SOME FUCKING REASON*/
     document.getElementById(tx).innerHTML = "...";
 
     /*go through each block to check the pool then conduct the GET request*/
