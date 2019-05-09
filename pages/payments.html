@@ -21,9 +21,24 @@
     });
 });
 </script>
+
+<style>
+@media screen and (max-width: 800px) {
+    /* phone size */
+    .GS-menu > a {
+        margin: 0px;
+        width: 100%;
+    }
+}
+</style>
+
+<div class="GS-menu">
+    {{ for(var pool in it.stats.pools) { }}
+        <a href="#{{=it.stats.pools[pool].name}}"><button class="buttonoptions">{{=it.stats.pools[pool].name}}</button></a>
+    {{ } }}
+</div>
 {{ function readableDate(a){ return new Date(parseInt(a)).toLocaleString(); } }}
 {{ for(var pool in it.stats.pools) { }}
-
 <div class="flex-container" style="margin: 40px 0px 40px 0px">
         <div class="poolWrapper">
                 <div class="poolLabel">
