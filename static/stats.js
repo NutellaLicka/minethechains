@@ -160,19 +160,19 @@ statsSource.addEventListener('message', function(e){
     apiRequest.onload = function kmdExplorerAPI() {
         //Begin accessing JSON data here
         var data = JSON.parse(this.response);
-       //Log each kmd to btc price
+       
         if (apiRequest.status >= 200 && apiRequest.status < 399) 
             {
-                for(var i = 0; i < data.vout; i++)
-                    {
+                //for(var i = 0; i < data.vout; i++)
+                    //{
                         document.getElementById(tx).innerHTML = (data.vout[i].value); //blocks[1]
-                    };
+                    //};
             }
         else {
             document.getElementById(tx).innerHTML = "???"; //blocks[1] instead of tx
         }
         
-        document.getElementById(tx).innerHTML = (data.vout[i].value); //blocks[1]
+       // document.getElementById(tx).innerHTML = (data.vout[i].value); //blocks[1]
     
     };
 
