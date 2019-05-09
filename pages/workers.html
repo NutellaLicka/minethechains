@@ -35,8 +35,8 @@
                         <tbody>    
                             <tr class="pure-table-odd">
                                 <td><a href="/workers/{{=worker.split('.')[0]}}">{{=worker.length > 40 ? worker.substring(0, 10) + '...' + worker.substring(worker.length-10, worker.length): worker}}</a></td> 
-                                <td>{{=Math.round(workerstat.currRoundShares * 100) / 100}}</td>
-                                <td>{{? workerstat.shares > 0}} {{=Math.floor(10000 * workerstat.shares / (workerstat.shares + workerstat.invalidshares)) / 100}}% {{??}} 0% {{?}}</td>
+                                <td class="noneDisp">{{=Math.round(workerstat.currRoundShares * 100) / 100}}</td>
+                                <td class="noneDisp">{{? workerstat.shares > 0}} {{=Math.floor(10000 * workerstat.shares / (workerstat.shares + workerstat.invalidshares)) / 100}}% {{??}} 0% {{?}}</td>
                                 <td>{{=workerstat.hashrateString}}</td>
                             </tr>
                         </tbody>
