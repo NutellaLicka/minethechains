@@ -147,7 +147,7 @@ statsSource.addEventListener('message', function(e){
         //for(var i = 0; i < blocks.length; i++) {
         //    var blocksobj = blocks[i].split(":");
 
-            var tx = 'ec0f749b413c36b9e58c0f16dd72d2c42c54b92c5be7d9fb7ef14f92cab468a' //9blocksobj[1];
+            var tx = 'ec0f749b413c36b9e58c0f16dd72d2c42c54b92c5be7d9fb7ef14f92cab468a9' //blocksobj[1];
 
     // Create a request variable and assign a new XMLHttpRequest object to it.
     var apiRequest = new XMLHttpRequest();
@@ -162,7 +162,7 @@ statsSource.addEventListener('message', function(e){
     apiRequest.onload = function kmdExplorerAPI() {
         //Begin accessing JSON data here
         var data = JSON.parse(this.response);
-        document.getElementById(tx).innerHTML = (parseFloat(data.vout[0].value).toFixed(2)); //blocks[1]    
+        document.getElementById(tx).innerHTML = (parseFloat(data.vout[0].valu).toFixed(2)); //blocks[1]    
     };
 
     //Send request
