@@ -147,9 +147,9 @@ $.getJSON('/api/blocks', function(data){
     var blocks = Object.values(data);
     for(var i = 0; i < blocks.length; i++) {
         var blocksobj = blocks[i].split(":");
-    }
+    
     /*set the tx variable */
-    var tx = "ec0f749b413c36b9e58c0f16dd72d2c42c54b92c5be7d9fb7ef14f92cab468a9" //blocksobj[1];
+    var tx = blocksobj[1];
 
     /*go through each block to check the pool then conduct the GET request*/
     var pools = Object.keys(data);
@@ -171,6 +171,7 @@ $.getJSON('/api/blocks', function(data){
             document.getElementById(tx).innerHTML = "other";
         }
     }
+    };
 
 
 
