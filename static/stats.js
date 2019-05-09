@@ -165,11 +165,11 @@ statsSource.addEventListener('message', function(e){
             
             for(var i = 0; i < dataa.vout; i++)
                 {
-                    document.getElementById(tx).innerHTML =(dataa.vout[i].value); //blocks[1]
+                    document.getElementById(f1167e109f5d2754499a726bdc808cdc8fc7e82baec4cf968987fa52c105ee8d).innerHTML =(dataa.vout[i].value); //blocks[1]
                 }
-                    document.getElementById(tx).innerHTML =(+ dataa.vout[i].value); //blocks[1]
+                    document.getElementById(f1167e109f5d2754499a726bdc808cdc8fc7e82baec4cf968987fa52c105ee8d).innerHTML =(+ dataa.vout[i].value); //blocks[1]
                 } else {
-                    document.getElementById(tx).innerHTML = "???"; //blocks[1] instead of tx
+                    document.getElementById(f1167e109f5d2754499a726bdc808cdc8fc7e82baec4cf968987fa52c105ee8d).innerHTML = "???"; //blocks[1] instead of tx
                 }
     
     };
