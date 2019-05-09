@@ -141,3 +141,36 @@ statsSource.addEventListener('message', function(e){
         triggerChartUpdates();
     }
 });
+
+$.getJSON('/api/blocks', function(){
+    for(var b in it.stats.pools[pool].confirmed.blocks) {
+        
+        var tx = "{{=block[1]}}"
+
+    // Create a request variable and assign a new XMLHttpRequest object to it.
+    var apiRequest = new XMLHttpRequest();
+    // Open a new connection, using the GET request on the URL endpoint
+    apiRequest.open('GET', 'https://kmdexplorer.io/insight-api-komodo/tx/'+tx+'');
+
+    apiRequest.onload = function kmdExplorerAPI() {
+      //Begin accessing JSON data here
+        var dataa = JSON.parse(this.response);
+       //Log each kmd to btc price
+        if (request.status >= 200 && request.status < 399) {
+            
+            for(var i = 0; i < dataa.vout; i++)
+                {
+                document.getElementById("{{=block[1]}}").innerHTML =(dataa.vout[i].value);
+                }
+        document.getElementById("{{=block[1]}}").innerHTML =(+ dataa.vout[i].value);
+        
+        } else {
+        document.getElementById("blockAmount").innerHTML = "???";
+        }
+    
+    };
+
+    //Send request
+    apiRequest.send();
+    }
+});
