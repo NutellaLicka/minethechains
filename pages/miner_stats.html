@@ -6,7 +6,7 @@
 				<div>Worker Stats</div>
 
 			<!--<div style="float:left; padding-right: 18px;"><span id="statsWorkers">...</span></div>-->			
-            <div style="float:left; margin-right: 9px;">{{=String(it.stats.address).split(".")[0].length > 40 ? String(it.stats.address).split(".")[0].substring(0, 10) + '...' + String(it.stats.address).split(".")[0].substring(String(it.stats.address).split(".")[0].length-10, String(it.stats.address).split(".")[0].length): String(it.stats.address).split(".")[0]}}</div>
+            <div style="float:left; margin-right: 9px;">{{=String(it.stats.address).split(".")[0].length > 30 ? String(it.stats.address).split(".")[0].substring(0, 10) + '...' + String(it.stats.address).split(".")[0].substring(String(it.stats.address).split(".")[0].length-15, String(it.stats.address).split(".")[0].length): String(it.stats.address).split(".")[0]}}</div>
 
 			<div style="float:right; padding-left: 18px;"><small><span id="statsHashrateAvg">...</span> (Avg)</small></div>
 			<div style="float:right; padding-left: 18px;"><small><span id="statsHashrate">...</span> (Now)</small></div>
