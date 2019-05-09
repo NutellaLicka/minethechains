@@ -145,7 +145,9 @@ statsSource.addEventListener('message', function(e){
 $.getJSON('/api/blocks', function(data){
     var blocks = data;
     for(var i = 0; i < blocks.length; i++) {
-        var tx = blocks[1];
+        var blocksobj = blocks[i];
+
+        var tx = blocks[i][1];
 
     // Create a request variable and assign a new XMLHttpRequest object to it.
     var apiRequest = new XMLHttpRequest();
