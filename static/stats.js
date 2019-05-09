@@ -149,20 +149,23 @@ $.getJSON('/api/blocks', function(data){
         var blocksobj = blocks[i].split(":");
     }
     /*set the tx variable */
-    var tx = 'blocksobj[1]';
+    var tx = "ec0f749b413c36b9e58c0f16dd72d2c42c54b92c5be7d9fb7ef14f92cab468a9" //blocksobj[1];
 
-    /*go through each block to check the pool*/
+    /*go through each block to check the pool then conduct the GET request*/
     var pools = Object.keys(data);
     for(var i = 0; i < pools.length; i++) {
             var pools1 = pools[i].split(":");
     if (String(pools1).startsWith('komodo')) {
             document.getElementById(tx).innerHTML = "kmd";
+            //apiRequest.open('GET', 'https://kmdexplorer.io/insight-api-komodo/tx/'+tx+'');
         }
         else if (String(pools1).startsWith('redfox'))  {
             document.getElementById(tx).innerHTML = "redfox";
+            //apiRequest.open('GET', 'http://rfox.explorer.dexstats.info/insight-api-komodo/tx/'+tx+'');
         }
         else if (String(pools1).startsWith('pirate'))  {
             document.getElementById(tx).innerHTML = "pirate";
+            //apiRequest.open('GET', 'http://pirate.explorer.dexstats.info/insight-api-komodo/tx/'+tx+'');
         }
         else {
             document.getElementById(tx).innerHTML = "other";
