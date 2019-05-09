@@ -143,7 +143,7 @@ statsSource.addEventListener('message', function(e){
 });
 
 $.getJSON('/api/blocks', function(){
-    for(var b in it.stats.pools[pool].confirmed.blocks) {
+    for(var b in blocks) {
         
         var tx = "{{=block[1]}}"
 
