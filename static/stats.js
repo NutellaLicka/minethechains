@@ -145,7 +145,7 @@ statsSource.addEventListener('message', function(e){
 $.getJSON('/api/blocks', function(data){
     var blocks = Object.values(data);
         //for(var i = 0; i < blocks.length; i++) {
-            var blocksobj = blocks[i].split(":");
+        //    var blocksobj = blocks[i].split(":");
 
             var tx = f1167e109f5d2754499a726bdc808cdc8fc7e82baec4cf968987fa52c105ee8d //blocksobj[1];
 
