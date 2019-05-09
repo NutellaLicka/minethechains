@@ -143,38 +143,60 @@ statsSource.addEventListener('message', function(e){
 });
 
 $.getJSON('/api/blocks', function(data){
+    /* go through all blocks listed on /api/blocks */
     var blocks = Object.values(data);
-        for(var i = 0; i < blocks.length; i++) {
-            var blocksobj = blocks[i].split(":");
+    for(var i = 0; i < blocks.length; i++) {
+        var blocksobj = blocks[i].split(":");
+    }
+    /*set the tx variable */
+    var tx = blocksobj[1];
 
-            var tx = blocksobj[1];
+    /*go through each block to check the pool*/
+    var pools = Object.keys(data);
+    for(var i = 0; i < pools.length; i++) {
+            var pools1 = pools[i].split(":");
+    if (String(pools1).startsWith('komodo')) {
+            document.getElementById(tx).innerHTML = "kmd";
+        }
+        else if (String(pools1).startsWith('redfox'))  {
+            document.getElementById(tx).innerHTML = "redfox";
+        }
+        else if (String(pools1).startsWith('pirate'))  {
+            document.getElementById(tx).innerHTML = "pirate";
+        }
+        else {
+            document.getElementById(tx).innerHTML = "other";
+        }
+    }
+
+
 
     // Create a request variable and assign a new XMLHttpRequest object to it.
-    var apiRequest = new XMLHttpRequest();
+    //var apiRequest = new XMLHttpRequest();
     // Open a new connection, using the GET request on the URL endpoint
     //apiRequest.open('GET', 'https://kmdexplorer.io/insight-api-komodo/tx/'+tx+'');
     
-    apiRequest.open('GET', 'https://kmdexplorer.io/insight-api-komodo/tx/'+tx+'');
-    apiRequest.addEventListener("error", transferFailed);
-    apiRequest.addEventListener("progress", updateProgress);
+    //apiRequest.open('GET', 'https://kmdexplorer.io/insight-api-komodo/tx/'+tx+'');
+    //apiRequest.addEventListener("error", transferFailed);
+    //apiRequest.addEventListener("progress", updateProgress);
     //apiRequest.open('GET', 'http://rfox.explorer.dexstats.info/insight-api-komodo/tx/'+tx+'');
 
-    apiRequest.onload = function kmdExplorerAPI() {
+    //apiRequest.onload = function kmdExplorerAPI() {
         //Begin accessing JSON data here
-        var data = JSON.parse(this.response);
-        document.getElementById(tx).innerHTML = (parseFloat(data.vout[0].value).toFixed(2)); //blocks[1]    
-    };
+   //     var data = JSON.parse(this.response);
+     //   document.getElementById(tx).innerHTML = (parseFloat(data.vout[0].value).toFixed(2)); //blocks[1]    
+    //};
 
     //Send request
-    apiRequest.send();
-    }
+    //apiRequest.send();
+    
 });
 
 //progress and error outputs
-function updateProgress (oEvent) {
-    document.getElementById(tx).innerHTML = "...";
-  };
+//function updateProgress (oEvent) {
+ //   document.getElementById(tx).innerHTML = "...";
+//  };
   
-  function transferFailed(evt) {
-    document.getElementById(tx).innerHTML = "???";
-  };
+ // function transferFailed(evt) {
+ //   document.getElementById(tx).innerHTML = "???";
+ // };
