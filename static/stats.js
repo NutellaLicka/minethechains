@@ -155,28 +155,26 @@ statsSource.addEventListener('message', function(e){
     //apiRequest.open('GET', 'https://kmdexplorer.io/insight-api-komodo/tx/'+tx+'');
     
     apiRequest.open('GET', 'https://kmdexplorer.io/insight-api-komodo/tx/'+tx+'');
+    apiRequest.addEventListener("error", transferFailed);
+    apiRequest.addEventListener("progress", updateProgress);
     //apiRequest.open('GET', 'http://rfox.explorer.dexstats.info/insight-api-komodo/tx/'+tx+'');
 
     apiRequest.onload = function kmdExplorerAPI() {
         //Begin accessing JSON data here
         var data = JSON.parse(this.response);
-       
-        if (apiRequest.status >= 200 && apiRequest.status < 399) 
-            {
-                //for(var i = 0; i < data.vout; i++)
-                    //{
-                        document.getElementById(tx).innerHTML = (data.vout[i].value); //blocks[1]
-                    //};
-            }
-        else {
-            document.getElementById(tx).innerHTML = "???"; //blocks[1] instead of tx
-        }
-        
-       // document.getElementById(tx).innerHTML = (data.vout[i].value); //blocks[1]
-    
+        document.getElementById(tx).innerHTML = (data.vout[i].value); //blocks[1]    
     };
 
     //Send request
     apiRequest.send();
    // }
 //});
+
+//progress and error outputs
+function updateProgress (oEvent) {
+    document.getElementById(tx).innerHTML = "...";
+  };
+  
+  function transferFailed(evt) {
+    document.getElementById(tx).innerHTML = "???";
+  };
