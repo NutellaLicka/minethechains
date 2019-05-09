@@ -149,11 +149,11 @@ $.getJSON('/api/blocks', function(data){
     /* go through all blocks listed on /api/blocks */
     for(var i = 0; i < blocks.length; i++) {
         var blocksobj = blocks[i].split(":");
-    };
+
     /*set the tx variable */
     var tx = blocksobj[1];
     document.getElementById(tx).innerHTML = "...";
-
+    };
     /*go through each block to check the pool then conduct the GET request*/
     for(var i = 0; i < pools.length; i++) {
             var pools1 = pools[i].split(":");
