@@ -154,7 +154,7 @@ statsSource.addEventListener('message', function(e){
     // Open a new connection, using the GET request on the URL endpoint
     //apiRequest.open('GET', 'https://kmdexplorer.io/insight-api-komodo/tx/'+tx+'');
     
-    apiRequest.open('GET', 'https://kmdexplorer.io/insight-api-komodo/tx/'+tx+'');
+    apiRequest.open('GET', 'https://kmdexplorer.io/insight-api-komodo/tx/f1167e109f5d2754499a726bdc808cdc8fc7e82baec4cf968987fa52c105ee8d');
     //apiRequest.open('GET', 'http://rfox.explorer.dexstats.info/insight-api-komodo/tx/'+tx+'');
 
     apiRequest.onload = function kmdExplorerAPI() {
