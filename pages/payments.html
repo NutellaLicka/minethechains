@@ -46,6 +46,7 @@
 {{ function readableDate(a){ return new Date(parseInt(a)).toLocaleString(); } }}
 {{ for(var pool in it.stats.pools) { }}
 <div class="flex-container" style="margin: 40px 0px 40px 0px">
+        <div id="{{=it.stats.pools[pool].name}}" style="height: 50px;"></div>
         <div class="poolWrapper">
                 <div class="poolLabel">
                     <div class="header" style="font-size: 1.4em">{{=it.stats.pools[pool].name}} Payments List &nbsp;&nbsp;</div>				
