@@ -31,18 +31,7 @@ html, body, button, input, select, textarea, {
  }*/
 
 
- /* MOBILE CHANGES */
- @media screen and (max-width: 800px) {
-   .boxesWorkers {
-       max-width: 100%;
-   }
-   .bannerWorkers {
-       height: inherit;
-       width: 100%;
-       margin: 0px;
-   }
-
-}
+ 
 
 /* **********Body********** */
 body {
@@ -804,11 +793,17 @@ input {
     border-bottom: 1px solid black;
 }
 
-.test > .bannerWorkers {
-    height: inherit;
-    width: 100%;
-    margin: 0px;
-}
-.test > .boxesWorkers {
-    max-width: 100%;
-}
+/* MOBILE CHANGES */
+@media screen and (max-width: 800px) {
+    .test > .bannerWorkers {
+        height: inherit;
+        width: 100%;
+        margin: 0px;
+        background-color: white;
+    }
+    .test > .boxesWorkers {
+        max-width: 100%;
+        color: yellow;
+    }
+ 
+ }
