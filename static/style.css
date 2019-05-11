@@ -803,3 +803,12 @@ input {
     background-color: var(--colour3);
     border-bottom: 1px solid black;
 }
+
+.test > .bannerWorkers {
+    height: inherit;
+    width: 100%;
+    margin: 0px;
+}
+.test > .boxesWorkers {
+    max-width: 100%;
+}

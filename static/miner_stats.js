@@ -178,7 +178,7 @@ function updateWorkerStats() {
 }
 function addWorkerToDisplay(name, htmlSafeName, workerObj) {
 	var htmlToAdd = "";
-	htmlToAdd = '<div class="bannerWorkers"><div class="boxStats">';
+	htmlToAdd = '<div class="test"><div class="bannerWorkers"><div class="boxStats">';
 	if (htmlSafeName.indexOf("_") >= 0) {
 		htmlToAdd+= '<div class="boxLowerHeader">'+htmlSafeName.substr(htmlSafeName.indexOf("_")+1,htmlSafeName.length)+'</div>';
 	} else {
@@ -191,7 +191,7 @@ function addWorkerToDisplay(name, htmlSafeName, workerObj) {
 	htmlToAdd+='<div class="infotext"><small>Luck <span id="statsLuckDays'+htmlSafeName+'">'+workerObj.luckDays+'</span> Days</small></div>';
 	htmlToAdd+='<div class="infotext"><small>Bal: <span id="statsBalance'+htmlSafeName+'">'+workerObj.balance+'</span></small></div>';
 	htmlToAdd+='<div class="infotext"><small>Paid: <span id="statsPaid'+htmlSafeName+'">'+workerObj.paid+'</span></small></div>';
-	htmlToAdd+='</div></div>';
+	htmlToAdd+='</div></div></div>';
 	$("#boxesWorkers").html($("#boxesWorkers").html()+htmlToAdd);
 }
 
