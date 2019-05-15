@@ -48,7 +48,7 @@ header {
 
 header > .navbar {
     position: fixed;
-    top: 25px;
+    /*top: 25px;*/
     width: 100%;
     z-index: 99;
     background-color: var(--colour4);
