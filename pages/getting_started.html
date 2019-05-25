@@ -20,7 +20,7 @@
 <div id="holder">
     
     <div class="GS-menu">
-            <a href="#poolDetails"><button class="buttonoptions">Config Details</button></a>
+            <a href="#poolDetails"><button class="buttonoptions">Pool Details</button></a>
             <a href="#asicMining"><button class="buttonoptions">ASIC Mining</button></a>
             <a href="#gpuMining"><button class="buttonoptions">GPU Mining</button></a>
             <a href="#createWallet"><button class="buttonoptions">Pirate Info</button></a>
@@ -28,9 +28,61 @@
 
 <div id="menu">    
         <div id="poolDetails" style="height:50px"></div>
-        <div class="menuHeader">Pool Configuration Details<a href="#" style="font-size: 0.7em; float: right; color: var(--colour1); padding-right: 15px;">TOP</a></div>
+        <div class="menuHeader">Pool Details<a href="#" style="font-size: 0.7em; float: right; color: var(--colour1); padding-right: 15px;">TOP</a></div>
         
-        
+        <div style="font-size: 1.2em; color: var(--colour3)">Pool Payments Information</div>
+
+        <div class="sectionwords">
+            <p>
+                Pool payout frequency is listed below and is different for each coin.</br>
+                For <a href="https://blog.komodoplatform.com/delayed-proof-of-work-explained-9a74250dbb86" target="_blank" style="color: var(--colour1)">dPoW'd</a> coins, the payments require 1 notarisation before they will be sent. </br>
+                A "CONFIRMING" status on the payment indicates it is waiting for a notarisation to occur. Once the notarisation occurs, the payment will switch to "PENDING". </br>
+                A "PENDING" status indicates the payment is waiting until the next payout time. </br>
+                "CONFIRMING" and "PENDING" payments show as IMMATURE on your workers page. </br>
+            </p>
+
+            <p>
+                A minimum amount of coins is required before the payment processor will payout. This amount varies based on coin. Refer to the minimum payout amount below. Your BALANCE will show coins waiting to be paid if you haven't mined the minimum amount. No manual payments will be processed below the threshold.
+            </p>
+
+            <p>
+                The pool fee for each coin is listed below.
+            </p>
+        </div>  
+
+        <div class="info" style="color: var(--colour1)">
+            <table style="margin: auto;  padding-bottom: 15px; text-align: left; font-family: var(--font1); table-layout: inherit">
+                <tbody>
+                    <tr>
+                        <td>Coin:</td>
+                        <td>ARRR</td>
+                        <td>KMD</td>
+                        <td>RFOX</td>
+                    </tr>
+                    <tr>
+                        <td>Payout Frequency:</td>
+                        <td>~3 mins</td>
+                        <td>~5 mins</td>
+                        <td>~5 mins</td>
+                    </tr>
+                    <tr>
+                        <td>Min Payout:</td>
+                        <td>10</td>
+                        <td>0.5</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>Fee:</td>
+                        <td>1%</td>
+                        <td>1%</td>
+                        <td>2.5%</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="font-size: 0.8em; color: var(--colour3);">Pool hoppers are not tolerated on this pool. Please stay for longer than 12 hours to reap the rewards of pool mining!</div>
+        </div><br>
+
+        <div style="font-size: 1.2em; color: var(--colour3)">Configuration Details</div>
         <div>
                 {{ for (var pool in it.poolsConfigs) { }}
                 <div class="poolConfig">
@@ -160,6 +212,8 @@
             Thanks to @kaks for <a href="https://www.youtube.com/watch?v=R-CfKd0VrTg" target="blank" rel="noopener noreferrer" style="color: var(--colour1)">making this tutorial for running Agama Wallet.</a>
             <br>
             <br>
+            <div style="font-size: 1.2em; color: var(--colour3)">CLI Wallet Commands</div>
+
             If you use a CLI wallet. You can follow the instructions below:<br>
             <ol>
                 <li>Build <a href="https://docs.komodoplatform.com/komodo/install-Komodo-manually.html" target="_blank" style="color: var(--colour1)">Komodo</a></li>
@@ -205,10 +259,10 @@
                     </code>
                 </div> 
                 
-            <div class="menuHeader" style="text-align: center">
-                    Pirate Links<br>
-            </div>
-            <div class="info" style="font-size: 1.1em;">
+            <div class="text-align: left;">
+                <div class="info" style="font-size: 1.1em;">
+                    <div class="info" style="font-size: 1.2em; color: var(--colour3);">Pirate Links</div>
+
                     <div><a href="https://pirate.black" target="blank" rel="noopener noreferrer">pirate.black</a></div>
                     <div><a href="https://discord.gg/Gs9rj4a" target="blank" rel="noopener noreferrer">Discord Server</a></div>
                     <div><a href="https://digitalprice.io/?inviter=4fdaf7" target="blank" rel="noopener noreferrer">DigiPrice Exchange</a></div>
@@ -221,12 +275,8 @@
                     <div><a href="https://bitcointalk.org/index.php?topic=4979549" target="blank" rel="noopener noreferrer">BTT</a></div>
                     <div><a href="http://pirate.explorer.dexstats.info" target="blank" rel="noopener noreferrer">Explorer</a></div>
                     <div><a href="https://explorer.pirate.black/" target="blank" rel="noopener noreferrer">Pirate Explorer</a></div><br>
-                <div class="info" style="font-size: 1.5em;">Pirate Wallets</div>
-                    <div><a href="https://github.com/KomodoPlatform/Agama/releases" target="blank" rel="noopener noreferrer">Agama Multi-Currency Wallet</a></div>
-                    <div><a href="https://github.com/leto/TreasureChest" target="blank" rel="noopener noreferrer">Treasure Chest Wallet</a></div>
-                    <div><a href="https://github.com/TheComputerGenie/PirateOcean/releases" target="blank" rel="noopener noreferrer">PirateOcean QT for Windows & Mac</a></div>
-            </div>
-                
+                </div>
+            </div> 
             For more information visit the <a href="https://pirate.black/" target="_blank" style="color: var(--colour1)">pirate.black website.</a>
         </div>
     </div>
