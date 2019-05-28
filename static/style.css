@@ -209,12 +209,12 @@ footer a{
 
 /* ***HOME*** */
 .welcomeText {
-    font-size: 3em;
+    font-size: 4em;
     font-weight: 900;
     color: var(--colour3);
     font-family: var(--font1);
     text-align: center;
-    margin: 0px 0px 25px 0px;
+    margin: 35px 0px 35px 0px;
     text-shadow: 5px 5px 7px black;
 }
 .flex-container {
