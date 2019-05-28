@@ -613,12 +613,14 @@ a.miningOption:hover{
     height: 280px;
 }
 
-.chartWrapper{
-    background-color: var(--colour3);
+.chartWrapper {
+    background-image: url(/static/images/BG/#d1a446.png);
+    background-repeat: repeat;
+    /*background-color: var(--colour3);*/
     padding: 15px;
 }
 
-.chartLabel{
+.chartLabel {
     font-size: 2.0em;
     font-family: var(--font1);
     color: var(--colour6);
