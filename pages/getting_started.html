@@ -31,7 +31,7 @@
     <div class="menuHeader">Pool Details<a href="#" style="font-size: 0.7em; float: right; color: var(--colour1); padding-right: 15px;">TOP</a></div>
 
         <div class="sectionwords">
-            <div style="font-size: 1.2em; color: var(--colour3)">Pool Payments Information</div>
+            <div style="font-size: 1.3em; color: var(--colour3)">Pool Payments Information</div>
             <p>
                 Pool payout frequency is listed below and is different for each coin.</br>
                 For <a href="https://blog.komodoplatform.com/delayed-proof-of-work-explained-9a74250dbb86" target="_blank" style="color: var(--colour1)">dPoW'd</a> coins, the payments require 1 notarisation before they will be sent. </br>
@@ -48,39 +48,10 @@
                 The pool fee for each coin is listed below.
             </p>
 
-            <div class="info" style="color: var(--colour1)">
-                <table style="margin: auto;  padding-bottom: 15px; text-align: left; font-family: var(--font1); table-layout: inherit">
-                    <tbody>
-                        <tr>
-                            <td>Coin:</td>
-                            <td>ARRR</td>
-                            <td>KMD</td>
-                            <td>RFOX</td>
-                        </tr>
-                        <tr>
-                            <td>Payout Frequency:</td>
-                            <td>~3 mins</td>
-                            <td>~5 mins</td>
-                            <td>~5 mins</td>
-                        </tr>
-                        <tr>
-                            <td>Min Payout:</td>
-                            <td>10</td>
-                            <td>0.5</td>
-                            <td>1</td>
-                        </tr>
-                        <tr>
-                            <td>Fee:</td>
-                            <td>1%</td>
-                            <td>1%</td>
-                            <td>2.5%</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div style="font-size: 0.8em; color: var(--colour3);">Pool hoppers are not tolerated on this pool. Please stay for longer than 12 hours to reap the rewards of pool mining!</div>
-            </div><br>
+            <div style="font-size: 0.8em; color: var(--colour3);">Pool hoppers are not tolerated on this pool. Please stay for longer than 12 hours to reap the rewards of pool mining!</div>
+            <br>
 
-            <div style="font-size: 1.2em; color: var(--colour3)">Configuration Details</div>
+            <div style="font-size: 1.3em; color: var(--colour3)">Configuration Details</div>
         </div>  
 
         <div>
@@ -153,61 +124,6 @@
                 </div>
             {{ } }}
         </div>
-
-       <!-- <div>
-            {{ for (var pool in it.poolsConfigs) { }}
-                <div class="poolConfig">
-                        <div class="coinInfoHeader">
-                            {{if (String(it.stats.pools[pool].name).startsWith("komodo")) { }}
-                            <img class="coinLogo" src="/static/images/KMDlogo.png"><br>
-                            Komodo Configuration
-
-                            {{ } else if (String(it.stats.pools[pool].name).startsWith("pirate")) { }}
-                            <img class="coinLogo" src="/static/images/PirateLogo.png"><br>
-                            Pirate Configuration
-
-                            {{ } else if (String(it.stats.pools[pool].name).startsWith("redfox labs")) { }}
-                            <img class="coinLogo" src="/static/images/RFOX.png"><br>
-                            RedFOX Labs Configuration
-
-                            {{ } else { }}
-                            <span class="coinInfoName">{{=it.poolsConfigs[pool].coin.name}}</span> Configuration
-                            {{ } }}
-                        </div>
-
-                    <div class="configDetails" id="configDetails">
-                        <div class="coinInfoRows">
-                            <div class="coinInfoRowKeys">
-                                <div>Username:</div>
-                                <div>Password:</div>
-                                <div>Algorithm:</div>
-                                <div>Server/Stratum:</div>
-                                {{ for (var port in it.poolsConfigs[pool].ports) { }}
-                                    <div>{{= it.poolsConfigs[pool].ports[port].label ? it.poolsConfigs[pool].ports[port].label : 'URL'}} Port</div>
-                                {{ } }}
-                            </div>
-                            <div class="coinInfoRowValues">
-                                <div class="coinInfoUsername">
-                                    {{ if (it.poolsConfigs[pool].coin && it.poolsConfigs[pool].coin.privateChain) { }}
-                                        your {{=it.poolsConfigs[pool].coin.name}} wallet <b style="color:#C99631;">zS</b> address<br>
-                                    {{ } else if (it.poolsConfigs[pool].coin) { }}
-                                        your {{=it.poolsConfigs[pool].coin.name}} wallet address
-                                    {{ } else { }}
-                                        your {{=it.poolsConfigs[pool].coin.name}} wallet address
-                                    {{ } }}
-                                </div>
-                                <div>anything</div>
-                                <div>{{=it.poolsConfigs[pool].coin.algorithm}}</div>
-                                <div>{{=it.portalConfig.website.stratumHost}}</div>
-                                {{ for (var port in it.poolsConfigs[pool].ports) { }}
-                                    <div>{{=port}}</div>
-                                {{ } }}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            {{ } }}
-        </div>-->
 
         <div id="asicMining" style="height:50px"></div>
         <div class="menuHeader">ASIC Mining<a href="#" style="font-size: 0.7em; float: right; color: var(--colour1); padding-right: 15px;">TOP</a></div>
