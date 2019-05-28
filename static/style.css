@@ -45,7 +45,7 @@ body {
 /* **********Header********** */
 
 header {
-    height: 50px;
+    height: 92px;
 }
 
 header > .navbar {
@@ -151,6 +151,12 @@ header > .menu-list > a > .button:active {
     height: 25px;
     display: none;
 }
+
+.marquee {
+    position: relative;
+    top: 52px;
+}
+
 /* **********Main********** */
 main {
     position: relative;
@@ -606,7 +612,6 @@ a.miningOption:hover{
     width: 1080px;
     border: 5px solid var(--colour1);
     padding: 5px;
-    margin: 25px 0px 0px 0px;
 }
 
 #topCharts > div > div > svg{
