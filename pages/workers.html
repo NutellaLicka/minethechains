@@ -7,56 +7,64 @@
         }
 </style>
 
+<div class="GS-menu">
+    {{ for(var pool in it.stats.pools) { }}
+        <a href="#{{=it.stats.pools[pool].name}}"><button class="buttonoptions">{{=it.stats.pools[pool].name}}</button></a>
+    {{ } }}
+</div>
+
 {{ function capitalizeFirstLetter(t){return t.charAt(0).toUpperCase()+t.slice(1)} }}
 {{ var i=0; for(var pool in it.stats.pools) { }}
 
-<div class="flex-container" style="margin: 40px 0px 40px 0px">
-<div class="poolWrapper">
-        <div class="poolLabel">
-            <div class="header" style="font-size: 1.4em">    
-                {{if (String(it.stats.pools[pool].name).startsWith("komodo")) { }}
-                    <img class="coinLogo" src="/static/images/KMDlogo.png"><br>
-                    Komodo
-                    {{ } else if (String(it.stats.pools[pool].name).startsWith("pirate")) { }}
-                    <img class="coinLogo" src="/static/images/PLogo2.png"><br>
-                    Pirate
-                    {{ } else if (String(it.stats.pools[pool].name).startsWith("redfox labs")) { }}
-                    <img class="coinLogo" src="/static/images/RFOX.png"><br>
-                    RedFOX Labs
-                    {{ } else { }}
-                    {{=it.poolsConfigs[pool].coin.name}}
-                {{ } }} 
-                Miners List &nbsp;&nbsp;
-            </div>			
-                <small><span id="statsMiners{{=pool}}">{{=it.stats.pools[pool].minerCount}}</span> Miners &nbsp;&nbsp;
-                <span id="statsWorkers{{=pool}}">{{=it.stats.pools[pool].workerCount}}</span> Workers &nbsp;&nbsp;
-                <span id="statsWorkers{{=pool}}">{{=it.stats.pools[pool].shareCount}}</span> Total Shares </small>	
+<div id="{{=it.stats.pools[pool].name}}" style="height: 50px;"></div>
+
+    <div class="flex-container">
+        <div class="poolWrapper">
+                <div class="poolLabel">
+                    <div class="header" style="font-size: 1.4em">    
+                        {{if (String(it.stats.pools[pool].name).startsWith("komodo")) { }}
+                            <img class="coinLogo" src="/static/images/KMDlogo.png"><br>
+                            Komodo
+                            {{ } else if (String(it.stats.pools[pool].name).startsWith("pirate")) { }}
+                            <img class="coinLogo" src="/static/images/PLogo2.png"><br>
+                            Pirate
+                            {{ } else if (String(it.stats.pools[pool].name).startsWith("redfox labs")) { }}
+                            <img class="coinLogo" src="/static/images/RFOX.png"><br>
+                            RedFOX Labs
+                            {{ } else { }}
+                            {{=it.poolsConfigs[pool].coin.name}}
+                        {{ } }} 
+                        Miners List &nbsp;&nbsp;
+                    </div>			
+                        <small><span id="statsMiners{{=pool}}">{{=it.stats.pools[pool].minerCount}}</span> Miners &nbsp;&nbsp;
+                        <span id="statsWorkers{{=pool}}">{{=it.stats.pools[pool].workerCount}}</span> Workers &nbsp;&nbsp;
+                        <span id="statsWorkers{{=pool}}">{{=it.stats.pools[pool].shareCount}}</span> Total Shares </small>	
+                </div>
         </div>
-</div>
-    <div class="poolWrapper">
-        <div class="poolMinerTable">
-            <table class="pure-table" style="table-layout: inherit">
-                <thead>
-                <tr>
-                    <th>Address</th>
-                    <th class="noneDisp">Shares</th>
-                    <th class="noneDisp">Efficiency</th>
-                    <th>Hashrate</th>
-                </tr>
-                </thead>
-                    {{ for(var worker in it.stats.pools[pool].miners) { }}
-                    {{var workerstat = it.stats.pools[pool].miners[worker];}}
-                        <tbody>    
-                            <tr class="pure-table-odd">
-                                <td><a href="/workers/{{=worker.split('.')[0]}}">{{=worker.length > 30 ? worker.substring(0, 10) + '...' + worker.substring(worker.length-15, worker.length): worker}}</a></td> 
-                                <td class="noneDisp">{{=Math.round(workerstat.currRoundShares * 100) / 100}}</td>
-                                <td class="noneDisp">{{? workerstat.shares > 0}} {{=Math.floor(10000 * workerstat.shares / (workerstat.shares + workerstat.invalidshares)) / 100}}% {{??}} 0% {{?}}</td>
-                                <td>{{=workerstat.hashrateString}}</td>
-                            </tr>
-                        </tbody>
-                    {{ } }} 
-            </table>
+        <div class="poolWrapper">
+            <div class="poolMinerTable">
+                <table class="pure-table" style="table-layout: inherit">
+                    <thead>
+                    <tr>
+                        <th>Address</th>
+                        <th class="noneDisp">Shares</th>
+                        <th class="noneDisp">Efficiency</th>
+                        <th>Hashrate</th>
+                    </tr>
+                    </thead>
+                        {{ for(var worker in it.stats.pools[pool].miners) { }}
+                        {{var workerstat = it.stats.pools[pool].miners[worker];}}
+                            <tbody>    
+                                <tr class="pure-table-odd">
+                                    <td><a href="/workers/{{=worker.split('.')[0]}}">{{=worker.length > 30 ? worker.substring(0, 10) + '...' + worker.substring(worker.length-15, worker.length): worker}}</a></td> 
+                                    <td class="noneDisp">{{=Math.round(workerstat.currRoundShares * 100) / 100}}</td>
+                                    <td class="noneDisp">{{? workerstat.shares > 0}} {{=Math.floor(10000 * workerstat.shares / (workerstat.shares + workerstat.invalidshares)) / 100}}% {{??}} 0% {{?}}</td>
+                                    <td>{{=workerstat.hashrateString}}</td>
+                                </tr>
+                            </tbody>
+                        {{ } }} 
+                </table>
+            </div>
         </div>
     </div>
-</div>
 {{ } }}
