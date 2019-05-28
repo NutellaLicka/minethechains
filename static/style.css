@@ -708,6 +708,7 @@ table {
     padding: 4px;
     color: var(--colour3);
     font-family: var(--font1);
+    width: 80%
 }
 .poolMinerTable {
     font-family: var(--font2);
