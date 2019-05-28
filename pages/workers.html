@@ -13,7 +13,21 @@
 <div class="flex-container" style="margin: 40px 0px 40px 0px">
 <div class="poolWrapper">
         <div class="poolLabel">
-            <div class="header" style="font-size: 1.4em">{{=it.stats.pools[pool].name}} Miners List &nbsp;&nbsp;</div>				
+            <div class="header" style="font-size: 1.4em">    
+                {{if (String(it.stats.pools[pool].name).startsWith("komodo")) { }}
+                    <img class="coinLogo" src="/static/images/KMDlogo.png"><br>
+                    Komodo
+                    {{ } else if (String(it.stats.pools[pool].name).startsWith("pirate")) { }}
+                    <img class="coinLogo" src="/static/images/PLogo2.png"><br>
+                    Pirate
+                    {{ } else if (String(it.stats.pools[pool].name).startsWith("redfox labs")) { }}
+                    <img class="coinLogo" src="/static/images/RFOX.png"><br>
+                    RedFOX Labs
+                    {{ } else { }}
+                    {{=it.poolsConfigs[pool].coin.name}}
+                {{ } }} 
+                Miners List &nbsp;&nbsp;
+            </div>			
                 <small><span id="statsMiners{{=pool}}">{{=it.stats.pools[pool].minerCount}}</span> Miners &nbsp;&nbsp;
                 <span id="statsWorkers{{=pool}}">{{=it.stats.pools[pool].workerCount}}</span> Workers &nbsp;&nbsp;
                 <span id="statsWorkers{{=pool}}">{{=it.stats.pools[pool].shareCount}}</span> Total Shares </small>	
