@@ -36,7 +36,7 @@ html, body, button, input, select, textarea, {
 /* **********Body********** */
 body {
     /*background-color: var(--colour5);*/
-    background-image: url(/static/images/BG.png);
+    background-image: url(/static/images/bg/#2a344b.png);
     background-repeat: repeat;
     width: 100%;
     margin: auto;
@@ -614,7 +614,7 @@ a.miningOption:hover{
 }
 
 .chartWrapper {
-    background-image: url(/static/images/BG/#d1a446.png);
+    background-image: url(/static/images/bg/#d1a446.png);
     background-repeat: repeat;
     /*background-color: var(--colour3);*/
     padding: 15px;
