@@ -449,7 +449,22 @@ code {
     margin: 15px;
 }
 
+.coinInfoTable {
+    padding: 5px;
+    background-color: black;
+}
 
+.coinInfoTable tr {
+    height: 35px
+}
+
+.coinInfoTable th {
+    background-color: var(--colour4);
+}
+
+.coinInfoTable td {
+    background-color: var(--colour2);
+}
 
 /* *******No idea what this shit is for********** 
 .glow{
