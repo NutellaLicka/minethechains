@@ -88,7 +88,6 @@ header > .menu-list {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: var(--colour4);
     position: -webkit-sticky; /* Safari */
     position: sticky;
     top: 0;
@@ -629,7 +628,6 @@ a.miningOption:hover{
 }
 
 .BlockStats {
-    background-color: var(--colour5);
     color: var(--colour2);
     border: 5px solid var(--colour2);
     margin: auto;
