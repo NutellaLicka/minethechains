@@ -353,6 +353,7 @@ footer a{
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    margin-top: 10px;
 }
 
 .GS-menu > a {
@@ -361,21 +362,22 @@ footer a{
 }
 
 .buttonoptions {
+    margin-top: 10px;
     background-color: var(--colour5);
     width: 250px;
     height: 50px;
     text-align: center;
     font-size: 1.4em;
-    color: var(--colour2);
-    border: 2px solid var(--colour2);
+    color: var(--colour1);
+    border: 2px solid var(--colour1);
     cursor: pointer;
     -webkit-transition-duration: 0.2s;
     transition-duration: 0.2s;
-    font-family: var(--font1);
+    font-family: var(--font2);
 }
 
 .buttonoptions:hover {
-    background-color: var(--colour2);
+    background-color: var(--colour1);
     color: var(--colour5);
 }
 
