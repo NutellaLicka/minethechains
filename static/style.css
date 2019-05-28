@@ -420,9 +420,7 @@ code {
 }
 
 .configDetails {
-    background-color: var(--colour1);
-    border-top: 2px solid black;
-
+    background-color: var(--colour6);
 }
 
 .coinLogo {
@@ -451,7 +449,6 @@ code {
 
 .coinInfoTable {
     padding: 5px;
-    background-color: black;
 }
 
 .coinInfoTable tr {
