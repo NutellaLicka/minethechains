@@ -82,9 +82,80 @@
 
             <div style="font-size: 1.2em; color: var(--colour3)">Configuration Details</div>
         </div>  
-    
+
         <div>
-                {{ for (var pool in it.poolsConfigs) { }}
+            {{ for (var pool in it.poolsConfigs) { }}
+                <div class="poolConfig">
+                    <div class="coinInfoHeader">
+                        {{if (String(it.stats.pools[pool].name).startsWith("komodo")) { }}
+                            <img class="coinLogo" src="/static/images/KMDlogo.png"><br>
+                            Komodo Configuration
+
+                            {{ } else if (String(it.stats.pools[pool].name).startsWith("pirate")) { }}
+                            <img class="coinLogo" src="/static/images/PirateLogo.png"><br>
+                            Pirate Configuration
+
+                            {{ } else if (String(it.stats.pools[pool].name).startsWith("redfox labs")) { }}
+                            <img class="coinLogo" src="/static/images/RFOX.png"><br>
+                            RedFOX Labs Configuration
+
+                            {{ } else { }}
+                            <span class="coinInfoName">{{=it.poolsConfigs[pool].coin.name}}</span> Configuration
+                        {{ } }}
+                    </div>
+
+                    <div class="configDetails" id="configDetails">
+                        <table class="coinInfoTable">
+                            <tr>
+                                <th>Minimum Payment</th>
+                                <td>{{=it.poolsConfigs[pool].paymentProcessing.minimumPayment}}</td>
+                            </tr>
+                            <tr>
+                                <th>Payment Frequency (seconds)</th>
+                                <td>{{=it.poolsConfigs[pool].paymentProcessing.paymentInterval}}</td>
+                            </tr>
+                            <tr>
+                                <th>Fee (%)</th>
+                                <td>{{=it.poolsConfigs[pool].feeAmount}}</td>
+                            </tr>
+                            <tr>
+                                <th>Algorithm</th>
+                                <td>{{=it.poolsConfigs[pool].coin.algorithm}}</td>
+                            </tr>
+                            <tr>
+                                <th>Username:</th>
+                                <td>
+                                    {{ if (it.poolsConfigs[pool].coin && it.poolsConfigs[pool].coin.privateChain) { }}
+                                        your {{=it.poolsConfigs[pool].coin.name}} wallet <b style="color:#C99631;">zS</b> address<br>
+                                    {{ } else if (it.poolsConfigs[pool].coin) { }}
+                                        your {{=it.poolsConfigs[pool].coin.name}} miner wallet address
+                                    {{ } else { }}
+                                        your {{=it.poolsConfigs[pool].coin.name}} miner wallet address
+                                    {{ } }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Password:</th>
+                                <td>ANYTHING</td>
+                            </tr>
+                            <tr>
+                                <th>Server/Stratum:</th>
+                                <td>{{=it.portalConfig.website.stratumHost}}</td>
+                            </tr>
+                            {{ for (var port in it.poolsConfigs[pool].ports) { }}
+                                <tr>
+                                    <th>{{= it.poolsConfigs[pool].ports[port].label ? it.poolsConfigs[pool].ports[port].label : 'URL'}} Port</th>
+                                    <td>{{=port}}</td>
+                                </tr>
+                            {{ } }}
+                        </table>
+                    </div>
+                </div>
+            {{ } }}
+        </div>
+
+       <!-- <div>
+            {{ for (var pool in it.poolsConfigs) { }}
                 <div class="poolConfig">
                         <div class="coinInfoHeader">
                             {{if (String(it.stats.pools[pool].name).startsWith("komodo")) { }}
@@ -135,8 +206,8 @@
                         </div>
                     </div>
                 </div>
-                {{ } }}
-        </div>
+            {{ } }}
+        </div>-->
 
         <div id="asicMining" style="height:50px"></div>
         <div class="menuHeader">ASIC Mining<a href="#" style="font-size: 0.7em; float: right; color: var(--colour1); padding-right: 15px;">TOP</a></div>
