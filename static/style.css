@@ -380,7 +380,6 @@ footer a{
 }
 
 #menu{
-    background-color: var(--colour5);
     max-width: 1080px;
     margin: auto;
     display: flex;
