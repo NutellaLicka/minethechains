@@ -348,6 +348,24 @@ footer a{
     padding: 3px;
 }
 
+.fundsBox {
+    font-size: 0.7em;
+    margin: auto;
+}
+
+.fundsTitle {
+
+}
+
+.fundsAnswer {
+    font-size: 0.9em;
+}
+
+.hashStats {
+    font-size: 0.7em;
+    margin: 10px;
+}
+
 /* ***GETTING STARTED*** */
 #holder{
     display: flex;
@@ -627,7 +645,7 @@ a.miningOption:hover{
 }
 
 .chartLabel {
-    font-size: 2.0em;
+    font-size: 1.8em;
     font-family: var(--font1);
     color: var(--colour6);
     text-align: center;
