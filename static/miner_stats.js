@@ -178,7 +178,7 @@ function updateWorkerStats() {
 }
 function addWorkerToDisplay(name, htmlSafeName, workerObj) {
 	var htmlToAdd = "";
-	htmlToAdd = '<div class="test"><div class="bannerWorkers"><div class="boxStats">';
+	htmlToAdd = '<div class="mobWorker"><div class="bannerWorkers"><div class="boxStats">';
 	if (htmlSafeName.indexOf("_") >= 0) {
 		htmlToAdd+= '<div class="boxLowerHeader">'+htmlSafeName.substr(htmlSafeName.indexOf("_")+1,htmlSafeName.length)+'</div>';
 	} else {
