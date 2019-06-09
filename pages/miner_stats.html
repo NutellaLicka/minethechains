@@ -1,25 +1,85 @@
-<div class="flex-container">
+<script type="text/javascript">
+	$(function () {
+	  $(document).tooltip({
+		  content: function () {
+			  return $(this).prop('title');
+		  },
+		  show: null, 
+		  close: function (event, ui) {
+			  ui.tooltip.hover(
+  
+			  function () {
+				  $(this).stop(true).fadeTo(400, 1);
+			  },
+  
+			  function () {
+				  $(this).fadeOut("400", function () {
+					  $(this).remove();
+				  })
+			  });
+		  }
+	  });
+  });
+  </script>
+  
+  <div class="flex-container">
+	<div id="topCharts">
+		<div class="chartWrapper">
+			<div class="chartLabel">
+				<div>
+					Worker Stats
+				</div>		
 
-<div id="topCharts">
-    <div class="chartWrapper">
-		<div class="chartLabel" style="font-size: 1.5em">
-			<div>Worker Stats</div>
-	
-            <div style="float:left; margin-right: 9px;">{{=String(it.stats.address).split(".")[0].length > 30 ? String(it.stats.address).split(".")[0].substring(0, 10) + '...' + String(it.stats.address).split(".")[0].substring(String(it.stats.address).split(".")[0].length-15, String(it.stats.address).split(".")[0].length): String(it.stats.address).split(".")[0]}}</div>
+				<div style="font-style: italic;">
+					{{=String(it.stats.address)}}
+				</div>
 
-			<div style="float:right; padding-left: 18px;"><small><span id="statsHashrateAvg">...</span> (Avg)</small></div>
-			<div style="float:right; padding-left: 18px;"><small><span id="statsHashrate">...</span> (Now)</small></div>
-			<div style="float:right; padding-left: 18px;"><small>Luck <span id="statsLuckDays">...</span> Days</small></div>
+				<div class="flex-container">
+				<div class="hashStats"><span id="statsHashrateAvg">...</span> (Avg)</div>
+				<div class="hashStats"><span id="statsHashrate">...</span> (Now)</div>
+				<div class="hashStats">Luck <span id="statsLuckDays">...</span> Days</div>
+				</div>
+
+			</div>
+			<div class="chartHolder"><svg id="workerHashrate"></svg></div>
+			<div class="chartLabel">
+				<div class="flex-container">
+					<div class="fundsBox">
+						<div class="fundsTitle" title="Funds are waiting for a notarisation">
+							Immature 
+						</div> 
+						<div class="fundsAnswer">
+								<span id="statsTotalImmature">...</span>
+						</div>
+					</div>
+					<div class="fundsBox">
+						<div class="fundsTitle" title="Funds waiting for minimum payout amount">
+							Balance 
+						</div> 
+						<div class="fundsAnswer">
+							<span id="statsTotalBal">...</span>
+						</div>
+					</div>
+					<div class="fundsBox">
+						<div class="fundsTitle" title="The total funds sent to your address">
+							Paid 
+						</div> 
+						<div class="fundsAnswer">
+							<span id="statsTotalPaid">...</span>
+						</div>
+					</div>
+					<div class="fundsBox">
+						<div class="fundsTitle" title="The total shares from this address">
+							Shares 
+						</div> 
+						<div class="fundsAnswer">
+							<span id="statsTotalShares">...</span>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-		<div class="chartHolder"><svg id="workerHashrate"></svg></div>
-		<div class="chartLabel" style="font-size: 1.5em">
-			<div style="float:right; padding-top: 9px; padding-right: 18px;"> Shares: <span id="statsTotalShares">...</span></div>
-			<div style="float:left; padding-top: 9px; padding-left: 18px; padding-right: 18px;"> Immature: <span id="statsTotalImmature">...</span> </div>
-			<div style="float:left; padding-top: 9px; padding-left: 18px; padding-right: 18px;"> Bal: <span id="statsTotalBal">...</span>  </div>
-			<div style="padding-top: 9px; padding-left: 18px;">Paid: <span id="statsTotalPaid">...</span>  </div>
-		</div>
-    </div>
-</div>
+	</div>
 </div>
 
 <div id="pirateHash">
