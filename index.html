@@ -134,7 +134,10 @@
 
 </style>
 
-<script type="text/javascript"> 
+<script type="text/javascript">
+var datee = new Date();
+document.getElementById("DATE").innerHTML = datee;
+
     function searchKeyPress(e)
     {
         // look for window.event in case event isn't passed in
@@ -160,9 +163,6 @@
         x.style.display = "block";
     }
     }
-
-var d = new Date();
-document.getElementById("DATE").innerHTML = d;
 </script>
 
 <!--<div class="alertInfo" id="alertComp">
