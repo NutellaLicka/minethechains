@@ -135,9 +135,6 @@
 </style>
 
 <script type="text/javascript">
-var d = new Date();
-document.getElementById("DATE").innerHTML = d;
-
     function searchKeyPress(e)
     {
         // look for window.event in case event isn't passed in
@@ -252,7 +249,6 @@ document.getElementById("DATE").innerHTML = d;
 
 <main>
     {{=it.page}}
-    <p id="DATE"> </p>
 </main>
 
 <footer>
@@ -265,3 +261,8 @@ Pool By @NutellaLicka
 
 </body>
 </html>
+
+<script>
+var dt = new Date();
+document.getElementById("DATE").innerHTML = dt.toLocaleString;
+</script>
