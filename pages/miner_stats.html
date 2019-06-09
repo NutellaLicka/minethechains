@@ -9,11 +9,11 @@
 			  ui.tooltip.hover(
   
 			  function () {
-				  $(this).stop(true).fadeTo(400, 1);
+				  $(this).stop(true).fadeTo(200, 1);
 			  },
   
 			  function () {
-				  $(this).fadeOut("400", function () {
+				  $(this).fadeOut("200", function () {
 					  $(this).remove();
 				  })
 			  });
@@ -30,7 +30,7 @@
 					Worker Stats
 				</div>		
 
-				<div style="font-style: italic;">
+				<div class="workerAddy" style="font-style: italic;">
 					{{=String(it.stats.address)}}
 				</div>
 
