@@ -816,6 +816,10 @@ input {
 
 /* MOBILE CHANGES */
 @media screen and (max-width: 800px) {
+    .mobWorker {
+        width: 100%;
+        margin-top: 5px;
+    }
     .mobWorker > .bannerWorkers {
         width: 100%;
         margin: 0px;
