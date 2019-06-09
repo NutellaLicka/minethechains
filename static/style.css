@@ -349,16 +349,15 @@ footer a{
 }
 
 .fundsBox {
-    font-size: 0.7em;
     margin: auto;
 }
 
 .fundsTitle {
-
+    font-size: 0.9em
 }
 
 .fundsAnswer {
-    font-size: 0.9em;
+    font-size: 0.7em;
 }
 
 .hashStats {
@@ -837,6 +836,9 @@ input {
 @media screen and (max-width: 800px) {
     #topCharts {
         font-size: 80%;
+    }
+    .workerAddy {
+        font-size: 0.7em;
     }
     .mobWorker > .bannerWorkers {
         margin: 0px;
