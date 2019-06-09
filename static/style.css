@@ -804,6 +804,7 @@ input {
     font-size: 0.85em;
     padding-top: 4px;
     border-bottom: 1px solid var(--colour3);
+    padding: 5px;
 }
 
 .boxLowerHeader{
@@ -817,21 +818,14 @@ input {
 /* MOBILE CHANGES */
 @media screen and (max-width: 800px) {
     .mobWorker {
-        width: 100%;
-        margin-top: 5px;
+
     }
     .mobWorker > .bannerWorkers {
-        width: 100%;
         margin: 0px;
     }
-    
-    .mobWorker > .bannerWorkers > .boxStats > .infotext {
-        padding: 5px;
-    };
 
     .mobWorker > .boxesWorkers {
         max-width: 100%;
-        color: yellow;
     }
  
  }
