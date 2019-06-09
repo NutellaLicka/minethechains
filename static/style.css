@@ -817,8 +817,8 @@ input {
 
 /* MOBILE CHANGES */
 @media screen and (max-width: 800px) {
-    .mobWorker {
-
+    #topCharts {
+        font-size: 80%;
     }
     .mobWorker > .bannerWorkers {
         margin: 0px;
