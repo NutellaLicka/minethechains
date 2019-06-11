@@ -8,6 +8,7 @@ var totalImmature;
 var totalBal;
 var totalPaid;
 var totalShares;
+var miningCalc;
 
 function getReadableHashRateString(hashrate){
 	hashrate = (hashrate * 2);
@@ -147,11 +148,14 @@ function updateStats() {
 	totalBal = statData.balance;
 	totalImmature = statData.immature;
 	totalShares = statData.totalShares;
+
 	// do some calculations
 	var _blocktime = 250;
 	var _networkHashRate = parseFloat(statData.networkSols) * 1.2;
 	var _myHashRate = (totalHash / 1000000) * 2;
 	var luckDays =  ((_networkHashRate / _myHashRate * _blocktime) / (24 * 60 * 60)).toFixed(3);
+	miningCalc = _myHashRate/_networkHashRate * REWARDperBlock* (_blocktime * 86400);
+
 	// update miner stats
 	$("#statsHashrate").text(getReadableHashRateString(totalHash));
 	$("#statsHashrateAvg").text(getReadableHashRateString(calculateAverageHashrate(null)));
@@ -160,6 +164,7 @@ function updateStats() {
 	$("#statsTotalBal").text(totalBal);
 	$("#statsTotalPaid").text(totalPaid);
 	$("#statsTotalShares").text(totalShares.toFixed(2));
+	$("#minigCalc").text(miningCalc.toFixed(2));
 }
 function updateWorkerStats() {
 	// update worker stats
