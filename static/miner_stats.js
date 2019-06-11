@@ -150,11 +150,12 @@ function updateStats() {
 	totalShares = statData.totalShares;
 
 	// do some calculations
-	var _blocktime = 250;
+	var _blocktime = 60; //seconds
+	var _blockReward = 3; //need to change to whatever the coins BR is
 	var _networkHashRate = parseFloat(statData.networkSols) * 1.2;
 	var _myHashRate = (totalHash / 1000000) * 2;
 	var luckDays =  ((_networkHashRate / _myHashRate * _blocktime) / (24 * 60 * 60)).toFixed(3);
-	miningCalc = _myHashRate/_networkHashRate * REWARDperBlock* (_blocktime * 86400);
+	miningCalc = _myHashRate/_networkHashRate * _blockReward * (86400 / _blocktime);
 
 	// update miner stats
 	$("#statsHashrate").text(getReadableHashRateString(totalHash));
