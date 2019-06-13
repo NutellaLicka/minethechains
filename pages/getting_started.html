@@ -21,125 +21,134 @@
     
     <div class="GS-menu">
             <a href="#poolDetails"><button class="buttonoptions">Pool Details</button></a>
-            <a href="#asicMining"><button class="buttonoptions">ASIC Mining</button></a>
-            <a href="#gpuMining"><button class="buttonoptions">GPU Mining</button></a>
-            <a href="#createWallet"><button class="buttonoptions">Pirate Info</button></a>
+            <a href="#guides&wallets"><button class="buttonoptions">Guides/Wallets</button></a>
+            <a href="#howtoMine"><button class="buttonoptions">How-To Mine</button></a>
+            <a href="#createWallet"><button class="buttonoptions">CLI Info</button></a>
+            <a href="#handyLinks"><button class="buttonoptions">Handy Links</button></a>
     </div>
 
-<div id="menu">    
-    <div id="poolDetails" style="height:50px"></div>
-    <div class="menuHeader">Pool Details<a href="#" style="font-size: 0.7em; float: right; color: var(--colour1); padding-right: 15px;">TOP</a></div>
+    <div id="menu">    
+        <div id="poolDetails" style="height:50px"></div>
+        <div class="menuHeader">Pool Details<a href="#" style="font-size: 0.7em; float: right; color: var(--colour1); padding-right: 15px;">TOP</a></div>
 
-        <div class="sectionwords">
-            <div style="font-size: 1.3em; color: var(--colour3)">Pool Payments Information</div>
-            <p>
-                Pool payout frequency is listed below and is different for each coin.</br>
-                For <a href="https://blog.komodoplatform.com/delayed-proof-of-work-explained-9a74250dbb86" target="_blank" style="color: var(--colour1)">dPoW'd</a> coins, the payments require 1 notarisation before they will be sent. </br>
-                A "CONFIRMING" status on the payment indicates it is waiting for a notarisation to occur. Once the notarisation occurs, the payment will switch to "PENDING". </br>
-                A "PENDING" status indicates the payment is waiting until the next payout time. </br>
-                "CONFIRMING" and "PENDING" payments show as IMMATURE on your workers page. </br>
-            </p>
+            <div class="sectionwords">
+                <div style="font-size: 1.3em; color: var(--colour3)">Pool Payments Information</div>
+                <p>
+                    Pool payout frequency is listed below and is different for each coin.</br>
+                    For <a href="https://blog.komodoplatform.com/delayed-proof-of-work-explained-9a74250dbb86" target="_blank" style="color: var(--colour1)">dPoW'd</a> coins, the payments require 1 notarisation before they will be sent. </br>
+                    A "CONFIRMING" status on the payment indicates it is waiting for a notarisation to occur. Once the notarisation occurs, the payment will switch to "PENDING". </br>
+                    A "PENDING" status indicates the payment is waiting until the next payout time. </br>
+                    "CONFIRMING" and "PENDING" payments show as IMMATURE on your workers page. </br>
+                </p>
 
-            <p>
-                A minimum amount of coins is required before the payment processor will payout. This amount varies based on coin. Refer to the minimum payout amount below. Your BALANCE will show coins waiting to be paid if you haven't mined the minimum amount. No manual payments will be processed below the threshold.
-            </p>
+                <p>
+                    A minimum amount of coins is required before the payment processor will payout. This amount varies based on coin. Refer to the minimum payout amount below. Your BALANCE will show coins waiting to be paid if you haven't mined the minimum amount. No manual payments will be processed below the threshold.
+                </p>
 
-            <p>
-                The pool fee for each coin is listed below.
-            </p>
+                <p>
+                    The pool fee for each coin is listed below.
+                </p>
 
-            <div style="font-size: 0.8em; color: var(--colour3);">Pool hoppers are not tolerated on this pool. Please stay for longer than 12 hours to reap the rewards of pool mining!</div>
-            <br>
+                <div style="font-size: 0.8em; color: var(--colour3);">Pool hoppers are not tolerated on this pool. Please stay for longer than 12 hours to reap the rewards of pool mining!</div>
+                <br>
 
-            <div style="font-size: 1.3em; color: var(--colour3)">Configuration Details</div>
-        </div>  
+                <div style="font-size: 1.3em; color: var(--colour3)">Configuration Details</div>
+            </div>  
 
-        <div>
-            {{ for (var pool in it.poolsConfigs) { }}
-                <div class="poolConfig">
-                    <div class="coinInfoHeader">
-                        {{if (String(it.stats.pools[pool].name).startsWith("komodo")) { }}
-                            <img class="coinLogo" src="/static/images/KMDlogo.png"><br>
-                            Komodo Configuration
+            <div>
+                {{ for (var pool in it.poolsConfigs) { }}
+                    <div class="poolConfig">
+                        <div class="coinInfoHeader">
+                            {{if (String(it.stats.pools[pool].name).startsWith("komodo")) { }}
+                                <img class="coinLogo" src="/static/images/KMDlogo.png"><br>
+                                Komodo Configuration
 
-                            {{ } else if (String(it.stats.pools[pool].name).startsWith("pirate")) { }}
-                            <img class="coinLogo" src="/static/images/PirateLogo.png"><br>
-                            Pirate Configuration
+                                {{ } else if (String(it.stats.pools[pool].name).startsWith("pirate")) { }}
+                                <img class="coinLogo" src="/static/images/PirateLogo.png"><br>
+                                Pirate Configuration
 
-                            {{ } else if (String(it.stats.pools[pool].name).startsWith("redfox labs")) { }}
-                            <img class="coinLogo" src="/static/images/RFOX.png"><br>
-                            RedFOX Labs Configuration
+                                {{ } else if (String(it.stats.pools[pool].name).startsWith("redfox labs")) { }}
+                                <img class="coinLogo" src="/static/images/RFOX.png"><br>
+                                RedFOX Labs Configuration
 
-                            {{ } else { }}
-                            <span class="coinInfoName">{{=it.poolsConfigs[pool].coin.name}}</span> Configuration
-                        {{ } }}
-                    </div>
-
-                    <div class="configDetails" id="configDetails">
-                        <table class="coinInfoTable">
-                            <tr>
-                                <th>Minimum Payment</th>
-                                <td>{{=it.poolsConfigs[pool].paymentProcessing.minimumPayment}}</td>
-                            </tr>
-                            <tr>
-                                <th>Payment Frequency (seconds)</th>
-                                <td>{{=it.poolsConfigs[pool].paymentProcessing.paymentInterval}}</td>
-                            </tr>
-                            <tr>
-                                <th>Fee (%)</th>
-                                <td>{{=it.poolsConfigs[pool].feeAmount}}</td>
-                            </tr>
-                            <tr>
-                                <th>Algorithm</th>
-                                <td>{{=it.poolsConfigs[pool].coin.algorithm}}</td>
-                            </tr>
-                            <tr>
-                                <th>Username:</th>
-                                <td>
-                                    {{ if (it.poolsConfigs[pool].coin && it.poolsConfigs[pool].coin.privateChain) { }}
-                                        your {{=it.poolsConfigs[pool].coin.name}} wallet <b style="color:#C99631;">zS</b> address<br>
-                                    {{ } else if (it.poolsConfigs[pool].coin) { }}
-                                        your {{=it.poolsConfigs[pool].coin.name}} miner wallet address
-                                    {{ } else { }}
-                                        your {{=it.poolsConfigs[pool].coin.name}} miner wallet address
-                                    {{ } }}
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Password:</th>
-                                <td>ANYTHING</td>
-                            </tr>
-                            <tr>
-                                <th>Server/Stratum:</th>
-                                <td>{{=it.portalConfig.website.stratumHost}}</td>
-                            </tr>
-                            {{ for (var port in it.poolsConfigs[pool].ports) { }}
-                                <tr>
-                                    <th>{{= it.poolsConfigs[pool].ports[port].label ? it.poolsConfigs[pool].ports[port].label : 'URL'}} Port</th>
-                                    <td>{{=port}}</td>
-                                </tr>
+                                {{ } else { }}
+                                <span class="coinInfoName">{{=it.poolsConfigs[pool].coin.name}}</span> Configuration
                             {{ } }}
-                        </table>
-                    </div>
-                </div>
-            {{ } }}
-        </div>
+                        </div>
 
-        <div id="asicMining" style="height:50px"></div>
-        <div class="menuHeader">ASIC Mining<a href="#" style="font-size: 0.7em; float: right; color: var(--colour1); padding-right: 15px;">TOP</a></div>
+                        <div class="configDetails" id="configDetails">
+                            <table class="coinInfoTable">
+                                <tr>
+                                    <th>Minimum Payment</th>
+                                    <td>{{=it.poolsConfigs[pool].paymentProcessing.minimumPayment}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Payment Frequency (seconds)</th>
+                                    <td>{{=it.poolsConfigs[pool].paymentProcessing.paymentInterval}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Fee (%)</th>
+                                    <td>{{=it.poolsConfigs[pool].feeAmount}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Algorithm</th>
+                                    <td>{{=it.poolsConfigs[pool].coin.algorithm}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Username:</th>
+                                    <td>
+                                        {{ if (it.poolsConfigs[pool].coin && it.poolsConfigs[pool].coin.privateChain) { }}
+                                            your {{=it.poolsConfigs[pool].coin.name}} wallet <b style="color:#C99631;">zS</b> address<br>
+                                        {{ } else if (it.poolsConfigs[pool].coin) { }}
+                                            your {{=it.poolsConfigs[pool].coin.name}} miner wallet address
+                                        {{ } else { }}
+                                            your {{=it.poolsConfigs[pool].coin.name}} miner wallet address
+                                        {{ } }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Password:</th>
+                                    <td>ANYTHING</td>
+                                </tr>
+                                <tr>
+                                    <th>Server/Stratum:</th>
+                                    <td>{{=it.portalConfig.website.stratumHost}}</td>
+                                </tr>
+                                {{ for (var port in it.poolsConfigs[pool].ports) { }}
+                                    <tr>
+                                        <th>{{= it.poolsConfigs[pool].ports[port].label ? it.poolsConfigs[pool].ports[port].label : 'URL'}} Port</th>
+                                        <td>{{=port}}</td>
+                                    </tr>
+                                {{ } }}
+                            </table>
+                        </div>
+                    </div>
+                {{ } }}
+            </div>
+
+        <div id="guides&wallets" style="height:50px"></div>
+        <div class="menuHeader">Guides/Wallets<a href="#" style="font-size: 0.7em; float: right; color: var(--colour1); padding-right: 15px;">TOP</a></div>
         <div class="sectionwords">
             <h1>
                 Guides
             </h1>
             <p>
                 <a href="https://medium.com/piratechain/how-to-mine-pirate-step-by-step-with-gpu-s-4c98f3dbcf5e" target="blank" rel="noopener noreferrer" style="color: var(--colour1)">How to mine Pirate with a GPU or ASIC miner</a><br>
-                <a href="https://docs.komodoplatform.com/komodo/install-Komodo-manually.html" target="_blank" style="color: var(--colour1)">How to run Komodo (needed in order to run KMD Assetchains)</a><br>
-                <a href="https://www.youtube.com/watch?v=R-CfKd0VrTg" target="blank" rel="noopener noreferrer" style="color: var(--colour1)">How to run Agama wallet</a>
+                <a href="https://docs.komodoplatform.com/komodo/install-Komodo-manually.html" target="_blank" style="color: var(--colour1)">How to run Komodo (not required to mine on this pool but can be used for CLI wallets for KMD and all assetchains)</a><br>
+            </p>
+                <h1>
+                Wallets
+            </h1>
+            <p>
+                <a href="https://github.com/DeckerSU/KomodoOcean/tree/static" target="blank" rel="noopener noreferrer" style="color: var(--colour1)">KomodoOceanQT Wallet (WIN/MAC/LINUX)</a>
+                <a href="https://github.com/TheComputerGenie/PirateOcean" target="blank" rel="noopener noreferrer" style="color: var(--colour1)">PirateOceanQT Wallet (WIN/MAC/LINUX)</a>
+                <a href="https://github.com/VerusCoin/Agama/releases/tag/v0.6.0.13-PBaaS-Cross-chain-Technology-Preview" target="blank" rel="noopener noreferrer" style="color: var(--colour1)">Verus Agama (WIN/MAC/LINUX) (Supports KMD & Pirate)</a>
+                <a href="https://github.com/leto/TreasureChest" target="blank" rel="noopener noreferrer">Treasure Chest Wallet (Pirate only)</a>
             </p>
         </div>
 
-        <div id="gpuMining" style="height:50px"></div>
-        <div class="menuHeader">GPU Mining<a href="#" style="font-size: 0.7em; float: right; color: var(--colour1); padding-right: 15px;">TOP</a></div>
+        <div id="howtoMine" style="height:50px"></div>
+        <div class="menuHeader">How-To-Mine<a href="#" style="font-size: 0.7em; float: right; color: var(--colour1); padding-right: 15px;">TOP</a></div>
         <div class="sectionwords">
             <p>
                 Firstly, you will need to decide what GPU mining software you are going to use. There are many available to choose from. You will need to experiment to find which one works best for you.  DYOR on this and be sure to virus scan all the things! This pool takes no responsibility for 3rd party software.
@@ -151,10 +160,14 @@
                 You are only able to mine Komodo with an R address.
             </p>
             <p>
-                If you mistype, or input an invalid address, you will not receive any funds and the pool will be unable to retrieve these. Please ensure you have copied your zSaddress correctly.
+                You are only able to mine RedFOX with an R address.
+            </p>
+            <br>
+            <p>
+                If you mistype, or input an invalid address, you will not receive any funds and the pool will be unable to retrieve these. Please ensure you have copied your address correctly into your configuration.
             </p>
             <p>
-                DO NOT, I repeat, DO NOT mine to an exchange wallet. This will cause all sorts of problems for the exchange to deal with, most likely leading to closed withdrawals and deposits as we have seen before. Refer to the information at the bottom of the page to get an Agama wallet.
+                DO NOT, I repeat, DO NOT mine to an exchange wallet. This will cause all sorts of problems for the exchange to deal with, most likely leading to closed withdrawals and deposits as we have seen before. Refer to the wallet links above for wallets you can use for each coin.
             </p>
             <p>
                 Use the config examples below, and if you have multiple mining rigs you can add a .minername at the end of your username(wallet addr) to see stats broken down by rig on the worker stats page.
@@ -183,89 +196,131 @@
                     
                 </div>
             
-            <p>While it is possible to CPU mine, this pool does not support doing so on PIRATE.</p>
+            <p>While it is possible to CPU mine, this pool does not support doing so.</p>
         </div>
 
         <div id="createWallet" style="height:50px"></div>
-        <div class="menuHeader">Generate a PIRATE Wallet and Address<a href="#" style="font-size: 0.7em; float: right; color: var(--colour1); padding-right: 15px;">TOP</a></div>
+        <div class="menuHeader">Generate a CLI Wallet and Address<a href="#" style="font-size: 0.7em; float: right; color: var(--colour1); padding-right: 15px;">TOP</a></div>
         <div class="sectionwords">
-            Currently to have a Pirate wallet, you must download the blockchain. Which means running Agama in NATIVE mode, as well as syncing the entire blockchain. DO NOT bypass this by mining to exchanges. This will cause severe problems for the exchange.<br>
+            Currently to have a Pirate wallet, you must download the blockchain. DO NOT bypass this by mining to exchanges. This will cause severe problems for the exchange.<br>
+            For Komodo, you can do the same and download the blockchain, or you can use the Verus Agama wallet in Lite mode instead.
+            For RedFox, you will need to build Komodo and start the RedFox chain, then use the commands below to create a new address to mine to.
             <br>
-            You can use any of the following wallets:<br>
-            <div><a href="https://github.com/KomodoPlatform/Agama/releases" target="blank" rel="noopener noreferrer">Agama Multi-Currency Wallet</a></div> 
-            <div><a href="https://github.com/TheComputerGenie/PirateOcean/releases" target="blank" rel="noopener noreferrer">PirateOcean QT for Windows & Mac</a></div>
-            <div><a href="https://github.com/leto/TreasureChest" target="blank" rel="noopener noreferrer">Treasure Chest Wallet</a></div>
+            <br>
 
-            Thanks to @kaks for <a href="https://www.youtube.com/watch?v=R-CfKd0VrTg" target="blank" rel="noopener noreferrer" style="color: var(--colour1)">making this tutorial for running Agama Wallet.</a>
-            <br>
-            <br>
             <div style="font-size: 1.2em; color: var(--colour3)">CLI Wallet Commands</div>
-
-            If you use a CLI wallet. You can follow the instructions below:<br>
+            If you build Komodo (guide above) and use a Command Line Interface(CLI) wallet. You can follow the instructions below:<br>
             <ol>
                 <li>Build <a href="https://docs.komodoplatform.com/komodo/install-Komodo-manually.html" target="_blank" style="color: var(--colour1)">Komodo</a></li>
-                <li>Launch PIRATE chain and wait for it to sync fully:
+                <li>Launch the chain you want to use and wait for it to sync fully:
                     <code>
-                        ./komodod -ac_name=PIRATE -ac_supply=0 -ac_reward=25600000000 -ac_halving=77777 -ac_private=1 -addnode=136.243.102.225
+                        For Komodo:
+                        ./komodod -addnode=103.231.88.178 
+
+                        For Pirate:
+                        ./komodod -ac_name=PIRATE -ac_supply=0 -ac_reward=25600000000 -ac_halving=77777 -ac_private=1 -addnode=136.243.102.225 -addnode=103.231.88.178
+
+                        For RedFox:
+                        ./komodod -ac_name=RFOX -ac_supply=1000000000 -ac_reward=100000000 -addnode=78.47.196.146 -addnode=103.231.88.178
                     </code>
                 </li>
-                <li>Generate a Z address:
+                <li>Once the chain has fully synced, Generate a new address:
                     <code>
+                        For Komodo:
+                        ./komodo-cli getnewaddress 
+
+                        For Pirate (you need a ZS address)
                         ./komodo-cli -ac_name=PIRATE z_getnewaddress
+
+                        For RedFox:
+                        ./komodo-cli -ac_name=RFOX getnewaddress
                     </code>
                 </li>
                 <li>Securely backup your private key (keep this private key safe):
                     <code>
-                        ./komodo-cli -ac_name=PIRATE z_exportkey "zaddr"
+                        For Komodo:
+                        ./komodo-cli dumpprivkey "youraddresshere"
+
+                        For RedFox:
+                        ./komodo-cli -ac_name=RFOX dumpprivkey "youraddresshere"
+
+                        For Pirate:
+                        ./komodo-cli -ac_name=PIRATE z_exportkey "yourzsaddresshere"
                     </code>
                 </li>
             </ol>
-<br>
+            <br>
             <div style="font-size: 1.2em; color: var(--colour3)">Handy CLI commands</div>
-                <div>Check your balance:
-                    <code>
-                        ./komodo-cli -ac_name=PIRATE z_gettotalbalance
-                    </code>
-                </div>
+            <p>
+                For any komodo commands, don't input the -ac_name= parameter for any commands.
+                For Pirate, input the -ac_name=PIRATE parameter.
+                For RedFox, input the -ac_name=RFOX parameter.
+            </p>
+            <div>Review all commands:
+                <code>
+                    ./komodo-cli help
+                </code>
+            </div>
 
-                <div>Send your coins:
-                    <code>
-                        ./komodo-cli -ac_name=PIRATE z_sendmany "fromZSaddress" '[{"address": "toZSaddress" ,"amount": 1000}]'
-                    </code>
-                </div>
+            <div>Check your Zs balance:
+                <code>
+                    ./komodo-cli -ac_name=PIRATE z_gettotalbalance
+                </code>
+            </div>
 
-                <div>Generate a new Sapling address(starts with zS)
+            <div>Check your transparent(R) balance:
                     <code>
-                        ./komodo-cli -ac_name=PIRATE z_getnewaddress
+                        ./komodo-cli getbalance
                     </code>
-                </div>   
+            </div>
 
-                <div>Create a specific sized UTXO in your wallet.
-                    <code>
-                        ./komodo-cli -ac_name=PIRATE z_sendmany "zaddr1" '[{"address":"zaddr1","amount": 1000}]'
-                    </code>
-                </div> 
-                
-            <div>
-                <div class="info" style="font-size: 1.1em; margin: 0px; text-align: left">
-                    <div class="info" style="font-size: 1.2em; color: var(--colour3); text-align: left">Pirate Links</div>
+            <div>Send your Pirate coins:
+                <code>
+                    ./komodo-cli -ac_name=PIRATE z_sendmany "fromZSaddress" '[{"address": "toZSaddress" ,"amount": 1000}]'
+                </code>
+            </div>
 
-                    <div><a href="https://pirate.black" target="blank" rel="noopener noreferrer" style="color: var(--colour1)">pirate.black</a></div>
-                    <div><a href="https://discord.gg/Gs9rj4a" target="blank" rel="noopener noreferrer" style="color: var(--colour1)">Discord Server</a></div>
-                    <div><a href="https://digitalprice.io/?inviter=4fdaf7" target="blank" rel="noopener noreferrer" style="color: var(--colour1)">DigiPrice Exchange</a></div>
-                    <div><a href="https://twitter.com/PirateChain" target="blank" rel="noopener noreferrer" style="color: var(--colour1)">Pirate Twitter</a></div>
-                    <div><a href="https://www.instagram.com/PirateChain/" target="blank" rel="noopener noreferrer" style="color: var(--colour1)">Instagram</a></div>
-                    <div><a href="https://medium.com/piratechain" target="blank" rel="noopener noreferrer" style="color: var(--colour1)">Medium Articles</a></div>
-                    <div><a href="https://www.reddit.com/r/PirateChain" target="blank" rel="noopener noreferrer" style="color: var(--colour1)">Reddit</a></div>
-                    <div><a href="https://www.youtube.com/channel/UC-T-lFJpcCXn1EZ8cuc-d3Q?view_as=subscriber" target="blank" rel="noopener noreferrer" style="color: var(--colour1)">Youtube</a></div>
-                    <div><a href="https://github.com/PirateNetwork" target="blank" rel="noopener noreferrer" style="color: var(--colour1)">GitHub</a></div>
-                    <div><a href="https://bitcointalk.org/index.php?topic=4979549" target="blank" rel="noopener noreferrer" style="color: var(--colour1)">BTT</a></div>
-                    <div><a href="http://pirate.explorer.dexstats.info" target="blank" rel="noopener noreferrer" style="color: var(--colour1)">Explorer</a></div>
-                    <div><a href="https://explorer.pirate.black/" target="blank" rel="noopener noreferrer" style="color: var(--colour1)">Pirate Explorer</a></div><br>
-                </div>
+            <div>Generate a new Sapling address(starts with zS)
+                <code>
+                    ./komodo-cli -ac_name=PIRATE z_getnewaddress
+                </code>
+            </div>   
+
+            <div>Create a specific sized UTXO in your wallet.
+                <code>
+                    ./komodo-cli -ac_name=PIRATE z_sendmany "zaddr1" '[{"address":"zaddr1","amount": 1000}]'
+                </code>
             </div> 
-            For more information visit the <a href="https://pirate.black/" target="_blank" style="color: var(--colour1)">pirate.black website.</a>
+            For more information visit the <a href="https://docs.komodoplatform.com/basic-docs/komodo-api/wallet.html" target="_blank" style="color: var(--colour1)">Komodo documentation website</a>, or ask in the <a href="https://discord.gg/syqQ5Yr" target="blank" rel="noopener noreferrer" style="color: var(--colour2);">MineTheChains Discord Server.</a> 
         </div>
+
+        <div id="handyLinks" style="height:50px"></div>
+        <div class="menuHeader">Handy Links<a href="#" style="font-size: 0.7em; float: right; color: var(--colour1); padding-right: 15px;">TOP</a></div>
+        <div class="sectionwords">
+            <div class="info" style="font-size: 1.1em; margin: 0px; text-align: left">
+                <div class="info" style="font-size: 1.2em; color: var(--colour3); text-align: left">Handy Links</div>
+
+                <div><a href="https://discord.gg/syqQ5Yr" target="blank" rel="noopener noreferrer" style="color: var(--colour1)">MineTheChains Discord Server</a></div>
+                <div><a href="https://komodoplatform.com/" target="blank" rel="noopener noreferrer" style="color: var(--colour1)">Komodo Website</a></div>
+                <div><a href="https://discord.gg/QeukYy6" target="blank" rel="noopener noreferrer" style="color: var(--colour1)">Komodo Discord Server</a></div>
+                <div><a href="https://pirate.black" target="blank" rel="noopener noreferrer" style="color: var(--colour1)">pirate.black Website</a></div>
+                <div><a href="https://discord.gg/Gs9rj4a" target="blank" rel="noopener noreferrer" style="color: var(--colour1)">Pirate Discord Server</a></div>
+                <div><a href="http://kmd.explorer.dexstats.info/" target="blank" rel="noopener noreferrer" style="color: var(--colour1)">Komodo Explorer</a></div><br>
+                <div><a href="https://explorer.pirate.black/" target="blank" rel="noopener noreferrer" style="color: var(--colour1)">Pirate Explorer</a></div><br>
+                <div><a href="http://rfox.explorer.dexstats.info/" target="blank" rel="noopener noreferrer" style="color: var(--colour1)">RedFox Explorer</a></div><br>
+                <div><a href="https://coinmarketcap.com/currencies/komodo/" target="blank" rel="noopener noreferrer" style="color: var(--colour1)">Komodo CoinMarketCap</a></div>
+                <div><a href="https://www.coingecko.com/en/coins/komodo?utm_content=komodo&utm_medium=search_coin&utm_source=coingecko" target="blank" rel="noopener noreferrer" style="color: var(--colour1)">Komodo CoinGecko</a></div>
+                <div><a href="https://coinmarketcap.com/currencies/pirate-chain/" target="blank" rel="noopener noreferrer" style="color: var(--colour1)">PirateChain CoinMarketCap</a></div>
+                <div><a href="https://coinpaprika.com/coin/arrr-pirate/" target="blank" rel="noopener noreferrer" style="color: var(--colour1)">PirateChain CoinPaprika</a></div>
+                <div><a href="https://www.coingecko.com/en/coins/pirate-chain?utm_content=pirate-chain&utm_medium=search_coin&utm_source=coingecko" target="blank" rel="noopener noreferrer" style="color: var(--colour1)">PirateChain CoinGecko</a></div>
+                <div><a href="https://coinmarketcap.com/currencies/redfox-labs/" target="blank" rel="noopener noreferrer" style="color: var(--colour1)">RedFox Labs CoinMarketCap</a></div>
+                <div><a href="https://coinpaprika.com/coin/rfox-redfox-labs/" target="blank" rel="noopener noreferrer" style="color: var(--colour1)">RedFox Labs CoinPaprika</a></div>
+                <div><a href="https://www.coingecko.com/en/coins/redfox-labs?utm_content=redfox-labs&utm_medium=search_coin&utm_source=coingecko" target="blank" rel="noopener noreferrer" style="color: var(--colour1)">RedFox Labs CoinGecko</a></div>
+                <div><a href="https://digitalprice.io/?inviter=4fdaf7" target="blank" rel="noopener noreferrer" style="color: var(--colour1)">DigiPrice Exchange (KMD/ARRR)</a></div>
+                <div><a href="https://www.coineal.com/#en_US" target="blank" rel="noopener noreferrer" style="color: var(--colour1)">Coineal Exchange (RFOX)</a></div>
+                <div><a href="https://www.binance.com/en" target="blank" rel="noopener noreferrer" style="color: var(--colour1)">Binanace Exchange (KMD)</a></div>
+            </div>
+        </div> 
     </div>
 </div>
 
