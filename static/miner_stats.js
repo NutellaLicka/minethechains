@@ -155,7 +155,7 @@ function updateStats() {
 	var _networkHashRate = parseFloat(statData.networkSols) * 1.2;
 	var _myHashRate = (totalHash / 1000000) * 2;
 	var luckDays =  ((_networkHashRate / _myHashRate * _blocktime) / (24 * 60 * 60)).toFixed(3);
-	miningCalc = it.poolsConfigs.blockRewardAmount //_myHashRate/_networkHashRate * _blockReward * (86400 / _blocktime); it.poolsConfigs[pool].feeAmount
+	miningCalc = statData.poolsConfigs.blockRewardAmount //_myHashRate/_networkHashRate * _blockReward * (86400 / _blocktime); it.poolsConfigs[pool].feeAmount
 
 	// update miner stats
 	$("#statsHashrate").text(getReadableHashRateString(totalHash));
