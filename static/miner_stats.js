@@ -165,7 +165,7 @@ function updateStats() {
 	$("#statsTotalBal").text(totalBal);
 	$("#statsTotalPaid").text(totalPaid);
 	$("#statsTotalShares").text(totalShares.toFixed(2));
-	$("#statsMinigCalc").text(miningCalc.toFixed(2));
+	$("#statsMinigCalc").text(miningCalc);
 }
 function updateWorkerStats() {
 	// update worker stats
