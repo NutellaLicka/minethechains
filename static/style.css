@@ -380,27 +380,44 @@ footer a{
 }
 
 .GS-menu > a {
-    width: 250px;
-    height: 50px;
+    width: 300px;
+    height: 60px;
+    margin: 10px;
 }
 
 .buttonoptions {
     background-color: var(--colour5);
-    width: 250px;
-    height: 50px;
+    width: 100%;
+    height: 100%;
     text-align: center;
     font-size: 1.4em;
     color: var(--colour1);
-    border: 2px solid var(--colour1);
+    border: 1px solid var(--colour1);
     cursor: pointer;
-    -webkit-transition-duration: 0.2s;
-    transition-duration: 0.2s;
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
     font-family: var(--font2);
+    padding: 5px 10px 10px 10px;
 }
 
 .buttonoptions:hover {
     background-color: var(--colour1);
     color: var(--colour5);
+}
+
+.buttonoptions > span {
+    background-color: var(--colour1);
+    position: relative;
+    display: block;
+    width: 15%;
+    height: 2px;
+    left: 42%;
+    margin-top: 5px;
+    bottom: 0px;
+}
+
+.buttonoptions > span:hover {
+    background-color: var(--colour5)
 }
 
 #menu{
