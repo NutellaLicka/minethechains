@@ -725,7 +725,7 @@ table {
     height: 280px;
 }
 .poolWrapper {
-    border: solid 2px var(--colour1);
+    border: solid 1px var(--colour1);
     width: 1080px;
     margin: auto;
     margin-top: 20px;
