@@ -44,7 +44,7 @@
 
 <div class="GS-menu">
     {{ for(var pool in it.stats.pools) { }}
-        <a href="#{{=it.stats.pools[pool].name}}"><button class="buttonoptions">{{=it.stats.pools[pool].name}}</button></a>
+        <a href="#{{=it.stats.pools[pool].name}}"><button class="buttonoptions">{{=it.stats.pools[pool].name}}<span></span></button></a>
     {{ } }}
 </div>
 
