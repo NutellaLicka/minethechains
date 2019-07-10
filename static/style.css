@@ -391,8 +391,8 @@ footer a{
     height: 100%;
     text-align: center;
     font-size: 1.4em;
-    color: var(--colour1);
-    border: 1px solid var(--colour1);
+    color: var(--colour3);
+    border: 1px solid var(--colour3);
     cursor: pointer;
     -webkit-transition-duration: 0.5s;
     transition-duration: 0.5s;
@@ -402,11 +402,11 @@ footer a{
 
 .buttonoptions:hover {
     background-color: var(--colour1);
-    color: var(--colour5);
+    color: var(--colour3);
 }
 
 .buttonoptions > span {
-    background-color: var(--colour1);
+    background-color: var(--colour2);
     position: relative;
     display: block;
     width: 15%;
@@ -414,10 +414,6 @@ footer a{
     left: 42%;
     margin-top: 5px;
     bottom: 0px;
-}
-
-.buttonoptions > span:hover {
-    background-color: var(--colour5)
 }
 
 #menu{
