@@ -640,8 +640,7 @@ a.miningOption:hover{
 /* ***STATS*** */
 #topCharts{
     width: 1080px;
-    border: 5px solid var(--colour1);
-    padding: 5px;
+    border: 1px solid var(--colour1);
 }
 
 #topCharts > div > div > svg{
@@ -665,17 +664,16 @@ a.miningOption:hover{
 }
 
 .BlockStats {
-    color: var(--colour2);
-    border: 5px solid var(--colour2);
+    border: 1px solid var(--colour2);
     margin: auto;
-    padding: 10px 25px 25px 25px;
+    padding: 10px 25px 14px 25px;
 }
 
 .blockfinds {
     max-width: 1080px;
     width: 1080px;
     margin: auto;
-    margin-top: 25px;
+    margin-top: 20px;
 }
 
 table {
@@ -704,7 +702,7 @@ table {
     border-bottom: 1px solid var(--colour3);
     font-size: 1.6em;
     padding: 4px;
-    margin: 10px 0px 10px 0px;
+    margin: 20px 0px 20px 0px;
     text-align: center;
     width: 400px;
 }
@@ -727,10 +725,10 @@ table {
     height: 280px;
 }
 .poolWrapper {
-    border: solid 5px var(--colour1);
-    padding: 5px;
+    border: solid 2px var(--colour1);
     width: 1080px;
     margin: auto;
+    margin-top: 20px;
 }
 .poolLabel {
     font-size: 1.4em;
