@@ -30,8 +30,8 @@
 					Worker Stats
 				</div>		
 
-				<div class="workerAddy" style="font-style: italic;">
-					{{=String(it.stats.address)}}
+				<div class="workerAddy" style="font-style: italic;" title="{{=String(it.stats.address)}}">
+					{{=dotsInAddress(String(it.stats.address).split(".")[0])}}
 				</div>
 
 				<div class="flex-container">
@@ -98,15 +98,15 @@
 <div id="boxesWorkers"> </div>
 
 <div class="flex-container">
-	<iframe src=https://www.coincalculators.io/widget.aspx?crypto=komodo height ="270" width="325" frameBorder="0" style="overflow:hidden;" scrolling="no" ></iframe>
-	<iframe src=https://www.coincalculators.io/widget.aspx?crypto=pirate+chain height ="270" width="325" frameBorder="0" style="overflow:hidden;" scrolling="no" ></iframe>
 </div>
-<div class="info">NOTE: These calculators use current difficulty, not an average, therefore your actual per day rewards may vary significantly from those listed. These are provided for your use but should be used as a guide only.</div>
+
 <!-- add payments here -->
 
 <script>
 	var _miner = "{{=String(it.stats.address).split(".")[0]}}";
 	var _workerCount = 0;
 	window.statsSource = new EventSource("/api/live_stats");
-    document.querySelector('main').appendChild(document.createElement('script')).src = '/static/miner_stats.js';
+	document.querySelector('main').appendChild(document.createElement('script')).src = '/static/miner_stats.js';
+	
+	{{ function dotsInAddress(x) { return x.length > 40 ? x.substring(0, 15) + '...' + x.substring(x.length-15, x.length): x; } }}
 </script>
