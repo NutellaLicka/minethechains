@@ -664,7 +664,7 @@ a.miningOption:hover{
 }
 
 .BlockStats {
-    border: 1px solid var(--colour2);
+    border: 1px solid var(--colour1);
     margin: auto;
     padding: 10px 25px 14px 25px;
 }
