@@ -641,6 +641,7 @@ a.miningOption:hover{
 #topCharts{
     width: 1080px;
     border: 1px solid var(--colour1);
+    margin-top: 10px;
 }
 
 #topCharts > div > div > svg{
