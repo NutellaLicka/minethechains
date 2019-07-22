@@ -148,6 +148,7 @@ function updateStats() {
 	totalBal = statData.balance;
 	totalImmature = statData.immature;
 	totalShares = statData.totalShares;
+	networkSols = statData.networkSols;
 
 	// do some calculations
 	var _blocktime = 60; //seconds it.poolsConfigs[pool].blockTimeSeconds
@@ -156,8 +157,8 @@ function updateStats() {
 		var arrrBR = 128;
 		var rfoxBR = 1;
 
-	var _networkHashRate = parseFloat(statData.networkSols) * 1.2; //need to pull each coin network sol
-	var _myHashRate = (totalHash / 1000000) * 1.2;
+	var _networkHashRate = parseFloat(networkSols) * 1.2; //need to pull each coin network sol
+	var _myHashRate = (totalHash / 10000000);
 	var luckDays =  ((_networkHashRate / _myHashRate * _blocktime) / (24 * 60 * 60)).toFixed(3);
 	//var miningCalc = _myHashRate/_networkHashRate * _blockReward * (86400 / _blocktime);
 
