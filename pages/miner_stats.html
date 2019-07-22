@@ -20,6 +20,8 @@
 		  }
 	  });
   });
+
+  var _miner = "{{=String(it.stats.address).split(".")[0]}}";
   </script>
   
   <div class="flex-container">
@@ -98,11 +100,23 @@
 	RFOX mining calc: <span id="rfoxMiningCalc">...</span> RFOX/day<br>
 	ARRR mining calc: <span id="arrrMiningCalc">...</span> ARRR/day<br>
 	<span id="NWSols">...</span><br>
+	{{ for(var pool in it.stats.pools) { }}
+		<div>
+			{{ for(var worker in it.stats.pools[pool].miners) { }}
+				{{var workerstat = it.stats.pools[pool].miners[worker];}}
+					<td><a href="/workers/{{=worker.split('.')[0]}}">{{=worker.length > 30 ? worker.substring(0, 10) + '...' + worker.substring(worker.length-15, worker.length): worker}}</a></td> 
+						{{if (String(it.stats.pools[pool].miners[worker]).startsWith(_miner)) { }}
+							The pool {{=worker.split('.')[0]}} is mining on is {={it.stats.pools[pool].name}}
+							{{ } else { }}
+							.....
+						{{ } }}
+			{{ } }}
+		</div>
+	{{ } }}
 
 <!-- add payments here -->
 
 <script>
-	var _miner = "{{=String(it.stats.address).split(".")[0]}}";
 	var _workerCount = 0;
 	window.statsSource = new EventSource("/api/live_stats");
 	document.querySelector('main').appendChild(document.createElement('script')).src = '/static/miner_stats.js';
