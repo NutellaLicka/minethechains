@@ -185,7 +185,7 @@ function updateStats() {
 	$("#kmdMiningCalc").text(kmdminingCalc.toFixed(2));
 	$("#rfoxMiningCalc").text(rfoxminingCalc.toFixed(2));
 	$("#arrrMiningCalc").text(arrrminingCalc.toFixed(2));
-	$("#NWSols").text(hashrate);
+	$("#NWSols").text(getReadableHashRateString(hashrate));
 }
 function updateWorkerStats() {
 	// update worker stats
