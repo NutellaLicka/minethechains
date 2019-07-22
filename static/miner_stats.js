@@ -162,7 +162,7 @@ function updateStats() {
 	//var miningCalc = _myHashRate/_networkHashRate * _blockReward * (86400 / _blocktime);
 
 	var kmdminingCalc = _myHashRate/_networkHashRate * kmdBR * (86400 / _blocktime);
-	var rfoxminingCalc = _myHashRate/_networkHashRate * arrrBRd * (86400 / _blocktime);
+	var rfoxminingCalc = _myHashRate/_networkHashRate * arrrBR * (86400 / _blocktime);
 	var arrrminingCalc = _myHashRate/_networkHashRate * rfoxBR * (86400 / _blocktime);
 
 	//var Ksum = theirHR/_kmdnetworkHashRate * kmdBR * (86400 / _blocktime);
