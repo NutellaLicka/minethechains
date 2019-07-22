@@ -157,8 +157,8 @@ function updateStats() {
 		var arrrBR = 128;
 		var rfoxBR = 1;
 
-	var _networkHashRate = parseFloat(networkSols) * 1.2; //need to pull each coin network sol
-	var _myHashRate = (totalHash / 10000000);
+	var _networkHashRate = parseFloat(networkSols) * 10000; //need to pull each coin network sol
+	var _myHashRate = (totalHash / 1000000);
 	var luckDays =  ((_networkHashRate / _myHashRate * _blocktime) / (24 * 60 * 60)).toFixed(3);
 	//var miningCalc = _myHashRate/_networkHashRate * _blockReward * (86400 / _blocktime);
 
@@ -185,7 +185,7 @@ function updateStats() {
 	$("#kmdMiningCalc").text(kmdminingCalc.toFixed(2));
 	$("#rfoxMiningCalc").text(rfoxminingCalc.toFixed(2));
 	$("#arrrMiningCalc").text(arrrminingCalc.toFixed(2));
-	$("#NWSols").text(statData.name);
+	$("#NWSols").text(totalHash);
 }
 function updateWorkerStats() {
 	// update worker stats
