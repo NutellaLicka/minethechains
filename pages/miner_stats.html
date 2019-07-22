@@ -104,7 +104,7 @@
 				{{var workerstat = it.stats.pools[pool].miners[worker];}}
 					<td><a href="/workers/{{=worker.split('.')[0]}}">{{=worker.length > 30 ? worker.substring(0, 10) + '...' + worker.substring(worker.length-15, worker.length): worker}}</a></td> 
 						{{if (String(it.stats.pools[pool].miners[worker]).startsWith(workerstat.name) { }}
-							The pool {{=worker.split('.')[0]}} is mining on is {=it.stats.pools[pool].name}}
+							The pool {{=worker.split('.')[0]}} is mining on is {{=it.stats.pools[pool].name}}
 							{{ } else { }}
 							.....
 						{{ } }}
