@@ -101,6 +101,20 @@
 	ARRR mining calc: <span id="arrrMiningCalc">...</span> ARRR/day<br>
 	<span id="NWSols">...</span><br>
 
+{{ var i=0; for(var pool in it.stats.pools) { }}
+    <div class="flex-container">
+		{{ for(var worker in it.stats.pools[pool].miners) { }}
+		{{var workerstat = it.stats.pools[pool].miners[worker];}}
+			<p>   
+				{{if (String(it.stats.pools[pool].miners[worker]).startsWith(addy) { }}
+					The pool {{=worker.split('.')[0]}} is mining on is {{=it.stats.pools[pool].name}}
+					{{ } else { }}
+					.....
+				{{ } }}
+			</p>
+		{{ } }} 
+    </div>
+{{ } }}
 
 <!-- add payments here -->
 
