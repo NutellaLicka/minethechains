@@ -99,6 +99,21 @@
 	ARRR mining calc: <span id="arrrMiningCalc">...</span> ARRR/day<br>
 	<span id="NWSols">...</span><br>
 
+<!-- this isnt working -->
+{{ var i=0; for(var pool in it.stats.pools) { }}
+    <div class="flex-container">
+		{{ for(var worker in it.stats.pools[pool].miners) { }}
+		{{var workerstat = it.stats.pools[pool].miners[worker];}}
+			<p>   
+				{{if (String(it.stats.pools[pool].miners[worker]).startsWith(String(it.stats.address).split(".")[0]) { }}
+					The pool {{=worker.split('.')[0]}} is mining on is {{=it.stats.pools[pool].name}}
+					{{ } else { }}
+					Nope, that didn't work!
+				{{ } }}
+			</p>
+		{{ } }} 
+    </div>
+{{ } }}
 
 <!-- add payments here -->
 
