@@ -141,6 +141,26 @@ function displayCharts() {
     });
 }
 
+function findPool() {
+	for (var pool in it.stats.pools) {
+		for (var worker in it.stats.pools[pool].miners) {
+			if (String(it.stats.pools[pool].miners[worker].name).startsWith(it.stats.address)) {
+					if (String(it.stats.pools[pool].name).startsWith("komodo")) {
+						$("#statsMiningCalc").text("Komodo");
+					} else if (String(it.stats.pools[pool].name).startsWith("redfox labs")) {
+						$("#statsMiningCalc").text("RedFOX");
+					} else if (String(it.stats.pools[pool].name).startsWith("pirate")) {
+						$("#statsMiningCalc").text("Pirate");
+					} else {
+
+					}
+				} else {
+
+				}
+		}
+	}
+}
+
 function pirateminingCalc() {
 	var _blocktime = 60; //seconds it.poolsConfigs[pool].blockTimeSeconds
 	var _blockReward = 1; //need to change to whatever the coins BR is it.poolsConfigs[pool].blockRewardAmount
