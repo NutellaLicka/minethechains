@@ -255,7 +255,8 @@ $.getJSON('/api/worker_stats?'+_miner, function(data){
 	buildChartData();
 	displayCharts();
 	rebuildWorkerDisplay();	
-    updateStats();
+	updateStats();
+	findPool();
 });
 
 // live stat updates
