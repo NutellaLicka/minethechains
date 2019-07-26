@@ -100,8 +100,9 @@
 {{for (var pool in it.stats.pools) { }}
     <div class="flex-container">
 		{{ for(var worker in it.stats.pools[pool].miners) { }}
-			<p>   
-				
+			<p> 
+			The pool {{=worker.split('.')[0]}} is mining on is {{=it.stats.pools[pool].name}}
+
 			</p>
 		{{ } }}
     </div>
