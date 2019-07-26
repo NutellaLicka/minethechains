@@ -97,7 +97,15 @@
 
 <!--this isnt working-->
 
-
+{{for (var pool in it.stats.pools) { }}
+    <div class="flex-container">
+		{{ for(var worker in it.stats.pools[pool].miners) { }}
+			<p>   
+				
+			</p>
+		{{ } }}
+    </div>
+{{ } }} 
 
 <!-- add payments here -->
 
