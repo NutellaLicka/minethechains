@@ -95,13 +95,22 @@
 <div>
 
 
-<!--this isnt working-->
-
+<!--Find which pool the worker is using-->
 {{ for (var pool in it.stats.pools) { }}
     <div class="flex-container">
 		{{ for(var worker in it.stats.pools[pool].miners) { }} 
 				{{ if (String(it.stats.pools[pool].miners[worker].name).startsWith(it.stats.address)) { }}
-					The pool {{=worker.split('.')[0]}} is mining on is {{=it.stats.pools[pool].name}}
+					<!-- now conduct the mining calculation -->
+						{{ if (String(it.stats.pools[pool].name).startsWith("komodo")) { }}
+							Komodo Mining Calc Here
+						{{ } else if (String(it.stats.pools[pool].name).startsWith("redfox labs")) { }}
+							RedFOX mining calc here
+						{{ } else if (String(it.stats.pools[pool].name).startsWith("pirate")) { }}
+							Pirate mining calc here
+						{{ } else { }}
+
+						{{ } }}
+
 					{{ } else { }}
 					
 				{{ } }}
