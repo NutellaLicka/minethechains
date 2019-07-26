@@ -64,7 +64,19 @@ function buildChartData(){
             values: workers[worker].hashrate
         });
 		i++;
-    }
+	}
+
+	//trying to build pool data
+	var pools = {};
+
+    poolKeys = [];
+    for (var i = 0; i < statData.length; i++){
+        for (var pool in statData[i].pools){
+            if (poolKeys.indexOf(pool) === -1)
+                poolKeys.push(pool);
+        }
+	}
+	
 }
 
 function updateChartData(){
