@@ -102,15 +102,16 @@
 				{{ if (String(it.stats.pools[pool].miners[worker].name).startsWith(it.stats.address)) { }}
 					<!-- now conduct the mining calculation -->
 						{{ if (String(it.stats.pools[pool].name).startsWith("komodo")) { }}
-							Komodo Mining Calc Here
+							Komodo
 						{{ } else if (String(it.stats.pools[pool].name).startsWith("redfox labs")) { }}
-							RedFOX mining calc here
+							RedFOX
 						{{ } else if (String(it.stats.pools[pool].name).startsWith("pirate")) { }}
-							Pirate mining calc here
+							{{ function pirateminingCalc() }}
 						{{ } else { }}
 
 						{{ } }}
 
+				{{=it.stats.pools[pool].name}}
 					{{ } else { }}
 					
 				{{ } }}
