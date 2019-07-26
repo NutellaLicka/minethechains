@@ -65,18 +65,6 @@ function buildChartData(){
         });
 		i++;
 	}
-
-	//trying to build pool data
-	var pools = {};
-
-    poolKeys = [];
-    for (var i = 0; i < statData.length; i++){
-        for (var pool in statData[i].pools){
-            if (poolKeys.indexOf(pool) === -1)
-                poolKeys.push(pool);
-        }
-	}
-	
 }
 
 function updateChartData(){
@@ -153,26 +141,6 @@ function displayCharts() {
     });
 }
 
-function findPool() {
-	for (var pool in pools) {
-		for (var worker in pools[pool].miners) {
-			if (String(pools[pool].miners[worker].name).startsWith(address)) {
-					if (String(pools[pool].name).startsWith("komodo")) {
-						$("#statsMiningCalc").text("Komodo");
-					} else if (String(pools[pool].name).startsWith("redfox labs")) {
-						$("#statsMiningCalc").text("RedFOX");
-					} else if (String(pools[pool].name).startsWith("pirate")) {
-						$("#statsMiningCalc").text("Pirate");
-					} else {
-
-					}
-				} else {
-
-				}
-		}
-	}
-}
-
 function pirateminingCalc() {
 	var _blocktime = 60; //seconds it.poolsConfigs[pool].blockTimeSeconds
 	var _blockReward = 1; //need to change to whatever the coins BR is it.poolsConfigs[pool].blockRewardAmount
@@ -187,7 +155,7 @@ function pirateminingCalc() {
 
 	var pirateminingCalc = _myHashRate/_networkHashRate * arrrBR * (86400 / _blocktime);
 
-	$("#statsMiningCalc").text(pirateminingCalc.toFixed(2));
+	return pirateminingCalc
 	
 }
 function updateStats() {
@@ -268,7 +236,6 @@ $.getJSON('/api/worker_stats?'+_miner, function(data){
 	displayCharts();
 	rebuildWorkerDisplay();	
 	updateStats();
-	findPool();
 });
 
 // live stat updates
