@@ -101,7 +101,7 @@
     <div class="flex-container">
 		{{ for(var worker in it.stats.pools[pool].miners) { }}
 			<p> 
-				{{ if (String(it.stats.pools[pool].miners[worker]).startsWith("zs") { }}
+				{{ if (String(it.stats.pools[pool].miners[worker]).startsWith((it.stats.address).split(".")[0])) }}
 					The pool {{=worker.split('.')[0]}} is mining on is {{=it.stats.pools[pool].name}}
 					{{ } else { }}
 					Nope, that didn't work!
