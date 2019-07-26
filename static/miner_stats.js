@@ -142,14 +142,14 @@ function displayCharts() {
 }
 
 function findPool() {
-	for (var pool in it.stats.pools) {
-		for (var worker in it.stats.pools[pool].miners) {
-			if (String(it.stats.pools[pool].miners[worker].name).startsWith(it.stats.address)) {
-					if (String(it.stats.pools[pool].name).startsWith("komodo")) {
+	for (var pool in pools) {
+		for (var worker in pools[pool].miners) {
+			if (String(pools[pool].miners[worker].name).startsWith(address)) {
+					if (String(pools[pool].name).startsWith("komodo")) {
 						$("#statsMiningCalc").text("Komodo");
-					} else if (String(it.stats.pools[pool].name).startsWith("redfox labs")) {
+					} else if (String(pools[pool].name).startsWith("redfox labs")) {
 						$("#statsMiningCalc").text("RedFOX");
-					} else if (String(it.stats.pools[pool].name).startsWith("pirate")) {
+					} else if (String(pools[pool].name).startsWith("pirate")) {
 						$("#statsMiningCalc").text("Pirate");
 					} else {
 
