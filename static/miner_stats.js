@@ -149,6 +149,12 @@ function updateStats() {
 	totalShares = statData.totalShares;
 	networkSols = statData.networkSols;
 
+	// do some calculations
+	var _blocktime = 60; //seconds
+	var _networkHashRate = parseFloat(statData.networkSols) * 1.2;
+	var _myHashRate = (totalHash / 1000000) * 2;
+	var luckDays =  ((_networkHashRate / _myHashRate * _blocktime) / (24 * 60 * 60)).toFixed(3);
+
 	// update miner stats
 	$("#statsHashrate").text(getReadableHashRateString(totalHash));
 	$("#statsHashrateAvg").text(getReadableHashRateString(calculateAverageHashrate(null)));
