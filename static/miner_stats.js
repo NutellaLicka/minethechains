@@ -172,7 +172,7 @@ function updateStats() {
 	var _myHashRate = (totalHash / 1000000) * 2;
 	var luckDays =  ((_networkHashRate / _myHashRate * _blocktime) / (24 * 60 * 60)).toFixed(3);
 
-	var miningCalc = 20057.864363/1810824250000 * 128 * (86400 / _blocktime);
+	var miningCalc = 1810824250000/20057.864363 * 128 * (86400 / _blocktime);
 
 	// update miner stats
 	$("#statsHashrate").text(getReadableHashRateString(totalHash));
