@@ -12,7 +12,10 @@
 	var kmdminingCalc = _myHashRate/_networkHashRate * kmdBR * (86400 / _blocktime);
 	var rfoxminingCalc = _myHashRate/_networkHashRate * arrrBR * (86400 / _blocktime);
 	var arrrminingCalc = _myHashRate/_networkHashRate * rfoxBR * (86400 / _blocktime);
+	var miningCalc = 20057.864363/1810824250000 * arrrBR * (86400 / _blocktime);
 
+	stats.pools[pool].hashrate
+	
 	//var Ksum = theirHR/_kmdnetworkHashRate * kmdBR * (86400 / _blocktime);
 	//var Asum = theirHR/_arrrnetworkHashRate * arrrBR * (86400 / _blocktime);
 	//var Rsum = theirHR/_rfoxnetworkHashRate * rfoxBR * (86400 / _blocktime);	
@@ -24,4 +27,4 @@
 	$("#kmdMiningCalc").text(kmdminingCalc.toFixed(2));
 	$("#rfoxMiningCalc").text(rfoxminingCalc.toFixed(2));
 	$("#arrrMiningCalc").text(arrrminingCalc.toFixed(2));
-	$("#NWSols").text();
+	$("#NWSols").text(miningCalc.toFixed(2));
