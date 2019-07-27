@@ -201,7 +201,7 @@ function updateStats() {
 	totalImmature = statData.immature;
 	totalShares = statData.totalShares;
 	networkSols = statData.networkSols;
-	whatpool = statData.pools.pool;
+	whatpool = statData.pools.name;
 
 	// do some calculations
 	var _blocktime = 60; //seconds
