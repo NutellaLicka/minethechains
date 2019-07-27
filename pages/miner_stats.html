@@ -84,11 +84,11 @@
 									{{ if (String(it.stats.pools[pool].miners[worker].name).startsWith(it.stats.address)) { }}
 										<!-- now conduct the mining calculation -->
 											{{ if (String(it.stats.pools[pool].name).startsWith("komodo")) { }}
-												Komodo 
+												KMD 
 											{{ } else if (String(it.stats.pools[pool].name).startsWith("redfox labs")) { }}
-												RedFOX 
+												RFOX  
 											{{ } else if (String(it.stats.pools[pool].name).startsWith("pirate")) { }}
-												Pirate 
+												ARRR 
 											{{ } else { }}
 
 											{{ } }}
@@ -110,8 +110,6 @@
 </div>
 
 <div id="boxesWorkers"> </div>
-
-<div>{{=it.stats.pools[pool].name}}</div>
 
 <!-- add payments here -->
 
