@@ -65,6 +65,41 @@ function buildChartData(){
         });
 		i++;
 	}
+
+	//pools statData
+	var pools = {};
+
+    poolKeys = [];
+    for (var i = 0; i < statData.length; i++){
+        for (var pool in statData[i].pools){
+            if (poolKeys.indexOf(pool) === -1)
+                poolKeys.push(pool);
+        }
+    }
+
+    for (var i = 0; i < statData.length; i++) {
+        var time = statData[i].time * 1000;
+		for (var f = 0; f < poolKeys.length; f++){
+            var pName = poolKeys[f];
+            var a = pools[pName] = (pools[pName] || {
+                hashrate: []
+            });
+            if (pName in statData[i].pools){
+                a.hashrate.push([time, statData[i].pools[pName].hashrate]);
+            }
+            else{
+                a.hashrate.push([time, 0]);
+            }
+        }
+    }
+
+    poolHashrateData = [];
+    for (var pool in pools){
+       poolHashrateData.push({
+            key: pool,
+            values: pools[pool].hashrate
+        });
+    }
 }
 
 function updateChartData(){
@@ -158,6 +193,7 @@ function pirateminingCalc() {
 	return pirateminingCalc
 	
 }
+
 function updateStats() {
 	totalHash = statData.totalHash;
 	totalPaid = statData.paid;
@@ -165,6 +201,7 @@ function updateStats() {
 	totalImmature = statData.immature;
 	totalShares = statData.totalShares;
 	networkSols = statData.networkSols;
+	whatpool = statData.pool
 
 	// do some calculations
 	var _blocktime = 60; //seconds
@@ -183,7 +220,7 @@ function updateStats() {
 	$("#statsTotalPaid").text(totalPaid);
 	$("#statsTotalShares").text(totalShares.toFixed(2));
 
-	$("#miningCalc").text(miningCalc.toFixed(2));
+	$("#miningCalc").text(whatpool); //miningCalc.toFixed(2)
 }
 function updateWorkerStats() {
 	// update worker stats
