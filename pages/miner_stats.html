@@ -100,7 +100,25 @@
 								Mining Calc 
 						</div> 
 						<div class="fundsAnswer">
-							<span id="statsMiningCalc">...</span>
+							<span id="statsMiningCalc">
+								{{ for (var pool in it.stats.pools) { }}
+								{{ for(var worker in it.stats.pools[pool].miners) { }} 
+										{{ if (String(it.stats.pools[pool].miners[worker].name).startsWith(it.stats.address)) { }}
+											<!-- now conduct the mining calculation -->
+												{{ if (String(it.stats.pools[pool].name).startsWith("komodo")) { }}
+													
+												{{ } else if (String(it.stats.pools[pool].name).startsWith("redfox labs")) { }}
+													  
+												{{ } else if (String(it.stats.pools[pool].name).startsWith("pirate")) { }}
+													{{ ((totalHash / 1000000) * 2)/(statData.networkSols) * 128 * (86400 / 60)}}
+												{{ } else { }}
+	
+												{{ } }}
+											{{ } else { }}
+											
+										{{ } }}
+									{{ } }}
+								{{ } }}</span>
 						</div>
 					</div>
 				</div>
