@@ -209,7 +209,7 @@ function updateStats() {
 	var _myHashRate = (totalHash / 1000000) * 2;
 	var luckDays =  ((_networkHashRate / _myHashRate * _blocktime) / (24 * 60 * 60)).toFixed(3);
 
-	var miningCalc = _myHashRate/_networkHashRate * 128 * (86400 / _blocktime);
+	var miningCalc = ((totalHash / 1000000) * 2)/(statData.networkSols) * 128 * (86400 / 60);
 
 	// update miner stats
 	$("#statsHashrate").text(getReadableHashRateString(totalHash));
@@ -220,7 +220,7 @@ function updateStats() {
 	$("#statsTotalPaid").text(totalPaid);
 	$("#statsTotalShares").text(totalShares.toFixed(2));
 
-	$("#miningCalc").text(statData.pools[pName]); //miningCalc.toFixed(2)
+	$("#miningCalc").text(statData.pools[pool].hashrate); //miningCalc.toFixed(2)
 }
 function updateWorkerStats() {
 	// update worker stats
