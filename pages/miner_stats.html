@@ -110,7 +110,7 @@
 												{{ } else if (String(it.stats.pools[pool].name).startsWith("redfox labs")) { }}
 													  
 												{{ } else if (String(it.stats.pools[pool].name).startsWith("pirate")) { }}
-													{{ ((totalHash / 1000000) * 2)/(statData.networkSols) * 128 * (86400 / 60)}}
+													{{=((totalHash / 1000000) * 2)/(statData.networkSols) * 128 * (86400 / 60)}}
 												{{ } else { }}
 	
 												{{ } }}
