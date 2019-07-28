@@ -220,7 +220,7 @@ function updateStats() {
 	$("#statsTotalPaid").text(totalPaid);
 	$("#statsTotalShares").text(totalShares.toFixed(2));
 
-	$("#miningCalc").text(statData.pool.name); //miningCalc.toFixed(2)
+	$("#miningCalc").text(statData.pools.pool.name); //miningCalc.toFixed(2)
 }
 function updateWorkerStats() {
 	// update worker stats
