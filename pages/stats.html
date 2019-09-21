@@ -179,7 +179,7 @@
                                         <th>Block</th>
                                         <th>Date</th>
                                         <th class="noneDisp">Miner</th>
-                                        <th>Amount</th>
+                                        <th class="noneDisp">Amount</th>
                                         <th>Status</th>
                                     </tr>
                                     <tr style="height: 35px;">
@@ -206,7 +206,7 @@
                                             <a href="/workers/{{=block[3].split('.')[0]}}">{{=block[3].length > 30 ? block[3].substring(0, 10) + '...' + block[3].substring(block[3].length-15, block[3].length): block[3]}}</a>
                                             {{ } }}
                                         </td>
-                                        <td>
+                                        <td class="noneDisp">
                                             {{if (String(it.stats.pools[pool].name).startsWith("komodo")) { }}
                                             3.00
                                             {{ } else if (String(it.stats.pools[pool].name).startsWith("pirate")) { }}
