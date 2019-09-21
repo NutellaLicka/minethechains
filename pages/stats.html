@@ -172,9 +172,9 @@
 
                 <div class="boxStatsList" style="margin-top: 9px;">
                 <!-- blocks not confirmed yet -->
+                <div class="boxStatsList">
                     {{ for(var b in it.stats.pools[pool].pending.blocks) { }}
                         {{ var block = it.stats.pools[pool].pending.blocks[b].split(":"); }}
-                        <div class="boxStatsList">
                                 <table class="pending" id="pendingTable">
                                         <col style="width: 10%">
                                         <col style="width: 30%">
