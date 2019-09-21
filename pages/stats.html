@@ -183,33 +183,7 @@
                                         <th>Status</th>
                                     </tr>
                                     <tr style="height: 35px;">
-                                        <td>
-                                            {{if (String(it.stats.pools[pool].name).startsWith("komodo")) { }}
-                                            <a href="https://kmdexplorer.io/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
-                                                {{ } else if (String(it.stats.pools[pool].name).startsWith("pirate")) { }}
-                                                <a href="http://pirate.explorer.dexstats.info/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
-                                                    {{ } else if (String(it.stats.pools[pool].name).startsWith("redfox labs")) { }}
-                                                    <a href="http://rfox.explorer.dexstats.info/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
-                                            {{ } else { }}
-                                                {{=block[2]}}
-                                            {{ } }}
-                                        </td>
-                                        <td>
-                                            {{if (block[4] != null) { }}
-                                                <span style="padding-left: 18px;"><small>{{=readableDate(block[4])}}</small></span>
-                                            {{ } }}
-                                        </td>
-
-                                        <td>
-                                            {{if (it.stats.pools[pool].pending.confirms) { }}
-                                                {{if (it.stats.pools[pool].pending.confirms[block[0]]) { }}
-                                                <span style="color: red;"><small>PENDING</small></span>
-                                                    {{ } else { }}
-                                                    <span style="color: red;"><small>CONFIRMING</small></span>
-                                                {{ } }}
-                                            {{ } else { }}
-                                                <span style="color: red;"><small>CONFIRMING</small></span>
-                                            {{ } }}
+                                        
                                         </td>
                                     </tr>
                                 </table>
