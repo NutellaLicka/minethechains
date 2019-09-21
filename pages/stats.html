@@ -171,7 +171,7 @@
                 </div>
 
                 <div class="boxStatsList" style="margin-top: 9px;">
-                    <!-- blocks not confirmed yet -->
+                <!-- blocks not confirmed yet -->
                     {{ for(var b in it.stats.pools[pool].pending.blocks) { }}
                         {{ var block = it.stats.pools[pool].pending.blocks[b].split(":"); }}
                                 <table class="pending" id="pendingTable">
@@ -199,31 +199,14 @@
                                                 <span style="padding-left: 18px;"><small>{{=readableDate(block[4])}}</small></span>
                                             {{ } }}
                                         </td>
-                                        <td class="noneDisp">
-                                            {{if (String(it.stats.pools[pool].name).startsWith("pirate")) { }}
-                                                <span>ADDRESSES ARE PRIVATE</span>
-                                            {{ } else { }}
-                                            <a href="/workers/{{=block[3].split('.')[0]}}">{{=block[3].length > 30 ? block[3].substring(0, 10) + '...' + block[3].substring(block[3].length-15, block[3].length): block[3]}}</a>
-                                            {{ } }}
-                                        </td>
-                                        <td class="noneDisp">
-                                            {{if (String(it.stats.pools[pool].name).startsWith("komodo")) { }}
-                                            3.00
-                                            {{ } else if (String(it.stats.pools[pool].name).startsWith("pirate")) { }}
-                                            128.00
-                                            {{ } else if (String(it.stats.pools[pool].name).startsWith("redfox labs")) { }}
-                                            1.00
-                                            {{ } else { }}
-                                            
-                                            {{ } }}
-                                        </td>
+
                                         <td>
                                             {{if (it.stats.pools[pool].pending.confirms) { }}
                                                 {{if (it.stats.pools[pool].pending.confirms[block[0]]) { }}
                                                 <span style="color: red;"><small>PENDING</small></span>
                                                     {{ } else { }}
                                                     <span style="color: red;"><small>CONFIRMING</small></span>
-                                                    {{ } }}
+                                                {{ } }}
                                             {{ } else { }}
                                                 <span style="color: red;"><small>CONFIRMING</small></span>
                                             {{ } }}
@@ -232,7 +215,7 @@
                                 </table>
                             {{ blockscomb.push(block);}}
                         {{ } }}
-                                <!-- blocks already confirmed -->
+                <!-- blocks already confirmed -->
                     {{ var i=0; for(var b in it.stats.pools[pool].confirmed.blocks) { }}
                         {{ if (i < 10) { i++; }}
                             {{ var block = it.stats.pools[pool].confirmed.blocks[b].split(":"); }}
@@ -241,7 +224,7 @@
                                         <th>Block</th>
                                         <th>Date</th>
                                         <th class="noneDisp">Miner</th>
-                                        <th>Amount</th>
+                                        <th class="noneDisp">Amount</th>
                                         <th>Status</th>
                                     </tr>
                                     <tr style="height: 35px;">
@@ -268,7 +251,7 @@
                                             <a href="/workers/{{=block[3].split('.')[0]}}">{{=block[3].length > 30 ? block[3].substring(0, 10) + '...' + block[3].substring(block[3].length-15, block[3].length): block[3]}}</a>
                                             {{ } }}
                                         </td>
-                                        <td>
+                                        <td class="noneDisp">
                                             {{if (String(it.stats.pools[pool].name).startsWith("komodo")) { }}
                                             3.00
                                             {{ } else if (String(it.stats.pools[pool].name).startsWith("pirate")) { }}
