@@ -31,7 +31,7 @@
     }
     $(document).ready(function(){
         $('.btn-lg').click(function(){
-            window.location = "workers/" + $('.input-lg').val();
+            window.location = "/" + $('.input-lg').val();
         });
     });
 </script>
@@ -84,8 +84,8 @@
                             <tr class="pure-table-odd">
                                 <td>
                                     <div style="color:black; text-align:center; font-family: var(--font2); font-size: 15px;">Miner Search: 
-                                        <input type="text" class="input-lg" onkeypress="return searchKeyPress(event);">
-                                            <span placeholder="ADDRESS">
+                                        <input type="text" class="form-control input-lg" onkeypress="return searchKeyPress(event);">
+                                            <span class="input-group-btn" placeholder="ADDRESS">
                                                 <button class="btn btn-default btn-lg" type="button" id="btnSearch">Go</button>
                                             </span>
                                     </div>
