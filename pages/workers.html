@@ -64,13 +64,27 @@
                     </thead>
                         {{ for(var worker in it.stats.pools[pool].miners) { }}
                         {{var workerstat = it.stats.pools[pool].miners[worker];}}
-                            <tbody>    
+                            <tbody>  
+                                {{if (String(it.stats.pools[pool].name).startsWith("pirate")) { }}
+                                <tr class="pure-table-odd">
+                                    <td>
+                                        <div class="lookUp">Miner Search: 
+                                            <input type="text" class="form-control input-lg" onkeypress="return searchKeyPress(event);">
+                                                <span class="input-group-btn" placeholder="ADDRESS">
+                                                    <button class="btn btn-default btn-lg" type="button" id="btnSearch">Go</button>
+                                                </span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                {{ } else { }}
                                 <tr class="pure-table-odd">
                                     <td><a href="/workers/{{=worker.split('.')[0]}}">{{=worker.length > 30 ? worker.substring(0, 10) + '...' + worker.substring(worker.length-15, worker.length): worker}}</a></td> 
                                     <td class="noneDisp">{{=Math.round(workerstat.currRoundShares * 100) / 100}}</td>
                                     <td class="noneDisp">{{? workerstat.shares > 0}} {{=Math.floor(10000 * workerstat.shares / (workerstat.shares + workerstat.invalidshares)) / 100}}% {{??}} 0% {{?}}</td>
                                     <td>{{=workerstat.hashrateString}}</td>
                                 </tr>
+                                {{ } }}  
+                                
                             </tbody>
                         {{ } }} 
                 </table>
